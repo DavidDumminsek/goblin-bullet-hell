@@ -98,6 +98,66 @@ Spelaren har också en mängd poäng som fås när spelaren dödar en fiende.
 Poäng mängden som spelaren får beror på vilken fiendetyp spelaren dödar.
 När spelaren har fått upp till 1000 poäng får spelaren ett extra liv.
 
+\section{Visualisering}
+\section{Kravformulering}
+\subsection{ska-krav}
+\begin{enumerate}
+  \item Det ska finnas en startmeny där man ska kunna välja bana  
+  \item Olika banor ska läsas in från en fil
+  \item Det ska finnas en spelare och minst en fiende per bana
+  \item Spelaren ska kunna röra på sig med piltangenterna och skjuta projektiler med spacebar knappen
+  \item Det ska finnas olika typer av projektiler, med olika beteenden
+  \item Det ska finnas olika fiendetyper, med olika beteenden 
+  \item Fiender ska skapas över toppen av spelplanen och röra sig längst med banan tills fienden blir förstörd
+  \item Fiender ska enbart kunna kollidera med spelaren projektiler och förstöras om de gör det
+  \item Spelaren ska kunna kollidera med fiender och fiendernas projektiler. 
+        Då dör spelaren och förlorar ett liv och måste börja om banan från början.
+        Om spelaren dör utan några liv så skickas spelaren tillbaka till startmenyn (Alla olåsta banor blir låsta igen).
+  \item En bana består av en tvådimensionell blå backgrund, Spelaren är ett tvådimensionellt stridsflygplan 
+        och fienderna är tvådimensionella militära fartyg (beror på fiendetyp).
+        Banan har en fixerad längs och om spelaren kommer till slutet så vinner spelaren banan.
+\end{enumerate}
+\subsection{bör-krav}
+\begin{enumerate}
+  \item Den skrollande backgrunden ska kunna scrolla i evighet.
+  \item Det ska finnas en boss vid slutet av vissa banor
+  \item Skadelse rutan ska enbart vara Goblin piloten inte hela stridsflygplanet
+  \item Spelaren ska kunna skjuta olika slags projektiler med hjälp av ''powerups''
+  \item Banor kommer vara låsta, man måste klara banan innan den låste banan för att låsa upp den.
+  \item OBS framtida bör-krav läggs till i framtiden
+\end{enumerate}
+\section{Kravuppfyllelse}
+Vilka krav från kursen täcks med kravformuleringen.\\\\
+\textbf{Spelet ska simulera en värld som innehåller olika typer av objekt. Objekten ska ha olika beteenden och röra sig i världen och agera på olika sätt när de möter andra objekt.}
+\\
+täcks av kraven: 3, 4, 5, 6, 8, 9
 
+\textbf{Det måste finnas minst tre olika typer av objekt och det ska finnas flera instanser av minst två av dessa. T.ex ett spelarobjekt och många instanser av två olika slags fiendeobjekt.}
+\\
+Täcks av kraven: 3, 5, 6
+\\\\
+\textbf{Ett beteende som måste finnas med är att figurerna ska röra sig över skärmen. Rörelsen kan följa ett mönster och/eller vara slumpmässig. Minst ett objekt, utöver spelaren ska ha någon typ av rörelse.}
+\\
+Täcks av kraven: 5, 6, 7 
+\\\\
+\textbf{En figur ska styras av spelaren, antingen med tangentbordet eller med musen. Du kan även göra ett spel där man spelar två stycken genom att dela på tangentbordet (varje spelare använder olika tangenter). Då styr man var sin figur.}
+\\
+Täcks av kravet: 4  
+\\\\
+\textbf{Grafiken ska vara tvådimensionell.}
+\\
+Täcks av kravet: 10
+\\\\
+\textbf{Det ska finnas kollisionshantering}
+\\
+Täcks av kraven: 8, 9 
+\\
+\textbf{Det ska vara enkelt att lägga till eller ändra banor i spelet}
+\\
+Täcks av kravet: 2
+\\\\
+\textbf{Spelet måste upplevas som ett sammanhängande spel som går att spela!}
+\\
+Täcks av kravet: 10
 
 \end{document}
