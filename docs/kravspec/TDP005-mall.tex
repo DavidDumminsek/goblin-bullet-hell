@@ -71,6 +71,7 @@ Spelplanen kommer i grunden vara en vertikal bana som skrollar ner mot spelaren 
 Spelaren kommer kollidera med kanterna på banan så spelaren kan inte röra sig utanför spelplan.
 Fiender kommer dock åka igenom kanterna och kan befinna sig utanför spelplan. Då fiender hänger med när banan skrollas. 
 
+
 \subsection{Spelare}
 Om spelaren kolliderar med kanten av spelplanen så kommer spelaren sluta röra sig åt det hållet som skulle lägga spelaren 
 utanför spelplanen. 
@@ -79,7 +80,24 @@ måste börja om banan från början.
 Spelaren kommer börja spelet med 2 liv och ytterligare liv kan sammlas med att döda fiender.
 
 \subsection{Fiender}
-Fiender 
+Fiender skapas utanför toppen av spelplan och kommer långsamt åka längst banan. 
+När fienden når botten av banan så förstörs dem.
+Fiender förstörs också om de kommer i kontakt med spelaren projektiler.
+Fiender kolliderar bara med spelaren och spelaren projektiler så övriga objekt kommer fiender åka igenom 
+(som andra fiender och deras projektiler).
+
+Det kommer finnas olika typer av fiender där de varierar med vilka projektiler de skjuter,
+hur ofta de skjuter och deras rörelse mönster.
 \subsection{Projektiler}
+Projektilerna kommer också uppdelas i olika typer.
+T.ex en stor och liten projektil, spelaren projektil kommer också vara helt unik.
+Projektilerna varierar också på deras hastighet och rörelse mönster.
+
+\subsection{Poäng}
+Spelaren har också en mängd poäng som fås när spelaren dödar en fiende. 
+Poäng mängden som spelaren får beror på vilken fiendetyp spelaren dödar.
+När spelaren har fått upp till 1000 poäng får spelaren ett extra liv.
+
+
 
 \end{document}
