@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1668527829 "TDP005-mall.xdv" "TDP005-mall.pdf" "TDP005-mall" 1668527829
-  "TDP005-mall.xdv" 1668527829 75644 b2dad560e86270a28df9e10d13a914e3 "xelatex"
+["xdvipdfmx"] 1668537350 "TDP005-mall.xdv" "TDP005-mall.pdf" "TDP005-mall" 1668537351
+  "TDP005-mall.xdv" 1668537350 83472 3977f26d2bfbec357fb39210aa749ed6 "xelatex"
   (generated)
   "TDP005-mall.pdf"
-["xelatex"] 1668527828 "TDP005-mall.tex" "TDP005-mall.xdv" "TDP005-mall" 1668527829
+["xelatex"] 1668537350 "TDP005-mall.tex" "TDP005-mall.xdv" "TDP005-mall" 1668537351
   "/etc/texmf/web2c/texmf.cnf" 1668431071 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -93,6 +93,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/base/tuenc.def" 1581632200 27440 69bf3d7c71626cc47b8ff9b7bbf0a3c2 ""
   "/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1569190624 45259 743c52a37a6e5ed83cfe0e128b2da10d ""
   "/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty" 1548974385 11128 a53805799bebfed6358fc1658a18e41f ""
+  "/usr/share/texlive/texmf-dist/tex/latex/float/float.sty" 1137110151 6749 16d2656a1984957e674b149555f1ea1d ""
   "/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty" 1580769101 161688 fd8381987cc1bb26038aff32bcafd56e ""
   "/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg" 1532898934 549 c4adac819276241fea8eb79c5ab7b99e ""
   "/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty" 1580769101 1655 e4b882de9102a2127dc000ff79bd1938 ""
@@ -141,14 +142,15 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/usr/share/texmf/web2c/texmf.cnf" 1581979058 38841 ce3692aa899bb693b90b87eaa5d4d84e ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1668431133 4648615 8edeb6108bba12e1eaff9c67010e39a4 ""
-  "TDP005-mall.aux" 1668527829 2762 e452f16f17ab22a8d0d3be853bd784c9 "xelatex"
-  "TDP005-mall.out" 1668527829 954 5b6654af5d6ab4178038901f01601d09 "xelatex"
-  "TDP005-mall.tex" 1668527828 7931 7788766d7ac411897536c586736279d7 ""
+  "Dogeater.png" 1668536861 348956 e135d634dcd07c221f1850ce97732561 ""
+  "TDP005-mall.aux" 1668537350 2762 73b8ba9feb1101c8da54aa6346d854cc "xelatex"
+  "TDP005-mall.out" 1668537350 954 b6e0857c36684645ca4f0d48cddbdbc9 "xelatex"
+  "TDP005-mall.tex" 1668536968 8618 4a7471299cc964faffa23174c2ef3d98 ""
   "TDP005mall.cls" 1668523435 1800 2b50cfc078b7c08c547e23e062edc7f3 ""
   "ida.png" 1668523435 7786 f8e6fdcd3fff5911dca9765ffa4de313 ""
   "lith.png" 1668523435 15882 4db45f42034d096c9aba5be88636d034 ""
   (generated)
-  "TDP005-mall.xdv"
-  "TDP005-mall.out"
   "TDP005-mall.aux"
   "TDP005-mall.log"
+  "TDP005-mall.out"
+  "TDP005-mall.xdv"

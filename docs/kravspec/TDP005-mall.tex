@@ -1,8 +1,6 @@
 \documentclass{TDP005mall}
-
-
-
-\newcommand{\version}{Version 1.1}
+\usepackage{float}
+\newcommand{\version}{Version 1.0}
 \author{David Dumminsek, \url{davdu153@student.liu.se}\\
   Haris Basic, \url{harba466@student.liu.se}\\
   }
@@ -12,8 +10,6 @@
 Haris Basic\\
 }
 
-
-
 \begin{document}
 \projectpage
 \section{Revisionshistorik}
@@ -21,34 +17,36 @@ Haris Basic\\
 \begin{tabularx}{\linewidth}{|l|X|l|}
 \hline
 Ver. & Revisionsbeskrivning & Datum \\\hline
-1.0 & Skapad för studenter att använda som mall till
-kommande dokumentinlämningar & 140908 \\\hline
+1.0 & Första utkastet för kravspecifikation inlämnad & 2022-11-15 \\\hline
 \end{tabularx}
 \end{table}
 
 \section{Dogeater: The Goblin Ace}
-Ett enkelt ''bullet hell'' spel.
+
+Ett "bullet hell" spel där luftstrider utkämpas mellan huvudkaraktären Dogeater, som är en så kallad goblin, samt en stor mängd fientliga flygplan.
+Spelet utspelar sig i en tvådimensionell värld som betraktas med fågelperspektiv.
+
 \subsection{Spelidé}
-Spelet kommer vara ett klassiskt ''bullet hell'' spel där spelaren ska undvika en stor mängd projektiler och fiender tills slutet av banan har nåtts. 
+Spelet kommer vara ett klassiskt ''bullet hell'' spel där spelaren behöver undvika en stor mängd projektiler och fiender tills slutet av banan har nåtts. 
 Spelaren kommer styra ett stridsflygplan i en vertikalt skrollande värld.
 
-Fiender kommer skapas och långsamt visa sig själv när banan 
-har skrollat upp till dem. Det kommer finnas flera olika fiendetyper där de har olika rörelse och attack mönster. 
-Fienderna kommer skjuta farliga projektiler där om dem kolliderar med spelare så förlorar spelaren ett liv och börjar om banan från början.
-Om spelaren skulle dö utan några liv kvar skickat spelaren tillbaka till menyn. 
-Spelaren ska också ha möjlighet att skjuta projektiler där varje projektil skadar fiender och om en fiende tar tillräcklig skada så dör den
-och spelaren får poäng som bygger upp till ett nytt liv.
+Fiender kommer skapas och långsamt visa sig när banan har skrollat upp till dem. Det kommer finnas flera olika fiendetyper med olika rörelse- och attackmönster. 
+Fienderna kommer avfyra skadliga projektiler som spelaren behöver undvika. Då en projektil kolliderar med spelaren så förlorar denne ett liv och behöver börja om banan från början.
+Om spelaren skulle få slut på liv och sedan dö ytterligare en gång så skickas spelaren tillbaka till menyn.
+Spelaren har möjlighet att skjuta projektiler som vid kollision med fientliga enheter skadar de och eventuellt dödar de om de tagit tillräckligt med skada.
+Vid eliminering av fiender får spelaren poäng som sedan kan omvandlas till nya liv då tillräckligt med poäng samlats.
 
 \subsection{Målgrupp}
-Spelet är riktade till spelare som gillar utmaningar och inte är rädd för ett oförlåtande spel.
-%Spelet innehåller mild våld där det värsta är att en fiende sprängs. 
-%Så enligt ESRB så kommer detta spelet vara fullt lämpligt för barn över 10 år.
+Spelet är riktat mot spelare som gillar utmanande, actionfyllda spel som kräver snabba reflexer.
+
 \subsection{Spelupplevelse}
-Det är uppfyllelsen man upplever efter man har klarat en svår bana. 
-Spänningen man känner när man knappt undviker en ogudlig mängd projektiler och vet om man 
-blir träffat så måste man börja om banan.
+
+Spelet kommer vara utmanande och kräva att spelaren fattar beslut på kort tid: exempelvis var spelkaraktären skall röra sig härnäst och vilka fiender som bör elimineras först.
+Det som gör spelet spännande är att behöva undvika måttlösa mängder projektiler samtidigt som man försöker gå på offensiven och eliminera sina motståndare.
+Denna balansakt mellan defensiva och offensiva tekniker är spelets grundpelare och gör att spelaren konstant är engagerad i vad som händer på skärmen.  
+
 \subsection{Spelmekanik}
-Menyn navigeras med piltangenterna och för att trycka på en meny knapp används spacebar.
+Menyn navigeras med piltangenterna. För att välja ett alternativ i menyn används spacebar.
 \begin{table}[h]
 \begin{tabularx}{\linewidth}{|l|X|}
 \hline
@@ -58,79 +56,77 @@ Menyn navigeras med piltangenterna och för att trycka på en meny knapp använd
   $\leftarrow$ + $\uparrow$ & Rör spelaren diagonalt upp åt vänster \\\hline
   $\leftarrow$ + $\downarrow$ & Rör spelaren diagonalt ner åt vänster \\\hline
   $\rightarrow$ & Rör spelaren åt höger \\\hline
-  $\rightarrow$ + $\uparrow$ & Rör spelaren diagonalt up till höger \\\hline
+  $\rightarrow$ + $\uparrow$ & Rör spelaren diagonalt upp till höger \\\hline
   $\rightarrow$ + $\downarrow$ & Rör spelaren diagonalt ner till höger \\\hline
   $\downarrow$ & Rör spelaren neråt \\\hline
-  spacebar & Skjuter en projektil \\\hline  
+  Spacebar & Skjuter en projektil \\\hline  
 \end{tabularx}
 \end{table}
 \section{Regler}
-Vilka regler som styr spelet.
 \subsection{Spelplan}
-Spelplanen kommer i grunden vara en vertikal bana som skrollar ner mot spelaren (alltså mot botten av skärmen).
-Spelaren kommer kollidera med kanterna på banan så spelaren kan inte röra sig utanför spelplan.
-Fiender kommer dock åka igenom kanterna och kan befinna sig utanför spelplan. Då fiender hänger med när banan skrollas. 
 
+Spelplanen kommer i grunden vara en vertikal bana som skrollar ner mot spelaren (banan rullar ner mot botten av skärmen).
+Banans kanter kommer ha kollisionsdetektering som förhindrar spelaren från att röra sig utanför spelplanen.
+Fiender kommer dock att passera genom kanterna och kan befinna sig utanför spelplanen. Nya fiender visas då banan kontinuerligt skrollar.
 
 \subsection{Spelare}
-Om spelaren kolliderar med kanten av spelplanen så kommer spelaren sluta röra sig åt det hållet som skulle lägga spelaren 
-utanför spelplanen. 
-Om spelaren kolliderar med en fiende eller projektil från en fiende så tappar spelaren ett liv och 
-måste börja om banan från början.
-Spelaren kommer börja spelet med 2 liv och ytterligare liv kan sammlas med att döda fiender.
+Om spelaren kolliderar med kanten av spelplanen så kommer spelaren sluta röra sig åt det hållet som skulle lägga spelaren utanför spelplanen. 
+Om spelaren kolliderar med en fiende eller projektil från en fiende så tappar spelaren ett liv och måste börja om banan från början.
+Spelaren kommer börja spelet med 2 liv och ytterligare liv kan samlas genom att besegra tillräckligt många fiender.
 
 \subsection{Fiender}
-Fiender skapas utanför toppen av spelplan och kommer långsamt åka längst banan. 
-När fienden når botten av banan så förstörs dem.
-Fiender förstörs också om de kommer i kontakt med spelaren projektiler.
-Fiender kolliderar bara med spelaren och spelaren projektiler så övriga objekt kommer fiender åka igenom 
-(som andra fiender och deras projektiler).
+Fiender skapas utanför toppen av spelplanen och kommer långsamt åka längs banan. 
+När fiender når botten av banan så förstörs de. Fiender förstörs även när de tagit tillräckligt med skada från spelarens projektiler.
+Fiender kolliderar endast med spelaren och spelarens projektiler. Fienderna kan alltså passera övriga objekt (exempelvis andra fiender och deras projektiler).
+Det kommer finnas olika typer av fiender med varierande rörelse- och attackmönster (exempelvis vilka projektiler de skjuter, hur ofta de skjuter samt hur de rör på sig).
 
-Det kommer finnas olika typer av fiender där de varierar med vilka projektiler de skjuter,
-hur ofta de skjuter och deras rörelse mönster.
 \subsection{Projektiler}
-Projektilerna kommer också uppdelas i olika typer.
-T.ex en stor och liten projektil, spelaren projektil kommer också vara helt unik.
-Projektilerna varierar också på deras hastighet och rörelse mönster.
+Projektilerna kommer delas upp i olika typer. Till exempel en stor och liten projektil. Även spelarens projektil kommer vara helt unik.
+Projektilernas hastighet och rörelsemönster kommer att variera.
 
 \subsection{Poäng}
-Spelaren har också en mängd poäng som fås när spelaren dödar en fiende. 
-Poäng mängden som spelaren får beror på vilken fiendetyp spelaren dödar.
-När spelaren har fått upp till 1000 poäng får spelaren ett extra liv.
+Då en fiende besegras belönas spelaren med en mängd poäng som varierar beroende på vilken fiendetyp som besegrats.
+Då spelaren lyckats samla 1000 poäng belönas spelaren med ett extra liv.
 
 \section{Visualisering}
+
+%HÄR ÄR BILDEN JAG FÖRSÖKER LÄGGA IN, DET BLIR INTE HELT RÄTT%
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=5cm]{Dogeater.png}
+\end{figure}
+
 \section{Kravformulering}
-\subsection{ska-krav}
+\subsection{Ska-krav}
 \begin{enumerate}
   \item Det ska finnas en startmeny där man ska kunna välja bana  
   \item Olika banor ska läsas in från en fil
   \item Det ska finnas en spelare och minst en fiende per bana
-  \item Spelaren ska kunna röra på sig med piltangenterna och skjuta projektiler med spacebar knappen
-  \item Det ska finnas olika typer av projektiler, med olika beteenden
-  \item Det ska finnas olika fiendetyper, med olika beteenden 
-  \item Fiender ska skapas över toppen av spelplanen och röra sig längst med banan tills fienden blir förstörd
+  \item Spelaren ska kunna röra på sig med piltangenterna och skjuta projektiler med spacebar-knappen
+  \item Det ska finnas olika typer av projektiler med olika beteenden
+  \item Det ska finnas olika fiendetyper med olika beteenden 
+  \item Fiender ska skapas över toppen av spelplanen och röra sig längs med banan tills de förstörs
   \item Fiender ska enbart kunna kollidera med spelaren projektiler och förstöras om de gör det
   \item Spelaren ska kunna kollidera med fiender och fiendernas projektiler. 
         Då dör spelaren och förlorar ett liv och måste börja om banan från början.
-        Om spelaren dör utan några liv så skickas spelaren tillbaka till startmenyn (Alla olåsta banor blir låsta igen).
+        Om spelaren dör då denne har slut på liv så skickas spelaren tillbaka till startmenyn (Alla olåsta banor blir låsta igen).
   \item En bana består av en tvådimensionell blå backgrund, Spelaren är ett tvådimensionellt stridsflygplan 
-        och fienderna är tvådimensionella militära fartyg (beror på fiendetyp).
-        Banan har en fixerad längs och om spelaren kommer till slutet så vinner spelaren banan.
+        och fienderna är tvådimensionella militära flygvapen (beror på fiendetyp).
+        Banan har en fixerad längd och om spelaren kommer till slutet så klarar spelaren banan.
 \end{enumerate}
-\subsection{bör-krav}
+\subsection{Bör-krav}
 \begin{enumerate}
-  \item Den skrollande backgrunden ska kunna scrolla i evighet.
+  \item Den skrollande backgrunden (banan) ska kunna scrolla i evighet.
   \item Det ska finnas en boss vid slutet av vissa banor
-  \item Skadelse rutan ska enbart vara Goblin piloten inte hela stridsflygplanet
+  \item Spelaren skall endast ta skada då piloten i spelarens flygplan kolliderar med en fientlig projektil eller enhet. Kontakt med resterande delar av stridsflygplanet räknas ej. 
   \item Spelaren ska kunna skjuta olika slags projektiler med hjälp av ''powerups''
-  \item Banor kommer vara låsta, man måste klara banan innan den låste banan för att låsa upp den.
-  \item OBS framtida bör-krav läggs till i framtiden
+  \item Nya banor kommer vara låsta och behöva låsas upp genom att spelaren klarar de tidigare nivåerna 
 \end{enumerate}
 \section{Kravuppfyllelse}
-Vilka krav från kursen täcks med kravformuleringen.\\\\
 \textbf{Spelet ska simulera en värld som innehåller olika typer av objekt. Objekten ska ha olika beteenden och röra sig i världen och agera på olika sätt när de möter andra objekt.}
 \\
-täcks av kraven: 3, 4, 5, 6, 8, 9
+Täcks av kraven: 3, 4, 5, 6, 8, 9
 
 \textbf{Det måste finnas minst tre olika typer av objekt och det ska finnas flera instanser av minst två av dessa. T.ex ett spelarobjekt och många instanser av två olika slags fiendeobjekt.}
 \\
@@ -151,7 +147,7 @@ Täcks av kravet: 10
 \textbf{Det ska finnas kollisionshantering}
 \\
 Täcks av kraven: 8, 9 
-\\
+\\\\
 \textbf{Det ska vara enkelt att lägga till eller ändra banor i spelet}
 \\
 Täcks av kravet: 2
