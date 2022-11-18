@@ -7,9 +7,14 @@ Example for how a 4th degree polynomial is built in this game (saving **e** vari
 ax^4+bx^3+cx^2+dx+f  
 ```
 Enemy1(name tbd):   
+
 ```math
 0x^4+0x^3+0x^2-4x+20  
 ```
-![enemy1 graph](https://gitlab.liu.se/davdu153/tdp005_dogeater/-/blob/main/docs/img/enemy1graph.png?raw=true)
+<table align="center"><tr><td align="center" width="9999">
 
+# Enemy1 Movement Graph
+
+<img src="docs/img/enemy1graph.png"  width="250">
+</td></tr></table>
 
