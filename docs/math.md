@@ -10,6 +10,6 @@ Enemy1(name tbd):
 ```math
 0x^4+0x^3+0x^2-4x+20  
 ```
-![enemy1 graph](https://gyazo.com/e6553be980c3b803aa25ae38338483dc)
+![enemy1 graph](https://gitlab.liu.se/davdu153/tdp005_dogeater/-/blob/e3ef29ecab380c1484ad715a4018b91edb66640c/docs/img/enemy1graph.png)
 
 
