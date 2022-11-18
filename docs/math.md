@@ -11,5 +11,5 @@ Enemy1(name tbd):
 0x^4+0x^3+0x^2-4x+20  
 ```
 ![enemy1 graph](https://gyazo.com/e6553be980c3b803aa25ae38338483dc)
-=======
+
 
