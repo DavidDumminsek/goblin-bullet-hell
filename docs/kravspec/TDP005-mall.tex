@@ -31,8 +31,9 @@ Spelet kommer vara ett klassiskt ''bullet hell'' spel där spelaren behöver und
 Spelaren kommer styra ett stridsflygplan i en vertikalt skrollande värld.
 
 Fiender kommer skapas och långsamt visa sig när banan har skrollat upp till dem. Det kommer finnas flera olika fiendetyper med olika rörelse- och attackmönster. 
-Fienderna kommer avfyra skadliga projektiler som spelaren behöver undvika. Då en projektil kolliderar med spelaren så förlorar denne ett liv och behöver börja om banan från början.
-Om spelaren skulle få slut på liv och sedan dö ytterligare en gång så skickas spelaren tillbaka till menyn.
+Fienderna kommer avfyra skadliga projektiler som spelaren behöver undvika. Då en projektil kolliderar med spelaren så förlorar spelaren ett liv.
+Om spelaren skulle få slut på liv och sedan dö ytterligare en gång så börjar spelaren om från första banan.
+När spelaren nått slutet på banan så skickas spelaren till nästa bana.
 Spelaren har möjlighet att skjuta projektiler som vid kollision med fientliga enheter skadar de och eventuellt dödar de om de tagit tillräckligt med skada.
 Vid eliminering av fiender får spelaren poäng som sedan kan omvandlas till nya liv då tillräckligt med poäng samlats.
 
@@ -46,7 +47,6 @@ Det som gör spelet spännande är att behöva undvika måttlösa mängder proje
 Denna balansakt mellan defensiva och offensiva tekniker är spelets grundpelare och gör att spelaren konstant är engagerad i vad som händer på skärmen.  
 
 \subsection{Spelmekanik}
-Menyn navigeras med piltangenterna. För att välja ett alternativ i menyn används spacebar.
 \begin{table}[h]
 \begin{tabularx}{\linewidth}{|l|X|}
 \hline
@@ -71,7 +71,8 @@ Fiender kommer dock att passera genom kanterna och kan befinna sig utanför spel
 
 \subsection{Spelare}
 Om spelaren kolliderar med kanten av spelplanen så kommer spelaren sluta röra sig åt det hållet som skulle lägga spelaren utanför spelplanen. 
-Om spelaren kolliderar med en fiende eller projektil från en fiende så tappar spelaren ett liv och måste börja om banan från början.
+Om spelaren kolliderar med en fiende eller projektil från en fiende så tappar spelaren ett liv.
+När spelaren inte har några liv kvar början spelaren om banan från början.
 Spelaren kommer börja spelet med 2 liv och ytterligare liv kan samlas genom att besegra tillräckligt många fiender.
 
 \subsection{Fiender}
@@ -90,8 +91,6 @@ Då spelaren lyckats samla 1000 poäng belönas spelaren med ett extra liv.
 
 \section{Visualisering}
 
-%HÄR ÄR BILDEN JAG FÖRSÖKER LÄGGA IN, DET BLIR INTE HELT RÄTT%
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=5cm]{Dogeater.png}
@@ -100,41 +99,48 @@ Då spelaren lyckats samla 1000 poäng belönas spelaren med ett extra liv.
 \section{Kravformulering}
 \subsection{Ska-krav}
 \begin{enumerate}
-  \item Det ska finnas en startmeny där man ska kunna välja bana  
-  \item Olika banor ska läsas in från en fil
-  \item Det ska finnas en spelare och minst en fiende per bana
-  \item Spelaren ska kunna röra på sig med piltangenterna och skjuta projektiler med spacebar-knappen
-  \item Det ska finnas olika typer av projektiler med olika beteenden
-  \item Det ska finnas olika fiendetyper med olika beteenden 
-  \item Fiender ska skapas över toppen av spelplanen och röra sig längs med banan tills de förstörs
-  \item Fiender ska enbart kunna kollidera med spelaren projektiler och förstöras om de gör det
-  \item Spelaren ska kunna kollidera med fiender och fiendernas projektiler. 
-        Då dör spelaren och förlorar ett liv och måste börja om banan från början.
-        Om spelaren dör då denne har slut på liv så skickas spelaren tillbaka till startmenyn (Alla olåsta banor blir låsta igen).
-  \item En bana består av en tvådimensionell blå backgrund, Spelaren är ett tvådimensionellt stridsflygplan 
-        och fienderna är tvådimensionella militära flygvapen (beror på fiendetyp).
-        Banan har en fixerad längd och om spelaren kommer till slutet så klarar spelaren banan.
+  \item [2] Det ska finnas en spelare och minst en fiende per bana
+  \item [3] Spelaren ska kunna röra på sig med piltangenterna och skjuta projektiler med spacebar-knappen
+  \item [1] Olika banor ska läsas in från en json fil
+  \item [4] Det ska finnas olika typer av projektiler med olika beteenden
+  \item [6] Fiender ska skapas över toppen av spelplanen och röra sig längs med banan tills de förstörs
+  \item [7] Fiender ska enbart kunna kollidera med spelaren projektiler och förstöras om de gör det
+  \item [5] Det ska finnas olika fiendetyper med olika beteenden 
+  \item [8] Spelaren ska kunna kollidera med fiender och fiendernas projektiler. 
+        Då dör spelaren och förlorar ett liv.
+  \item [9] Om spelaren dör utan några liv så börjar spelaren om banan från början.
+  \item [10] En bana består av en tvådimensionell blå backgrund
+  \item [11] Spelaren är ett tvådimensionellt stridsflygplan 
+  \item [12] Fienderna är tvådimensionella militära flygvapen (beror på fiendetyp).
+  \item [13] Banan har en fixerad längd och om spelaren kommer till slutet så klarar spelaren banan.
 \end{enumerate}
 \subsection{Bör-krav}
 \begin{enumerate}
-  \item Den skrollande backgrunden (banan) ska kunna scrolla i evighet.
-  \item Det ska finnas en boss vid slutet av vissa banor
-  \item Spelaren skall endast ta skada då piloten i spelarens flygplan kolliderar med en fientlig projektil eller enhet. Kontakt med resterande delar av stridsflygplanet räknas ej. 
-  \item Spelaren ska kunna skjuta olika slags projektiler med hjälp av ''powerups''
-  \item Nya banor kommer vara låsta och behöva låsas upp genom att spelaren klarar de tidigare nivåerna 
+  \setcounter{enumi}{13}
+  \item [14] Den skrollande backgrunden (banan) ska kunna scrolla i evighet.
+  \item [15] Det ska finnas en boss vid slutet av vissa banor
+  \item [16] Spelaren skall endast ta skada då piloten i spelarens flygplan kolliderar med en fientlig projektil eller enhet. Kontakt med resterande delar av stridsflygplanet räknas ej. 
+  \item [17] Spelaren ska kunna skjuta olika slags projektiler med hjälp av ''powerups''
+  \item [18] Nya banor kommer vara låsta och behöva låsas upp genom att spelaren klarar de tidigare nivåerna 
+  \item [19] En enkel startmeny där spelaren kan välja bana.
+  \item [20] När spelaren förlorar ett liv förstörs alla projektiler och spelaren blir immun mot skada under en kort tid.
+  \item [21] En knapp som gör att spelaren rör sig mycket långsammare.
+  \item [22] UI som visar hur många liv spelaren har
+  \item [23] Animationer för när fiender och spelaren förstörs
+  \item [24] En text som gratulerar spelaren att spelaren har avklarat banan,
 \end{enumerate}
 \section{Kravuppfyllelse}
 \textbf{Spelet ska simulera en värld som innehåller olika typer av objekt. Objekten ska ha olika beteenden och röra sig i världen och agera på olika sätt när de möter andra objekt.}
 \\
-Täcks av kraven: 3, 4, 5, 6, 8, 9
+Täcks av kraven: 2, 4, 5, 6, 7, 8,
 
 \textbf{Det måste finnas minst tre olika typer av objekt och det ska finnas flera instanser av minst två av dessa. T.ex ett spelarobjekt och många instanser av två olika slags fiendeobjekt.}
 \\
-Täcks av kraven: 3, 5, 6
+Täcks av kraven: 4, 5, 6
 \\\\
 \textbf{Ett beteende som måste finnas med är att figurerna ska röra sig över skärmen. Rörelsen kan följa ett mönster och/eller vara slumpmässig. Minst ett objekt, utöver spelaren ska ha någon typ av rörelse.}
 \\
-Täcks av kraven: 5, 6, 7 
+Täcks av kraven: 6, 7, 8 
 \\\\
 \textbf{En figur ska styras av spelaren, antingen med tangentbordet eller med musen. Du kan även göra ett spel där man spelar två stycken genom att dela på tangentbordet (varje spelare använder olika tangenter). Då styr man var sin figur.}
 \\
@@ -142,18 +148,18 @@ Täcks av kravet: 4
 \\\\
 \textbf{Grafiken ska vara tvådimensionell.}
 \\
-Täcks av kravet: 10
+Täcks av kravet: 10, 11 , 12
 \\\\
 \textbf{Det ska finnas kollisionshantering}
 \\
-Täcks av kraven: 8, 9 
+Täcks av kraven: 7, 8 
 \\\\
 \textbf{Det ska vara enkelt att lägga till eller ändra banor i spelet}
 \\
-Täcks av kravet: 2
+Täcks av kravet: 1
 \\\\
 \textbf{Spelet måste upplevas som ett sammanhängande spel som går att spela!}
 \\
-Täcks av kravet: 10
+Täcks av kravet: 9, 13
 
 \end{document}
