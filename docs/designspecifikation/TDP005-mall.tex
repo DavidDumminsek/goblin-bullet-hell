@@ -1,6 +1,7 @@
 \documentclass{TDP005mall}
 
-
+\usepackage{mathtools}
+\usepackage{float}
 
 \newcommand{\version}{Version 0.1}
 \author{David Dumminsek, \url{davdu153@student.liu.se}\\
@@ -105,6 +106,46 @@ Klassen ska huvudsakligen rendera och updatera.
 \subsection{Fördelar}
 \subsection{Nackdelar}
 \section{Externfilformat}
-\subsection{Levels}
-\subsection{Enemies}
+Tar användning av en json fil för att bestämma när fiender skapas, hur de rör sig och hur deras projektiler rör sig.
+Denna fil används alltså för att bygga upp en bana med att konstruea fiender vid specifika tider och positioner.
+Själva jsonfilen är uppbygd av en json array med olika json object. I dessa json object finns det 7 olika variabler, dessa är:
+\begin{enumerate}
+  \item \textbf{id}: Ett unikt nummer för varje fiende
+  \item \textbf{tickSpawn}: Vid vilken tick fienden ska skapas (måste vara sorterad, där minsta är högst upp)
+  \item \textbf{x}: x koordinat där fienden ska skapas
+  \item \textbf{y}: y koordinat där fienden ska skapas
+  \item \textbf{spd}: Hur många y koordinater fiender rör sig på en tick
+  \item \textbf{movement}: Ett json objekt som beskriver en polynomfunktion, används för rörelsemönster för fienden
+  \item \textbf{projectile}: Ett json objekt som beskriver en polynomfunktion, används för rörelsemönstret för projektilerna fienden skjuter
+\end{enumerate}
+\subsection{Rörelse}
+En polynom av den fjärde graden används för att simulerara rörelsen för fiender och projektiler.
+Som ett json objekt beskrivs funktionen som följande:\\
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.6\textwidth]{poly.png}
+  \end{center}
+  \caption{Json objekt som beskriver en polynom funktion}
+  \label{fig:}
+\end{figure}
+Alla variabler i Json objectet är då konstanterna i polynomfunktionen. Just i figur 1 så beskriver json objektet en projektil som åker snedd längst skärmen. 
+Det json objektet beskriver alltså funktionen: 
+\begin{figure}[H]
+  \begin{center}
+    $$y = x$$
+  \end{center}
+  \caption{Enkel linjär funktion}
+  \label{fig:}
+\end{figure}
+\begin{figure}[H]
+  \begin{center}
+    $$ ax^4 + bx^3 + cx^2 + dx + f $$
+  \end{center}
+  \caption{Polynom av fjärde graden}
+  \label{fig:}
+\end{figure}
+
+
+
+
 \end{document}
