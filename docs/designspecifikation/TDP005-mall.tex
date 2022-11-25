@@ -42,6 +42,8 @@ Det ska vara möjligt för spelaren att röra sig, kollidera och skjuta projekti
 \begin{enumerate}
   \item \textbf{Player()} Sätter \textbf{life} till 2, \textbf{speed} till 0.1 och koordinaterna till det som är mitt i botten. Samt så konstrueras ett Projectile objekt.
   \item \textbf{Player(Projectile a):} Är lik default constructorn utom att en valfri Projecile objekt kan användas.
+  \item \textbf{Player(const\& Enemy) = default} Copy constructor
+  \item \textbf{Player(const\&\& Enemy) = default} Move constructor
 \end{enumerate}
 \subsubsection*{Variabler}
 \begin{enumerate}
@@ -54,6 +56,9 @@ Det ska vara möjligt för spelaren att röra sig, kollidera och skjuta projekti
 \end{enumerate}
 \subsubsection*{Funktioner}
 \begin{enumerate}
+  \item \textbf{Enemy\& operator=(const\& Enemy rhs) = default:} Copy constructor
+  \item \textbf{Enemy\& operator=(Enemy\&\& rhs) = default:} Move constructor
+  \item \textbf{~Enemy():} Destructor
   \item \textbf{void move():} Tar emot användarinmatning från game loopet och updaterar koordinaterna med \textbf{speed} variablen.
     Om koordinaterna skulle hamna utanför spelet så ändras inte koordinaterna (fiende kollidering kommer hanteras i \textbf{Game} klassen). 
   \item \textbf{void shoot():} Skapar \textbf{Projectile} objekt som startar med \textbf{Player} koordinaterna och rör sig rakt fram i en hastighet beroende på objektet. 
@@ -142,6 +147,15 @@ Det json objektet beskriver alltså funktionen:
     $$ ax^4 + bx^3 + cx^2 + dx + f $$
   \end{center}
   \caption{Polynom av fjärde graden}
+  \label{fig:}
+\end{figure}
+\section{UML Klass Diagram}
+Klassdiagramet för spelet:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{UML class.png}
+  \end{center}
+  \caption{}
   \label{fig:}
 \end{figure}
 

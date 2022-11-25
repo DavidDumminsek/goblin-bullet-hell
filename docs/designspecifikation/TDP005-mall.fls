@@ -261,6 +261,7 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
 INPUT /usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
 OUTPUT TDP005-mall.xdv
 INPUT poly.png
+INPUT UML class.png
 INPUT TDP005-mall.aux
 INPUT ./TDP005-mall.out
 INPUT ./TDP005-mall.out

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2022.11.14)  25 NOV 2022 19:28
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2022.11.14)  25 NOV 2022 19:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -705,6 +705,9 @@ LaTeX Warning: Label `fig:' multiply defined.
 
 LaTeX Warning: Label `fig:' multiply defined.
 
+
+LaTeX Warning: Label `fig:' multiply defined.
+
 )
 \openout1 = `TDP005-mall.aux'.
 
@@ -838,7 +841,7 @@ File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 [1
 
 ] [1]
-Overfull \hbox (3.46884pt too wide) in paragraph at lines 96--98
+Overfull \hbox (3.46884pt too wide) in paragraph at lines 101--103
 []\TU/lmr/bx/n/10 void spawnEnemy():  \TU/lmr/m/n/10 Kollar nuvarande \TU/lmr/b
 x/n/10 map \TU/lmr/m/n/10 variabel i \TU/lmr/bx/n/10 level \TU/lmr/m/n/10 vekto
 rn om \TU/lmr/bx/n/10 tick \TU/lmr/m/n/10 är lika med \TU/lmr/bx/n/10 tickSpawn
@@ -849,20 +852,22 @@ rn om \TU/lmr/bx/n/10 tick \TU/lmr/m/n/10 är lika med \TU/lmr/bx/n/10 tickSpawn
 File: poly.png Graphic file (type bmp)
 <poly.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--130
+Underfull \hbox (badness 10000) in paragraph at lines 127--135
 
  []
 
-
+File: UML class.png Graphic file (type bmp)
+<UML class.png>
+[3] 
 AED: lastpage setting LastPage
-[3]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
  (./TDP005-mall.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 151.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 151.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 165.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
 Package rerunfilecheck Info: File `TDP005-mall.out' has not changed.
-(rerunfilecheck)             Checksum: 5CB58B105C351799BDA216B4C46956F8;470.
+(rerunfilecheck)             Checksum: AD6FC15035180CD182789B06F6203B05;529.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -874,15 +879,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 151.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
  ) 
 Here is how much of TeX's memory you used:
- 24111 strings out of 479819
- 476305 string characters out of 5895845
- 795710 words of memory out of 5000000
- 40824 multiletter control sequences out of 15000+600000
+ 24121 strings out of 479819
+ 476447 string characters out of 5895845
+ 796765 words of memory out of 5000000
+ 40833 multiletter control sequences out of 15000+600000
  534775 words of font info for 40 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  68i,11n,64p,946b,647s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on TDP005-mall.xdv (4 pages, 66812 bytes).
+Output written on TDP005-mall.xdv (5 pages, 72160 bytes).
