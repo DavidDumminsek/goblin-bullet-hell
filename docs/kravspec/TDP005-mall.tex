@@ -1,6 +1,6 @@
 \documentclass{TDP005mall}
 \usepackage{float}
-\newcommand{\version}{Version 1.0}
+\newcommand{\version}{Version 1.1}
 \author{David Dumminsek, \url{davdu153@student.liu.se}\\
   Haris Basic, \url{harba466@student.liu.se}\\
   }
@@ -18,9 +18,11 @@ Haris Basic\\
 \hline
 Ver. & Revisionsbeskrivning & Datum \\\hline
 1.0 & Första utkastet för kravspecifikation inlämnad & 2022-11-15 \\\hline
+1.1 & Rättning efter feedback & 2022-11-28 \\\hline
 \end{tabularx}
 \end{table}
-
+\tableofcontents
+\clearpage
 \section{Dogeater: The Goblin Ace}
 
 Ett ''bullet hell'' spel där luftstrider utkämpas mellan huvudkaraktären Dogeater, som är en så kallad goblin, samt en stor mängd fientliga flygplan.
@@ -45,7 +47,9 @@ Det är känslan man får när man har klarat en svår bana.
 Spänningen man känner när man nätt och tätt unviker en ofattbar mängd projektiler.
 
 \subsection{Spelmekanik}
-\begin{table}[h]
+Hur spelaren kontrolleras av användaren.
+\begin{table}[H]
+\caption{Tabell med alla möjliga inmatningar}
 \begin{tabularx}{\linewidth}{|l|X|}
 \hline
   Tangent & handling \\\hline
@@ -60,7 +64,9 @@ Spänningen man känner när man nätt och tätt unviker en ofattbar mängd proj
   Spacebar & Skjuter en projektil \\\hline  
 \end{tabularx}
 \end{table}
+\clearpage
 \section{Regler}
+Vilka regler som kommer styra spelet.
 \subsection{Spelplan}
 
 Spelplanen kommer i grunden vara en vertikal bana som skrollar ner mot spelaren (banan rullar ner mot botten av skärmen).
@@ -81,83 +87,86 @@ Det kommer finnas olika typer av fiender med varierande rörelse- och attackmön
 
 \subsection{Projektiler}
 Projektilerna kommer delas upp i olika typer. Till exempel en stor och liten projektil. Även spelarens projektil kommer vara helt unik.
-Projektilernas hastighet och rörelsemönster kommer att variera.
+Fiende projektilerna kommer variera sig på deras rörelse mönster och hastighet. 
+Till exempel så kan en projektil röra sig rakt fram och en annan rör sig snett längst skärmen.
 
 \subsection{Poäng}
 Då en fiende besegras belönas spelaren med en mängd poäng som varierar beroende på vilken fiendetyp som besegrats.
 Då spelaren lyckats samla 1000 poäng belönas spelaren med ett extra liv.
-
+\clearpage
 \section{Visualisering}
-
+Visualisering av hur spelet kan se ut.
 \begin{figure}[H]
   \centering
   \includegraphics[width=5cm]{Dogeater.png}
+  \caption{Spelaren(längst ner) slåss mot 3 fiender}
 \end{figure}
 
 \section{Kravformulering}
 \subsection{Ska-krav}
 \begin{enumerate}
-  \item [2] Det ska finnas en spelare och minst en fiende per bana
-  \item [3] Spelaren ska kunna röra på sig med piltangenterna och skjuta projektiler med spacebar-knappen
-  \item [1] Olika banor ska läsas in från en json fil
-  \item [4] Det ska finnas olika typer av projektiler med olika beteenden
-  \item [6] Fiender ska skapas över toppen av spelplanen och röra sig längs med banan tills de förstörs
-  \item [7] Fiender ska enbart kunna kollidera med spelaren projektiler och förstöras om de gör det
-  \item [5] Det ska finnas olika fiendetyper med olika beteenden 
-  \item [8] Spelaren ska kunna kollidera med fiender och fiendernas projektiler. 
-        Då dör spelaren och förlorar ett liv.
-  \item [9] Om spelaren dör utan några liv så börjar spelaren om banan från början.
-  \item [10] En bana består av en tvådimensionell blå backgrund
-  \item [11] Spelaren är ett tvådimensionellt stridsflygplan 
-  \item [12] Fienderna är tvådimensionella militära flygvapen (beror på fiendetyp).
-  \item [13] Banan har en fixerad längd och om spelaren kommer till slutet så klarar spelaren banan.
+  \item [1] Det ska finnas en spelare och minst en fiende per bana.
+  \item [2] Spelaren ska kunna röra på sig och skjuta projektiler, se Tabell 1.
+  \item [3] Det ska finnas olika typer av projektiler, se rubrik 3.4.
+  \item [4] Det ska finnas olika fiendetyper, se rubrik 3.3. 
+  \item [5] Fiender rör sig från toppen till botten av skärmen.
+  \item [6] Fiender ska enbart kunna kollidera med spelaren projektiler och förstöras om de gör det.
+  \item [7] När spelaren kolliderar med en fiende projektil eller en fiende så förlorar spelaren ett liv.
+            Om spelaren inte har några liv kvar så börjar spelaren om banan från början.
+  \item [8] En bana består av en tvådimensionell blå bakgrund.
+  \item [9] Banan har en fixerad längd och om spelaren kommer till slutet så klarar spelaren banan och spelet stängts ner.
 \end{enumerate}
 \subsection{Bör-krav}
 \begin{enumerate}
   \setcounter{enumi}{13}
-  \item [14] Den skrollande backgrunden (banan) ska kunna scrolla i evighet.
-  \item [15] Det ska finnas en boss vid slutet av vissa banor
-  \item [16] Spelaren skall endast ta skada då piloten i spelarens flygplan kolliderar med en fientlig projektil eller enhet. Kontakt med resterande delar av stridsflygplanet räknas ej. 
-  \item [17] Spelaren ska kunna skjuta olika slags projektiler med hjälp av ''powerups''
-  \item [18] Nya banor kommer vara låsta och behöva låsas upp genom att spelaren klarar de tidigare nivåerna 
-  \item [19] En enkel startmeny där spelaren kan välja bana.
-  \item [20] När spelaren förlorar ett liv förstörs alla projektiler och spelaren blir immun mot skada under en kort tid.
-  \item [21] En knapp som gör att spelaren rör sig mycket långsammare.
-  \item [22] UI som visar hur många liv spelaren har
-  \item [23] Animationer för när fiender och spelaren förstörs
-  \item [24] En text som gratulerar spelaren att spelaren har avklarat banan,
+  \item [10] Bakgrunden kan vara mycket mer detaljerad, med en textur som fortsätter i evighet.
+  \item [11] Det ska finnas en boss vid slutet av vissa banor.
+             Bossen kommer inte röra sig till botten av skärmen utan stannar tills den tagit nog med skada.
+             Efter den har tagit nog med skada så vinner spelaren nivån.
+  \item [12] Spelaren skall endast ta skada då piloten i spelarens flygplan kolliderar med en fientlig projektil eller enhet. Kontakt med resterande delar av stridsflygplanet räknas ej. 
+  \item [13] Spelaren ska kunna skjuta olika slags projektiler med hjälp av ''powerups'', t.ex snabbare projektiler som gör mer skada.
+  \item [14] Nya banor kommer vara låsta och behöva låsas upp genom att spelaren klarar de tidigare nivåerna. 
+  \item [15] En enkel startmeny där spelaren kan välja bana.
+  \item [16] När spelaren förlorar ett liv förstörs alla projektiler och spelaren blir immun mot skada under en kort tid.
+  \item [17] En knapp som gör att spelaren rör sig mycket långsammare.
+  \item [18] UI som visar hur många liv spelaren har.
+  \item [19] Animationer för när fiender och spelaren förstörs.
+  \item [20] En text som gratulerar spelaren att spelaren har avklarat banan.
+  \item [21] Efter spelaren klarar en bana så skickas spelaren till nästa nivå.
 \end{enumerate}
 \section{Kravuppfyllelse}
 \textbf{Spelet ska simulera en värld som innehåller olika typer av objekt. Objekten ska ha olika beteenden och röra sig i världen och agera på olika sätt när de möter andra objekt.}
 \\
-Täcks av kraven: 2, 4, 5, 6, 7, 8,
+Täcks av kraven: 1, 3, 4, 5, 6, 7
 
 \textbf{Det måste finnas minst tre olika typer av objekt och det ska finnas flera instanser av minst två av dessa. T.ex ett spelarobjekt och många instanser av två olika slags fiendeobjekt.}
 \\
-Täcks av kraven: 4, 5, 6
+Täcks av kraven: 1, 3, 4\\
+Det ska finnas ett spelarobjekt, projektilobjekt och ett fiendeobjekt.
+Det kommer finnas olika instanser av fiende och projektil objektet.
 \\\\
 \textbf{Ett beteende som måste finnas med är att figurerna ska röra sig över skärmen. Rörelsen kan följa ett mönster och/eller vara slumpmässig. Minst ett objekt, utöver spelaren ska ha någon typ av rörelse.}
 \\
-Täcks av kraven: 6, 7, 8 
+Täcks av kraven: 3, 4, 5 
 \\\\
 \textbf{En figur ska styras av spelaren, antingen med tangentbordet eller med musen. Du kan även göra ett spel där man spelar två stycken genom att dela på tangentbordet (varje spelare använder olika tangenter). Då styr man var sin figur.}
 \\
-Täcks av kravet: 4  
+Täcks av kravet: 2 
 \\\\
 \textbf{Grafiken ska vara tvådimensionell.}
 \\
-Täcks av kravet: 10, 11 , 12
+Täcks av implementationen.
 \\\\
 \textbf{Det ska finnas kollisionshantering}
 \\
-Täcks av kraven: 7, 8 
+Täcks av kraven: 6, 7 
 \\\\
 \textbf{Det ska vara enkelt att lägga till eller ändra banor i spelet}
 \\
-Täcks av kravet: 1
+Täcks av implementationen.
 \\\\
 \textbf{Spelet måste upplevas som ett sammanhängande spel som går att spela!}
 \\
-Täcks av kravet: 9, 13
+Täcks av kravet: 9
 
 \end{document}
