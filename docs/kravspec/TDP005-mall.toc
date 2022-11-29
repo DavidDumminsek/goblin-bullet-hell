@@ -1,4 +1,4 @@
-\babel@toc {swedish}{}\relax 
+\babel@toc {swedish}{}
 \contentsline {section}{\numberline {1}Revisionshistorik}{1}{section.1}%
 \contentsline {section}{\numberline {2}Dogeater: The Goblin Ace}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Spelidé}{2}{subsection.2.1}%
