@@ -3,6 +3,7 @@
 #include <vector>
 #include <map>
 #include <string>
+#include "entity.h"
 #include "enemy.h"
 #include "projectile.h"
 class Game{

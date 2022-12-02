@@ -18,6 +18,7 @@ class Entity
     Entity(const Entity& rhs) = default;
     //move constructor
     Entity(Entity&& rhs) = default;
+    virtual ~Entity() = default;
     //copy assigment
     Entity& operator=(const Entity& rhs) = default;
     //move assigment
