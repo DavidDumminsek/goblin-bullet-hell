@@ -6,12 +6,44 @@
 
 #IncludeRegexTransform: 
 
+/home/david/tdp005_dogeater/src/enemy.h
+entity.h
+/home/david/tdp005_dogeater/src/entity.h
+projectile.h
+/home/david/tdp005_dogeater/src/projectile.h
+
 /home/david/tdp005_dogeater/src/entity.h
 utility
 -
 string
 -
 map
+-
+
+/home/david/tdp005_dogeater/src/game.h
+vector
+-
+map
+-
+string
+-
+entity.h
+/home/david/tdp005_dogeater/src/entity.h
+enemy.h
+/home/david/tdp005_dogeater/src/enemy.h
+projectile.h
+/home/david/tdp005_dogeater/src/projectile.h
+
+/home/david/tdp005_dogeater/src/main.cc
+game.h
+/home/david/tdp005_dogeater/src/game.h
+player.h
+/home/david/tdp005_dogeater/src/player.h
+SFML/Graphics.hpp
+-
+map
+-
+string
 -
 
 /home/david/tdp005_dogeater/src/player.cc
@@ -21,6 +53,14 @@ iostream
 -
 
 /home/david/tdp005_dogeater/src/player.h
+map
+-
+string
+-
+entity.h
+/home/david/tdp005_dogeater/src/entity.h
+
+/home/david/tdp005_dogeater/src/projectile.h
 map
 -
 string

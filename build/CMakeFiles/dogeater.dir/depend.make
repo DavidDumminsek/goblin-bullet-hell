@@ -19,6 +19,7 @@ CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.o: /home/david/td
 CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.o: /home/david/tdp005_dogeater/src/entity.h
 CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.o: /home/david/tdp005_dogeater/src/game.h
 CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.o: /home/david/tdp005_dogeater/src/main.cc
+CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.o: /home/david/tdp005_dogeater/src/player.h
 CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.o: /home/david/tdp005_dogeater/src/projectile.h
 
 CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.o: /home/david/tdp005_dogeater/src/entity.h
