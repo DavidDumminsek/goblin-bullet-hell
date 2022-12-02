@@ -6,10 +6,15 @@
 Game::Game()
 { 
   std::ifstream file("levels/level1.json");
+  if(file) 
+    std::cout << "FILE EXISTS" << std::endl;
+  else
+    std::cout << "FILE DOESN'T EXSIST" << std::endl;
   Json::Reader reader;
-  Json::Value completeJsonData;
-  reader.parse(file, completeJsonData);
+  Json::Value data;
+  reader.parse(file, data);
 
   //test
-  std::cout << "JSON DATA " << std::endl << completeJsonData << std::endl;
+  std::cout << "JSON DATA " << std::endl;
+  std::cout << data << std::endl;
 }

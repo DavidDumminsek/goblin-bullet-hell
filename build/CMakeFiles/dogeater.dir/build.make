@@ -109,12 +109,40 @@ CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/enemy.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/enemy.cc.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/tdp005_dogeater/src/enemy.cc -o CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/enemy.cc.s
 
+CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.o: CMakeFiles/dogeater.dir/flags.make
+CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.o: /home/david/tdp005_dogeater/src/player.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/tdp005_dogeater/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.o -c /home/david/tdp005_dogeater/src/player.cc
+
+CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/tdp005_dogeater/src/player.cc > CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.i
+
+CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/tdp005_dogeater/src/player.cc -o CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.s
+
+CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.o: CMakeFiles/dogeater.dir/flags.make
+CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.o: /home/david/tdp005_dogeater/src/projectile.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/david/tdp005_dogeater/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.o -c /home/david/tdp005_dogeater/src/projectile.cc
+
+CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/david/tdp005_dogeater/src/projectile.cc > CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.i
+
+CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/david/tdp005_dogeater/src/projectile.cc -o CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.s
+
 # Object files for target dogeater
 dogeater_OBJECTS = \
 "CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.o" \
 "CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/game.cc.o" \
 "CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/entity.cc.o" \
-"CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/enemy.cc.o"
+"CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/enemy.cc.o" \
+"CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.o" \
+"CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.o"
 
 # External object files for target dogeater
 dogeater_EXTERNAL_OBJECTS =
@@ -123,12 +151,14 @@ dogeater: CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.o
 dogeater: CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/game.cc.o
 dogeater: CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/entity.cc.o
 dogeater: CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/enemy.cc.o
+dogeater: CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.o
+dogeater: CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.o
 dogeater: CMakeFiles/dogeater.dir/build.make
 dogeater: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1
 dogeater: /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1
 dogeater: /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1
 dogeater: CMakeFiles/dogeater.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/david/tdp005_dogeater/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable dogeater"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/david/tdp005_dogeater/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable dogeater"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dogeater.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

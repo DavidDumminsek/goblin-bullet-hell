@@ -231,6 +231,60 @@ home/david/tdp005_dogeater/src/main.cc.s:
 	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.s
 .PHONY : home/david/tdp005_dogeater/src/main.cc.s
 
+home/david/tdp005_dogeater/src/player.o: home/david/tdp005_dogeater/src/player.cc.o
+
+.PHONY : home/david/tdp005_dogeater/src/player.o
+
+# target to build an object file
+home/david/tdp005_dogeater/src/player.cc.o:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.o
+.PHONY : home/david/tdp005_dogeater/src/player.cc.o
+
+home/david/tdp005_dogeater/src/player.i: home/david/tdp005_dogeater/src/player.cc.i
+
+.PHONY : home/david/tdp005_dogeater/src/player.i
+
+# target to preprocess a source file
+home/david/tdp005_dogeater/src/player.cc.i:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.i
+.PHONY : home/david/tdp005_dogeater/src/player.cc.i
+
+home/david/tdp005_dogeater/src/player.s: home/david/tdp005_dogeater/src/player.cc.s
+
+.PHONY : home/david/tdp005_dogeater/src/player.s
+
+# target to generate assembly for a file
+home/david/tdp005_dogeater/src/player.cc.s:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.s
+.PHONY : home/david/tdp005_dogeater/src/player.cc.s
+
+home/david/tdp005_dogeater/src/projectile.o: home/david/tdp005_dogeater/src/projectile.cc.o
+
+.PHONY : home/david/tdp005_dogeater/src/projectile.o
+
+# target to build an object file
+home/david/tdp005_dogeater/src/projectile.cc.o:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.o
+.PHONY : home/david/tdp005_dogeater/src/projectile.cc.o
+
+home/david/tdp005_dogeater/src/projectile.i: home/david/tdp005_dogeater/src/projectile.cc.i
+
+.PHONY : home/david/tdp005_dogeater/src/projectile.i
+
+# target to preprocess a source file
+home/david/tdp005_dogeater/src/projectile.cc.i:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.i
+.PHONY : home/david/tdp005_dogeater/src/projectile.cc.i
+
+home/david/tdp005_dogeater/src/projectile.s: home/david/tdp005_dogeater/src/projectile.cc.s
+
+.PHONY : home/david/tdp005_dogeater/src/projectile.s
+
+# target to generate assembly for a file
+home/david/tdp005_dogeater/src/projectile.cc.s:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.s
+.PHONY : home/david/tdp005_dogeater/src/projectile.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -252,6 +306,12 @@ help:
 	@echo "... home/david/tdp005_dogeater/src/main.o"
 	@echo "... home/david/tdp005_dogeater/src/main.i"
 	@echo "... home/david/tdp005_dogeater/src/main.s"
+	@echo "... home/david/tdp005_dogeater/src/player.o"
+	@echo "... home/david/tdp005_dogeater/src/player.i"
+	@echo "... home/david/tdp005_dogeater/src/player.s"
+	@echo "... home/david/tdp005_dogeater/src/projectile.o"
+	@echo "... home/david/tdp005_dogeater/src/projectile.i"
+	@echo "... home/david/tdp005_dogeater/src/projectile.s"
 .PHONY : help
 
 

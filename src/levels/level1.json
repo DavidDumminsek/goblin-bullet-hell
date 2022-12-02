@@ -1,27 +1,26 @@
-{"Enemy":[
-  "enemy1":{
-    "id":1,
-    "tickSpawn": 110,
-    "x":20,
-    "y":10,
-    "mathMoveFunct": {"a":0, "b":0 "c":0,"d":-4, "f":110},
-    "projectile": {"a":0, "b":0 ,"c": 0, "d":0, "f":0}
-  },
-  "enemy2":{
-    "id":2,
-    "tickSpawn": 170,
-    "x":20,
-    "y":10,
-    "mathMoveFunct": {"a":0, "b":0 "c":0,"d":-4, "f":110},
-    "projectile": {"a":0, "b":0 ,"c": 0, "d":1, "f":0}
-  },
-  "enemy3":{
-    "id":3,
-    "tickSpawn": 230,
-    "x":20,
-    "y":10,
-    "mathMoveFunct": {"a":0, "b":0 "c":0,"d":-4, "f":110},
-    "projectile": {"a":0, "b":0 ,"c": 0, "d":1, "f":0}
-  }
-
-]}
+[
+    {
+      "id":1,
+      "tickSpawn": 110,
+      "x":20,
+      "y":10,
+      "mathMoveFunct": {"a":0, "b":0, "c":0,"d":-4, "f":110},
+      "projectile": {"a":0, "b":0, "c": 0, "d":0, "f":0}
+    },
+    {
+      "id":2,
+      "tickSpawn": 170,
+      "x":20,
+      "y":10,
+      "mathMoveFunct": {"a":0, "b":0, "c":0,"d":-4, "f":110},
+      "projectile": {"a":0, "b":0 ,"c": 0, "d":1, "f":0}
+    },
+    {
+      "id":3,
+      "tickSpawn": 230,
+      "x":20,
+      "y":10,
+      "mathMoveFunct": {"a":0, "b":0, "c":0,"d":-4, "f":110},
+      "projectile": {"a":0, "b":0 ,"c": 0, "d":1, "f":0}
+    }
+]

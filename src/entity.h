@@ -10,7 +10,6 @@ class Entity
     int y{0};
     float speed{0.0};
     int life{0};
-    std::map<std::string,int> movement;
   public:
     Entity();
     Entity( int xc, int yc, float spd, int l);
@@ -25,7 +24,6 @@ class Entity
     Entity& operator=(Entity&& rhs) = default;
     void virtual move();
     void virtual shoot();
-    //destroy object, if player is destroyed restart everything making a new player object
     void die();
     std::pair<int, int> getCoords();
 };
