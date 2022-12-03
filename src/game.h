@@ -30,7 +30,7 @@ class Game{
     Game(sf::RenderWindow& w);
     void collisionCheck();
     void update(sf::Event& e, sf::RenderWindow&  w);
-    void render(sf::RenderWindow& w) const;
+    void render(sf::RenderWindow& w);
     void victory();
     void spawnEnemy();
     void updateProjectile();

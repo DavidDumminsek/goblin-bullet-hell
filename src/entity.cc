@@ -34,11 +34,11 @@ void Entity::die()
   delete this;
 }
 
-int Entity::GetX()
+int Entity::GetX() const
 {
   return x;
 }
-int Entity::GetY()
+int Entity::GetY() const
 {
   return y;
 }

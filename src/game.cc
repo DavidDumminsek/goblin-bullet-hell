@@ -28,7 +28,7 @@ Game::Game(sf::RenderWindow& w)
   playerHeight = playerSprite.getTexture()->getSize().y;
   windowWidth = w.getSize().x;
   windowHeight = w.getSize().y;
-  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 10.0, 2, 15);
+  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 0.1, 2, 15);
   playerSprite.setPosition(player.GetX(), player.GetY());
 
   std::cout << "CURRENT PATH IS " << std::filesystem::current_path() << std::endl;
@@ -45,8 +45,9 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
 {
   //RUN EVERYTHING TO HAPPEN EVERY TICK
 
-  while (w.pollEvent(e))
+  while(w.pollEvent(e))
   {
+    std::cout << "POLL EVENT" << std::endl;
     if (e.type == sf::Event::Closed)
        w.close();
     else if(e.type == sf::Event::KeyPressed)
@@ -55,7 +56,11 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
  }  
 }
 
-void Game::render(sf::RenderWindow& w) const
+void Game::render(sf::RenderWindow& w)
 {
+  int playerX = (player.GetX() - playerWidth);
+  int playerY = (player.GetY() - playerHeight);
+  playerSprite.setPosition(playerX, playerY);
   w.draw(playerSprite);
+
 }

@@ -48,4 +48,5 @@ void Player::move(sf::Event e)
   {
     x += speed;
   }
+  std::cout << "PLAYER MOVE CALLED: X: "<< x << " Y: " << y << std::endl;
 }

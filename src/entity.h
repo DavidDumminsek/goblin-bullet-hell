@@ -25,8 +25,8 @@ class Entity
     void virtual move();
     void virtual shoot();
     void die();
-    int GetX();
-    int GetY();
+    int GetX() const;
+    int GetY() const;
 };
 
 #endif

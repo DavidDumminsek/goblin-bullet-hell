@@ -58,18 +58,6 @@ SFML/Graphics.hpp
 filesystem
 -
 
-/home/david/tdp005_dogeater/src/main.cc
-game.h
-/home/david/tdp005_dogeater/src/game.h
-player.h
-/home/david/tdp005_dogeater/src/player.h
-SFML/Graphics.hpp
--
-map
--
-string
--
-
 /home/david/tdp005_dogeater/src/player.h
 map
 -
