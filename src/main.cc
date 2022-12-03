@@ -5,21 +5,18 @@
 #include <string>
 int main (int argc, char *argv[])
 {
-  Game game;  
-  std::map<std::string, int> mv = {{"a", 0}};
-  Player p{10,10,20.0,2, 20, mv};
+  Player p{10,10,20.0,2, 20};
   sf::RenderWindow window(sf::VideoMode(360, 640 ), "SFML works!");
+  Game game(window);  
 
   while (window.isOpen())
   {
       sf::Event event;
-      while (window.pollEvent(event))
-      {
-        if (event.type == sf::Event::Closed)
-           window.close();
-      }
+      game.update(event, window);
 
       window.clear();
+      //render
+      game.render(window); 
       window.display();
   }
 

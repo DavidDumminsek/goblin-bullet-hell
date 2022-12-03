@@ -48,7 +48,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/david/tdp005_dogeater/build
+CMAKE_SOURCE_DIR = /home/david/tdp005_dogeater
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/david/tdp005_dogeater/build
@@ -123,167 +123,167 @@ dogeater/fast:
 	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/build
 .PHONY : dogeater/fast
 
-home/david/tdp005_dogeater/src/enemy.o: home/david/tdp005_dogeater/src/enemy.cc.o
+src/enemy.o: src/enemy.cc.o
 
-.PHONY : home/david/tdp005_dogeater/src/enemy.o
-
-# target to build an object file
-home/david/tdp005_dogeater/src/enemy.cc.o:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/enemy.cc.o
-.PHONY : home/david/tdp005_dogeater/src/enemy.cc.o
-
-home/david/tdp005_dogeater/src/enemy.i: home/david/tdp005_dogeater/src/enemy.cc.i
-
-.PHONY : home/david/tdp005_dogeater/src/enemy.i
-
-# target to preprocess a source file
-home/david/tdp005_dogeater/src/enemy.cc.i:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/enemy.cc.i
-.PHONY : home/david/tdp005_dogeater/src/enemy.cc.i
-
-home/david/tdp005_dogeater/src/enemy.s: home/david/tdp005_dogeater/src/enemy.cc.s
-
-.PHONY : home/david/tdp005_dogeater/src/enemy.s
-
-# target to generate assembly for a file
-home/david/tdp005_dogeater/src/enemy.cc.s:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/enemy.cc.s
-.PHONY : home/david/tdp005_dogeater/src/enemy.cc.s
-
-home/david/tdp005_dogeater/src/entity.o: home/david/tdp005_dogeater/src/entity.cc.o
-
-.PHONY : home/david/tdp005_dogeater/src/entity.o
+.PHONY : src/enemy.o
 
 # target to build an object file
-home/david/tdp005_dogeater/src/entity.cc.o:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/entity.cc.o
-.PHONY : home/david/tdp005_dogeater/src/entity.cc.o
+src/enemy.cc.o:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/enemy.cc.o
+.PHONY : src/enemy.cc.o
 
-home/david/tdp005_dogeater/src/entity.i: home/david/tdp005_dogeater/src/entity.cc.i
+src/enemy.i: src/enemy.cc.i
 
-.PHONY : home/david/tdp005_dogeater/src/entity.i
+.PHONY : src/enemy.i
 
 # target to preprocess a source file
-home/david/tdp005_dogeater/src/entity.cc.i:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/entity.cc.i
-.PHONY : home/david/tdp005_dogeater/src/entity.cc.i
+src/enemy.cc.i:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/enemy.cc.i
+.PHONY : src/enemy.cc.i
 
-home/david/tdp005_dogeater/src/entity.s: home/david/tdp005_dogeater/src/entity.cc.s
+src/enemy.s: src/enemy.cc.s
 
-.PHONY : home/david/tdp005_dogeater/src/entity.s
+.PHONY : src/enemy.s
 
 # target to generate assembly for a file
-home/david/tdp005_dogeater/src/entity.cc.s:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/entity.cc.s
-.PHONY : home/david/tdp005_dogeater/src/entity.cc.s
+src/enemy.cc.s:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/enemy.cc.s
+.PHONY : src/enemy.cc.s
 
-home/david/tdp005_dogeater/src/game.o: home/david/tdp005_dogeater/src/game.cc.o
+src/entity.o: src/entity.cc.o
 
-.PHONY : home/david/tdp005_dogeater/src/game.o
+.PHONY : src/entity.o
 
 # target to build an object file
-home/david/tdp005_dogeater/src/game.cc.o:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/game.cc.o
-.PHONY : home/david/tdp005_dogeater/src/game.cc.o
+src/entity.cc.o:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/entity.cc.o
+.PHONY : src/entity.cc.o
 
-home/david/tdp005_dogeater/src/game.i: home/david/tdp005_dogeater/src/game.cc.i
+src/entity.i: src/entity.cc.i
 
-.PHONY : home/david/tdp005_dogeater/src/game.i
+.PHONY : src/entity.i
 
 # target to preprocess a source file
-home/david/tdp005_dogeater/src/game.cc.i:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/game.cc.i
-.PHONY : home/david/tdp005_dogeater/src/game.cc.i
+src/entity.cc.i:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/entity.cc.i
+.PHONY : src/entity.cc.i
 
-home/david/tdp005_dogeater/src/game.s: home/david/tdp005_dogeater/src/game.cc.s
+src/entity.s: src/entity.cc.s
 
-.PHONY : home/david/tdp005_dogeater/src/game.s
+.PHONY : src/entity.s
 
 # target to generate assembly for a file
-home/david/tdp005_dogeater/src/game.cc.s:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/game.cc.s
-.PHONY : home/david/tdp005_dogeater/src/game.cc.s
+src/entity.cc.s:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/entity.cc.s
+.PHONY : src/entity.cc.s
 
-home/david/tdp005_dogeater/src/main.o: home/david/tdp005_dogeater/src/main.cc.o
+src/game.o: src/game.cc.o
 
-.PHONY : home/david/tdp005_dogeater/src/main.o
+.PHONY : src/game.o
 
 # target to build an object file
-home/david/tdp005_dogeater/src/main.cc.o:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.o
-.PHONY : home/david/tdp005_dogeater/src/main.cc.o
+src/game.cc.o:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/game.cc.o
+.PHONY : src/game.cc.o
 
-home/david/tdp005_dogeater/src/main.i: home/david/tdp005_dogeater/src/main.cc.i
+src/game.i: src/game.cc.i
 
-.PHONY : home/david/tdp005_dogeater/src/main.i
+.PHONY : src/game.i
 
 # target to preprocess a source file
-home/david/tdp005_dogeater/src/main.cc.i:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.i
-.PHONY : home/david/tdp005_dogeater/src/main.cc.i
+src/game.cc.i:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/game.cc.i
+.PHONY : src/game.cc.i
 
-home/david/tdp005_dogeater/src/main.s: home/david/tdp005_dogeater/src/main.cc.s
+src/game.s: src/game.cc.s
 
-.PHONY : home/david/tdp005_dogeater/src/main.s
+.PHONY : src/game.s
 
 # target to generate assembly for a file
-home/david/tdp005_dogeater/src/main.cc.s:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.s
-.PHONY : home/david/tdp005_dogeater/src/main.cc.s
+src/game.cc.s:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/game.cc.s
+.PHONY : src/game.cc.s
 
-home/david/tdp005_dogeater/src/player.o: home/david/tdp005_dogeater/src/player.cc.o
+src/main.o: src/main.cc.o
 
-.PHONY : home/david/tdp005_dogeater/src/player.o
+.PHONY : src/main.o
 
 # target to build an object file
-home/david/tdp005_dogeater/src/player.cc.o:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.o
-.PHONY : home/david/tdp005_dogeater/src/player.cc.o
+src/main.cc.o:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/main.cc.o
+.PHONY : src/main.cc.o
 
-home/david/tdp005_dogeater/src/player.i: home/david/tdp005_dogeater/src/player.cc.i
+src/main.i: src/main.cc.i
 
-.PHONY : home/david/tdp005_dogeater/src/player.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-home/david/tdp005_dogeater/src/player.cc.i:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.i
-.PHONY : home/david/tdp005_dogeater/src/player.cc.i
+src/main.cc.i:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/main.cc.i
+.PHONY : src/main.cc.i
 
-home/david/tdp005_dogeater/src/player.s: home/david/tdp005_dogeater/src/player.cc.s
+src/main.s: src/main.cc.s
 
-.PHONY : home/david/tdp005_dogeater/src/player.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-home/david/tdp005_dogeater/src/player.cc.s:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.s
-.PHONY : home/david/tdp005_dogeater/src/player.cc.s
+src/main.cc.s:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/main.cc.s
+.PHONY : src/main.cc.s
 
-home/david/tdp005_dogeater/src/projectile.o: home/david/tdp005_dogeater/src/projectile.cc.o
+src/player.o: src/player.cc.o
 
-.PHONY : home/david/tdp005_dogeater/src/projectile.o
+.PHONY : src/player.o
 
 # target to build an object file
-home/david/tdp005_dogeater/src/projectile.cc.o:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.o
-.PHONY : home/david/tdp005_dogeater/src/projectile.cc.o
+src/player.cc.o:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/player.cc.o
+.PHONY : src/player.cc.o
 
-home/david/tdp005_dogeater/src/projectile.i: home/david/tdp005_dogeater/src/projectile.cc.i
+src/player.i: src/player.cc.i
 
-.PHONY : home/david/tdp005_dogeater/src/projectile.i
+.PHONY : src/player.i
 
 # target to preprocess a source file
-home/david/tdp005_dogeater/src/projectile.cc.i:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.i
-.PHONY : home/david/tdp005_dogeater/src/projectile.cc.i
+src/player.cc.i:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/player.cc.i
+.PHONY : src/player.cc.i
 
-home/david/tdp005_dogeater/src/projectile.s: home/david/tdp005_dogeater/src/projectile.cc.s
+src/player.s: src/player.cc.s
 
-.PHONY : home/david/tdp005_dogeater/src/projectile.s
+.PHONY : src/player.s
 
 # target to generate assembly for a file
-home/david/tdp005_dogeater/src/projectile.cc.s:
-	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.s
-.PHONY : home/david/tdp005_dogeater/src/projectile.cc.s
+src/player.cc.s:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/player.cc.s
+.PHONY : src/player.cc.s
+
+src/projectile.o: src/projectile.cc.o
+
+.PHONY : src/projectile.o
+
+# target to build an object file
+src/projectile.cc.o:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/projectile.cc.o
+.PHONY : src/projectile.cc.o
+
+src/projectile.i: src/projectile.cc.i
+
+.PHONY : src/projectile.i
+
+# target to preprocess a source file
+src/projectile.cc.i:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/projectile.cc.i
+.PHONY : src/projectile.cc.i
+
+src/projectile.s: src/projectile.cc.s
+
+.PHONY : src/projectile.s
+
+# target to generate assembly for a file
+src/projectile.cc.s:
+	$(MAKE) -f CMakeFiles/dogeater.dir/build.make CMakeFiles/dogeater.dir/src/projectile.cc.s
+.PHONY : src/projectile.cc.s
 
 # Help Target
 help:
@@ -294,24 +294,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... dogeater"
-	@echo "... home/david/tdp005_dogeater/src/enemy.o"
-	@echo "... home/david/tdp005_dogeater/src/enemy.i"
-	@echo "... home/david/tdp005_dogeater/src/enemy.s"
-	@echo "... home/david/tdp005_dogeater/src/entity.o"
-	@echo "... home/david/tdp005_dogeater/src/entity.i"
-	@echo "... home/david/tdp005_dogeater/src/entity.s"
-	@echo "... home/david/tdp005_dogeater/src/game.o"
-	@echo "... home/david/tdp005_dogeater/src/game.i"
-	@echo "... home/david/tdp005_dogeater/src/game.s"
-	@echo "... home/david/tdp005_dogeater/src/main.o"
-	@echo "... home/david/tdp005_dogeater/src/main.i"
-	@echo "... home/david/tdp005_dogeater/src/main.s"
-	@echo "... home/david/tdp005_dogeater/src/player.o"
-	@echo "... home/david/tdp005_dogeater/src/player.i"
-	@echo "... home/david/tdp005_dogeater/src/player.s"
-	@echo "... home/david/tdp005_dogeater/src/projectile.o"
-	@echo "... home/david/tdp005_dogeater/src/projectile.i"
-	@echo "... home/david/tdp005_dogeater/src/projectile.s"
+	@echo "... src/enemy.o"
+	@echo "... src/enemy.i"
+	@echo "... src/enemy.s"
+	@echo "... src/entity.o"
+	@echo "... src/entity.i"
+	@echo "... src/entity.s"
+	@echo "... src/game.o"
+	@echo "... src/game.i"
+	@echo "... src/game.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... src/player.o"
+	@echo "... src/player.i"
+	@echo "... src/player.s"
+	@echo "... src/projectile.o"
+	@echo "... src/projectile.i"
+	@echo "... src/projectile.s"
 .PHONY : help
 
 

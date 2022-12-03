@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include "entity.h"
+#include <SFML/Graphics.hpp>
 class Player : public Entity
 {
   private:
@@ -10,7 +11,7 @@ class Player : public Entity
     int damage{0};
   public:
     Player();
-    Player(int xc, int yc, float spd, int l, int dmg, std::map<std::string, int> mv);
+    Player(int xc, int yc, float spd, int l, int dmg);
     Player(const Player& rhs) = default;
     //move constructor
     Player(Player&& rhs) = default;
@@ -20,6 +21,6 @@ class Player : public Entity
     Player& operator=(Player&& rhs) = default;
     ~Player() = default;
     void shoot() override;
-    void move() override;
+    void move(sf::Event e);
 };
 #endif

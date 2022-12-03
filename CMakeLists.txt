@@ -8,18 +8,20 @@ set(CMAKE_MODULE_PATH "usr/include")
 find_package(SFML REQUIRED COMPONENTS graphics window system)
 find_package(jsoncpp REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
-set(DIRECTORY "../src")
+set(DIRECTORY "./src/")
 #target_include_directories(dogeater PRIVATE ${DIRECTORY})
 set(SOURCE 
-   ${DIRECTORY}/main.cc 
-   ${DIRECTORY}/game.cc 
-   ${DIRECTORY}/entity.cc 
-   ${DIRECTORY}/enemy.cc
-   ${DIRECTORY}/player.cc
-   ${DIRECTORY}/projectile.cc
+   ${DIRECTORY}main.cc 
+   ${DIRECTORY}game.cc 
+   ${DIRECTORY}entity.cc 
+   ${DIRECTORY}enemy.cc
+   ${DIRECTORY}player.cc
+   ${DIRECTORY}projectile.cc
 )
-
+file(COPY ${DIRECTORY}/sprites/player.png DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 add_executable(dogeater ${SOURCE})
+
+#target_link_directories(dogeater PUBLIC ./src/levels/ ./src/sprites/)
 target_link_libraries(dogeater PRIVATE sfml-graphics sfml-window sfml-window jsoncpp )
 

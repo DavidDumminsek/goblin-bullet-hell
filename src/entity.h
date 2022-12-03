@@ -25,7 +25,8 @@ class Entity
     void virtual move();
     void virtual shoot();
     void die();
-    std::pair<int, int> getCoords();
+    int GetX();
+    int GetY();
 };
 
 #endif

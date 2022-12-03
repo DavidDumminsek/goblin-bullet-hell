@@ -1,4 +1,4 @@
-# Install script for directory: /home/david/tdp005_dogeater/build
+# Install script for directory: /home/david/tdp005_dogeater
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

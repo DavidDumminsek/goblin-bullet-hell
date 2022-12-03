@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/david/tdp005_dogeater/src/enemy.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/enemy.cc.o"
-  "/home/david/tdp005_dogeater/src/entity.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/entity.cc.o"
-  "/home/david/tdp005_dogeater/src/game.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/game.cc.o"
-  "/home/david/tdp005_dogeater/src/main.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/main.cc.o"
-  "/home/david/tdp005_dogeater/src/player.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/player.cc.o"
-  "/home/david/tdp005_dogeater/src/projectile.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/home/david/tdp005_dogeater/src/projectile.cc.o"
+  "/home/david/tdp005_dogeater/src/enemy.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/enemy.cc.o"
+  "/home/david/tdp005_dogeater/src/entity.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/entity.cc.o"
+  "/home/david/tdp005_dogeater/src/game.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/game.cc.o"
+  "/home/david/tdp005_dogeater/src/main.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/main.cc.o"
+  "/home/david/tdp005_dogeater/src/player.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/player.cc.o"
+  "/home/david/tdp005_dogeater/src/projectile.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/projectile.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

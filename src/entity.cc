@@ -34,8 +34,11 @@ void Entity::die()
   delete this;
 }
 
-std::pair<int, int> Entity::getCoords()
+int Entity::GetX()
 {
-  auto p = std::make_pair(x, y);
-  return p;
+  return x;
+}
+int Entity::GetY()
+{
+  return y;
 }
