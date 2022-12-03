@@ -1,4 +1,5 @@
 #include "player.h"
+#include <SFML/Window/Keyboard.hpp>
 #include <iostream>
 /*Player::Player(int xc, int yc, float spd, int l, int dmg)
 : Entity::Entity(xc, yc, spd, l)
@@ -32,21 +33,22 @@ void Player::move(sf::Event e)
 {
   auto keyPressed = e.key.code; 
 
-  if( keyPressed == sf::Keyboard::Up && y > 0)
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && y > 20)
   {
     y -= speed;
   }
-  if( keyPressed == sf::Keyboard::Down && y < 640)
+  if( sf::Keyboard::isKeyPressed(sf::Keyboard::Down)  && y < 640)
   {
     y += speed;
   }
-  if( keyPressed == sf::Keyboard::Left && x > 0)
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)  && x > 20)
   {
     x -= speed;
   }
-  if( keyPressed == sf::Keyboard::Right && x < 360)
+  if( sf::Keyboard::isKeyPressed(sf::Keyboard::Right)  && x < 360)
   {
     x += speed;
   }
+  
   std::cout << "PLAYER MOVE CALLED: X: "<< x << " Y: " << y << std::endl;
 }

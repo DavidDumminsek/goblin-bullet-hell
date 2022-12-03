@@ -6,7 +6,7 @@ Entity::Entity()
 {
   x = 160;
   y = 320;
-  speed = 20.0;
+  speed = 1.f;
   int life = 2;
 }
 
