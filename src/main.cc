@@ -6,6 +6,7 @@
 int main (int argc, char *argv[])
 {
   sf::RenderWindow window(sf::VideoMode(360, 640 ), "SFML works!");
+  window.setFramerateLimit(144);
   Game game(window);  
 
   while (window.isOpen())

@@ -45,22 +45,26 @@ void Game::collisionCheck()
   //TO DO
   //CHECK IF OBJECT COORDS OVERLAP
   //USE GAME VECTOR FOR ENEMY PROJECTILE TO CHECK AGAISNT PLAYER
-  auto it=playerProjectile.end();
-  auto it1 = playerProjectileSprite.end();
-  for(; it != playerProjectile.begin() && it1 != playerProjectileSprite.begin(); --it, --it1 )
+  if(playerProjectile.size() > 1)
   {
-    it->get()->move();
-    if( it->get()->GetY() < 0) 
+    std::cout << playerProjectile[0]->GetY() << std::endl;
+    auto it=playerProjectile.begin();
+    auto it1 = playerProjectileSprite.begin();
+    for(; it != playerProjectile.end() && it1 != playerProjectileSprite.end(); /*--it, --it1*/ )
     {
-      playerProjectile.erase(it);
-      playerProjectileSprite.erase(it1);
+      if( it->get()->GetY() < 0) 
+      {
+        it = playerProjectile.erase(it);
+        it1 = playerProjectileSprite.erase(it1);
+      }
+      else
+      {
+        ++it;
+        ++it1;
+      }
     }
-    else
-    {
-    it1->get()->setPosition(it->get()->GetX(), it->get()->GetY());
-    }
+  
   }
-
 }
 
 void Game::update(sf::Event& e, sf::RenderWindow& w)
@@ -82,14 +86,13 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
     //MÅSTE ANVÄNDA MOVE PÅ SMART PEKARE!"!!"
     playerProjectile.push_back(std::move(temp));
     std::unique_ptr<sf::Sprite> tmpSprite(new sf::Sprite);
-    std::cout << "PLAYER PROJECTILE TEXTURE   !  ! ! " << playerProjectileTexture.getSize().x << std::endl;
     tmpSprite->setTexture(playerProjectileTexture);
     playerProjectileSprite.push_back(std::move(tmpSprite));
   }
   //std::vector<std::unique_ptr<Projectile>> old = playerProjectile;
   //std::transform(old, old + old.size(), playerProjectile, [](Projectile* p){ p->move(); });
   //MOVE EVERY PLAYER PROJECTILE
-  std::cout << "PLAYER PROJECTILE SIZE:  " << playerProjectile.size() << std::endl;
+  //std::cout << "PLAYER PROJECTILE SIZE:  " << playerProjectile.size() << std::endl;
   /*auto movePro = [&](std::unique_ptr<Projectile>& p, std::unique_ptr<sf::Sprite>& sp){
     p->move();
     sp->setPosition(p->GetX(),p->GetY());  
@@ -102,8 +105,7 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
     it->get()->move();
     it1->get()->setPosition(it->get()->GetX(), it->get()->GetY());
   }
-  //std::cout << playerProjectile[0]->GetY() << std::endl;
-  //collisionCheck();
+  collisionCheck();
 }
 
 void Game::render(sf::RenderWindow& w)

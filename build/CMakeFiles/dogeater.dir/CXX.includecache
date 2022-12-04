@@ -20,26 +20,6 @@ string
 map
 -
 
-/home/david/tdp005_dogeater/src/game.cc
-game.h
-/home/david/tdp005_dogeater/src/game.h
-projectile.h
-/home/david/tdp005_dogeater/src/projectile.h
-algorithm
--
-jsoncpp/json/json.h
--
-iostream
--
-fstream
--
-SFML/Graphics.hpp
--
-filesystem
--
-ostream
--
-
 /home/david/tdp005_dogeater/src/game.h
 SFML/Graphics/Sprite.hpp
 -
@@ -64,6 +44,18 @@ projectile.h
 SFML/Graphics.hpp
 -
 filesystem
+-
+
+/home/david/tdp005_dogeater/src/main.cc
+game.h
+/home/david/tdp005_dogeater/src/game.h
+player.h
+/home/david/tdp005_dogeater/src/player.h
+SFML/Graphics.hpp
+-
+map
+-
+string
 -
 
 /home/david/tdp005_dogeater/src/player.h
