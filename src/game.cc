@@ -102,7 +102,7 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
     it->get()->move();
     it1->get()->setPosition(it->get()->GetX(), it->get()->GetY());
   }
-  std::cout << playerProjectile[0]->GetY() << std::endl;
+  //std::cout << playerProjectile[0]->GetY() << std::endl;
   //collisionCheck();
 }
 
