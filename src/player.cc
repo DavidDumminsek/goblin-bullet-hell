@@ -1,4 +1,5 @@
 #include "player.h"
+#include "projectile.h"
 #include <SFML/Window/Keyboard.hpp>
 #include <iostream>
 /*Player::Player(int xc, int yc, float spd, int l, int dmg)
@@ -25,9 +26,18 @@ Player::Player(int xc, int yc, float spd, int l, int dmg)
   std::cout << "LIFE: " << life << std::endl;
 
 }
-void Player::shoot()
+ std::unique_ptr<Projectile> Player::shoot()
 {
-  std::cout << "SHOOT" << std::endl;
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+  {
+    std::unique_ptr<Projectile> p(new Projectile{x,y,11.f,1,10} );
+    return p;
+  }
+  else
+  {
+   std::unique_ptr<Projectile> p(nullptr);
+   return p;  
+  }
 }
 void Player::move(sf::Event e)
 {
@@ -50,5 +60,5 @@ void Player::move(sf::Event e)
     x += speed;
   }
   
-  std::cout << "PLAYER MOVE CALLED: X: "<< x << " Y: " << y << std::endl;
+  //std::cout << "PLAYER MOVE CALLED: X: "<< x << " Y: " << y << std::endl;
 }

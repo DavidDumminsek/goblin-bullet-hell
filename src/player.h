@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include "entity.h"
+#include "projectile.h"
 #include <SFML/Graphics.hpp>
 class Player : public Entity
 {
@@ -20,7 +21,7 @@ class Player : public Entity
     //move assigment
     Player& operator=(Player&& rhs) = default;
     ~Player() = default;
-    void shoot() override;
+    std::unique_ptr<Projectile> shoot();
     void move(sf::Event e);
 };
 #endif

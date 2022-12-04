@@ -1,5 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
+#include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Window/Window.hpp>
 #include <vector>
@@ -16,11 +17,13 @@ class Game{
     std::vector< std::map<std::string, int> > level;
     int tick{0};
     std::vector<Enemy> enemies;
-    std::vector<Projectile> enemyProjectile;
-    std::vector<Projectile> playerProjectile;
+    std::vector<std::unique_ptr<Projectile>> enemyProjectile;
+    std::vector<std::unique_ptr<Projectile>> playerProjectile;
+    std::vector<std::unique_ptr<sf::Sprite>> playerProjectileSprite;
     bool gameRunning{false};
     sf::Texture texture;
     sf::Sprite playerSprite; 
+    sf::Texture playerProjectileTexture;
     Player player;
     int playerWidth;
     int playerHeight;

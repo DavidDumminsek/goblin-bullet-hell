@@ -19,10 +19,6 @@ Entity::Entity(int xc, int yc, float spd, int l)
   life = l;
 }
 
-void Entity::shoot()
-{
-  std::cout << "SHOOT" << std::endl;
-}
 
 void Entity::move()
 {

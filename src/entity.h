@@ -23,7 +23,6 @@ class Entity
     //move assigment
     Entity& operator=(Entity&& rhs) = default;
     void virtual move();
-    void virtual shoot();
     void die();
     int GetX() const;
     int GetY() const;

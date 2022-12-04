@@ -26,6 +26,7 @@ CMakeFiles/dogeater.dir/src/main.cc.o: ../src/projectile.h
 CMakeFiles/dogeater.dir/src/player.cc.o: ../src/entity.h
 CMakeFiles/dogeater.dir/src/player.cc.o: ../src/player.cc
 CMakeFiles/dogeater.dir/src/player.cc.o: ../src/player.h
+CMakeFiles/dogeater.dir/src/player.cc.o: ../src/projectile.h
 
 CMakeFiles/dogeater.dir/src/projectile.cc.o: ../src/entity.h
 CMakeFiles/dogeater.dir/src/projectile.cc.o: ../src/projectile.cc

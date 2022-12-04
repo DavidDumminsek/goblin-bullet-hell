@@ -9,6 +9,6 @@ class Enemy : public Entity
   public:
     Enemy(int xc, int yc, float spd, int l, int dmg, std::map<std::string, int> mv) : Entity(xc, yc, spd, l){}
     ~Enemy() override;
-    void shoot() override;
+    void shoot();
 };
 #endif

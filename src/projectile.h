@@ -7,10 +7,11 @@ class Projectile : public Entity
 {
   private:
     int dmg{0};
-    std::map<std::string,int> movement;
+    std::string movement;
   public:
     Projectile();
-    Projectile(int xc, int yc, float spd, int l, int dmg, std::map<std::string, int> mv);
+    Projectile(int xc, int yc, float spd, int l, int dmg);
+    Projectile(int xc, int yc, float spd, int l, int dmg, std::string mv);
     ~Projectile() = default;
     //Copy conttructor
     //to be added
@@ -21,6 +22,8 @@ class Projectile : public Entity
     Projectile& operator=(const Projectile& rhs) = default;
     //move assigment
     Projectile& operator=(Projectile&& rhs) = default;
+    //move
+    void move();
 
 
 
