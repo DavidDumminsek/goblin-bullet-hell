@@ -26,6 +26,7 @@ void Enemy::move(int tick)
 {
   if(movement == "straight")
   {
+    std::cout << "MOVE FOWARD" << std::endl;
     y+=speed;
   }
   else if(movement == "right")
@@ -33,22 +34,11 @@ void Enemy::move(int tick)
     y += speed;
     x += speed;
   }
-  else if(movement == "zigzag")
-  {
-    if(x >= 360)
-    {
-      y += speed;
-      x -= speed;
-    }
-    else
-    {
-      y+= speed;
-      x+= speed;
-    }
-  }
   else
   {
+    std::cout << "MOVE FOWARD" << std::endl;
     y += speed;
+    std::cout << "Y AFTER MOVE ::  " << y << std::endl;
   }
 
 }

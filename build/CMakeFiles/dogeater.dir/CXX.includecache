@@ -11,6 +11,12 @@ entity.h
 /home/david/tdp005_dogeater/src/entity.h
 projectile.h
 /home/david/tdp005_dogeater/src/projectile.h
+SFML/Graphics.hpp
+-
+SFML/Graphics/Texture.hpp
+-
+string
+-
 
 /home/david/tdp005_dogeater/src/entity.h
 utility
@@ -23,8 +29,12 @@ map
 /home/david/tdp005_dogeater/src/game.cc
 game.h
 /home/david/tdp005_dogeater/src/game.h
+enemy.h
+/home/david/tdp005_dogeater/src/enemy.h
 projectile.h
 /home/david/tdp005_dogeater/src/projectile.h
+SFML/Graphics/Texture.hpp
+-
 algorithm
 -
 jsoncpp/json/json.h
@@ -37,7 +47,13 @@ SFML/Graphics.hpp
 -
 filesystem
 -
+jsoncpp/json/writer.h
+-
+memory
+-
 ostream
+-
+string
 -
 
 /home/david/tdp005_dogeater/src/game.h
@@ -46,6 +62,8 @@ SFML/Graphics/Sprite.hpp
 SFML/Graphics/Texture.hpp
 -
 SFML/Window/Window.hpp
+-
+memory
 -
 vector
 -
@@ -64,6 +82,10 @@ projectile.h
 SFML/Graphics.hpp
 -
 filesystem
+-
+jsoncpp/json/json.h
+-
+any
 -
 
 /home/david/tdp005_dogeater/src/player.h

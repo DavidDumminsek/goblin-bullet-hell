@@ -1,26 +1,50 @@
 [
     {
       "id":1,
+      "textureFile":"../src/sprites/greenMoai.png",
       "tickSpawn": 110,
       "x":20,
       "y":10,
-      "mathMoveFunct": {"a":0, "b":0, "c":0,"d":-4, "f":110},
-      "projectile": {"a":0, "b":0, "c": 0, "d":0, "f":0}
+      "speed":1,
+      "life":100,
+      "damage":20,
+      "move":"straight",
+      "projectile":"straight"
     },
     {
       "id":2,
+      "textureFile":"../src/sprites/greenMoai.png",
       "tickSpawn": 170,
       "x":20,
       "y":10,
-      "mathMoveFunct": {"a":0, "b":0, "c":0,"d":-4, "f":110},
-      "projectile": {"a":0, "b":0 ,"c": 0, "d":1, "f":0}
+      "speed":1,
+      "life":100,
+      "damage":20,
+      "move":"straight",
+      "projectile":"straight"
     },
     {
       "id":3,
+      "textureFile":"../src/sprites/purpleskull.png",
       "tickSpawn": 230,
-      "x":20,
-      "y":10,
-      "mathMoveFunct": {"a":0, "b":0, "c":0,"d":-4, "f":110},
-      "projectile": {"a":0, "b":0 ,"c": 0, "d":1, "f":0}
+      "x":0,
+      "y":0,
+      "speed":2,
+      "life":250,
+      "damage":20,
+      "move":"right",
+      "projectile":"trishoot"
+    },
+    {
+      "id":4,
+      "textureFile":"../src/sprites/purpleskull.png",
+      "tickSpawn": 240,
+      "x":0,
+      "y":0,
+      "speed":2,
+      "life":250,
+      "damage":20,
+      "move":"zigzag",
+      "projectile":"trishoot"
     }
 ]

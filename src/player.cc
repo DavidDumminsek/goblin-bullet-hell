@@ -30,7 +30,7 @@ Player::Player(int xc, int yc, float spd, int l, int dmg)
 {
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
   {
-    std::unique_ptr<Projectile> p(new Projectile{x,y,11.f,1,10} );
+    std::unique_ptr<Projectile> p(new Projectile{x-20,y-20,11.f,1,10} );
     return p;
   }
   else
@@ -42,7 +42,6 @@ Player::Player(int xc, int yc, float spd, int l, int dmg)
 void Player::move(sf::Event e)
 {
   auto keyPressed = e.key.code; 
-
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && y > 20)
   {
     y -= speed;

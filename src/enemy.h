@@ -2,13 +2,27 @@
 #define ENEMY_H
 #include "entity.h"
 #include "projectile.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <string>
 class Enemy : public Entity
 {
   private:
-    Projectile pro;
+    int dmg;
+    sf::Sprite enemySprite;
+    sf::Texture enemyTexture;
+    std::string movement;
+    void triShot();
+    void zigzagShoot();
+    void standardShoot();
+
+    void moveRight();
+    void moveLeft();
   public:
-    Enemy(int xc, int yc, float spd, int l, int dmg, std::map<std::string, int> mv) : Entity(xc, yc, spd, l){}
+    Enemy(int xc, int yc, float spd, int l, int dmg, std::string mv);
     ~Enemy() override;
+    void move(int tick);
     void shoot();
+    sf::Sprite& getSprite();
 };
 #endif

@@ -18,12 +18,24 @@ Projectile::Projectile(int xc, int yc, float spd, int l, int dmg, std::string mv
 }
 void Projectile::move()
 {
+  //player projectile movement
   if(movement.empty())
   {
     y -= speed;
   }
+  //Enemy projectile specifier
+  else if(movement == "right")
+  {
+    y += speed;
+    x += speed/2;
+  }
+  else if(movement == "left")
+  {
+    y+=speed;
+    x-=speed;
+  }
   else
   {
-    std::cout << "OTHER MOVE" << std::endl;
+    y+=speed;
   }
 }
