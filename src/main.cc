@@ -1,6 +1,7 @@
 #include "game.h"
 #include "player.h"
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Color.hpp>
 #include <map>
 #include <string>
 int main (int argc, char *argv[])
@@ -14,7 +15,7 @@ int main (int argc, char *argv[])
       sf::Event event;
       game.update(event, window);
 
-      window.clear();
+      window.clear(sf::Color(135,206,235));
       //render
       game.render(window); 
       window.display();
