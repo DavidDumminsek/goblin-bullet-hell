@@ -1,10 +1,16 @@
 file(REMOVE_RECURSE
   "CMakeFiles/dogeater.dir/src/enemy.cc.o"
+  "CMakeFiles/dogeater.dir/src/enemy.cc.o.d"
   "CMakeFiles/dogeater.dir/src/entity.cc.o"
+  "CMakeFiles/dogeater.dir/src/entity.cc.o.d"
   "CMakeFiles/dogeater.dir/src/game.cc.o"
+  "CMakeFiles/dogeater.dir/src/game.cc.o.d"
   "CMakeFiles/dogeater.dir/src/main.cc.o"
+  "CMakeFiles/dogeater.dir/src/main.cc.o.d"
   "CMakeFiles/dogeater.dir/src/player.cc.o"
+  "CMakeFiles/dogeater.dir/src/player.cc.o.d"
   "CMakeFiles/dogeater.dir/src/projectile.cc.o"
+  "CMakeFiles/dogeater.dir/src/projectile.cc.o.d"
   "dogeater"
   "dogeater.pdb"
 )

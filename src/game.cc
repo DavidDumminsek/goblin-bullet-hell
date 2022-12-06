@@ -87,34 +87,26 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
   player.move(e);
 
   //PLAYER SHOOT
-  updateProjectile(); 
+  updatePlayerProjectile(); 
   spawnEnemy();
   updateEnemies();
   collisionCheck();
   ++tick;
 }
 
-void Game::updateProjectile()
+void Game::updatePlayerProjectile()
 {
+  //INITIERA EN PLAYER PROJEKTIL OM SHOOT FUNKTIONEN RETURNERAR NÅGOT
   std::unique_ptr<Projectile>  temp = player.shoot();
-  
   if(temp)
   {
-    //MÅSTE ANVÄNDA MOVE PÅ SMART PEKARE!"!!"
     playerProjectile.push_back(std::move(temp));
     std::unique_ptr<sf::Sprite> tmpSprite(new sf::Sprite);
     tmpSprite->setTexture(playerProjectileTexture);
     playerProjectileSprite.push_back(std::move(tmpSprite));
   }
-  //std::vector<std::unique_ptr<Projectile>> old = playerProjectile;
-  //std::transform(old, old + old.size(), playerProjectile, [](Projectile* p){ p->move(); });
-  //MOVE EVERY PLAYER PROJECTILE
-  //std::cout << "PLAYER PROJECTILE SIZE:  " << playerProjectile.size() << std::endl;
-  /*auto movePro = [&](std::unique_ptr<Projectile>& p, std::unique_ptr<sf::Sprite>& sp){
-    p->move();
-    sp->setPosition(p->GetX(),p->GetY());  
-  };
-  std::transform(playerProjectile.begin(), playerProjectile.begin() + playerProjectile.size(), playerProjectileSprite.begin(), movePro);*/
+
+  //updatera varje player projectile
   auto it=playerProjectile.begin();
   auto it1 = playerProjectileSprite.begin();
   for(; it != playerProjectile.end() && it1 != playerProjectileSprite.end(); ++it, ++it1 )

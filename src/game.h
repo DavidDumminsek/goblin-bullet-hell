@@ -48,7 +48,8 @@ class Game{
     Game(sf::RenderWindow& w);
     void collisionCheck();
     void update(sf::Event& e, sf::RenderWindow&  w);
-    void updateProjectile();
+    void updatePlayerProjectile();
+    void updateEnemyProjectile();
     void updateEnemies();
     void render(sf::RenderWindow& w);
     void victory();

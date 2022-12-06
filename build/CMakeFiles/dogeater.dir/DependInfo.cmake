@@ -1,20 +1,19 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
   )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/david/tdp005_dogeater/src/enemy.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/enemy.cc.o"
-  "/home/david/tdp005_dogeater/src/entity.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/entity.cc.o"
-  "/home/david/tdp005_dogeater/src/game.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/game.cc.o"
-  "/home/david/tdp005_dogeater/src/main.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/main.cc.o"
-  "/home/david/tdp005_dogeater/src/player.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/player.cc.o"
-  "/home/david/tdp005_dogeater/src/projectile.cc" "/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir/src/projectile.cc.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/david/Documents/tdp005/tdp005_dogeater/src/enemy.cc" "CMakeFiles/dogeater.dir/src/enemy.cc.o" "gcc" "CMakeFiles/dogeater.dir/src/enemy.cc.o.d"
+  "/home/david/Documents/tdp005/tdp005_dogeater/src/entity.cc" "CMakeFiles/dogeater.dir/src/entity.cc.o" "gcc" "CMakeFiles/dogeater.dir/src/entity.cc.o.d"
+  "/home/david/Documents/tdp005/tdp005_dogeater/src/game.cc" "CMakeFiles/dogeater.dir/src/game.cc.o" "gcc" "CMakeFiles/dogeater.dir/src/game.cc.o.d"
+  "/home/david/Documents/tdp005/tdp005_dogeater/src/main.cc" "CMakeFiles/dogeater.dir/src/main.cc.o" "gcc" "CMakeFiles/dogeater.dir/src/main.cc.o.d"
+  "/home/david/Documents/tdp005/tdp005_dogeater/src/player.cc" "CMakeFiles/dogeater.dir/src/player.cc.o" "gcc" "CMakeFiles/dogeater.dir/src/player.cc.o.d"
+  "/home/david/Documents/tdp005/tdp005_dogeater/src/projectile.cc" "CMakeFiles/dogeater.dir/src/projectile.cc.o" "gcc" "CMakeFiles/dogeater.dir/src/projectile.cc.o.d"
   )
 
 # Targets to which this target links.
