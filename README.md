@@ -1,10 +1,10 @@
 # Dogeater: A classic bullethell
 
 
-##Install Libraries
+## Install Libraries
 1: `sudo apt-get install libsfml-dev`
 2: `sudo apt-get install libjsoncpp-dev` 
-##Build project
+## Build project
 1: `cd build`
 2: `cmake ..`
 3: `make`
