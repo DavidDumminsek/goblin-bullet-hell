@@ -74,6 +74,27 @@ void Game::collisionCheck()
     }
   
   }
+
+  if(enemyProjectile.size() > 0)
+  {
+    auto it = enemyProjectile.begin();
+    auto it1 = enemyProjectileSprite.begin();
+    
+    for(; it != enemyProjectile.end() && it1 != enemyProjectileSprite.end(); )
+    {
+      if( it->get()->GetY() > 640)
+      {
+        it = enemyProjectile.erase(it);
+        it1 = enemyProjectileSprite.erase(it1);
+      }
+      else
+      {
+        ++it;
+        ++it1;
+      }
+    }
+
+  }
 }
 
 void Game::update(sf::Event& e, sf::RenderWindow& w)
@@ -90,6 +111,8 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
   updatePlayerProjectile(); 
   spawnEnemy();
   updateEnemies();
+  updateEnemyProjectile();
+  std::cout << enemyProjectile.size() << std::endl;
   collisionCheck();
   ++tick;
 }
@@ -117,6 +140,39 @@ void Game::updatePlayerProjectile()
 
 }
 
+void Game::spawnEnemy()
+{
+  Json::StreamWriterBuilder builder;
+ // std::cout << tick << std::endl;
+  if( data[currentEnemy]["tickSpawn"].asBool() && std::stoi(Json::writeString(builder, data[currentEnemy]["tickSpawn"])) == tick)
+  {
+    std::cout <<
+          "X: " << std::stoi(Json::writeString(builder, data[currentEnemy]["x"])) <<
+          "Y  " << std::stoi(Json::writeString(builder, data[currentEnemy]["y"])) << 
+          "spd  " <<  std::stof(Json::writeString(builder, data[currentEnemy]["speed"])) <<
+          "life   " << std::stoi(Json::writeString(builder, data[currentEnemy]["life"])) << 
+          "damage   " << std::stoi(Json::writeString(builder, data[currentEnemy]["damage"])) << std::endl;
+
+    std::unique_ptr<Enemy> tmpEnemy(new Enemy(
+          std::stoi(Json::writeString(builder, data[currentEnemy]["x"])),
+          std::stoi(Json::writeString(builder, data[currentEnemy]["y"])),
+          std::stof(Json::writeString(builder, data[currentEnemy]["speed"])),
+          std::stoi(Json::writeString(builder, data[currentEnemy]["life"])),
+          std::stoi(Json::writeString(builder, data[currentEnemy]["damage"])),
+          data[currentEnemy]["move"].asString(),
+          data[currentEnemy]["projectile"].asString(),
+          currentEnemy
+          ));
+
+    std::unique_ptr<sf::Sprite> tmpSprite(new sf::Sprite);
+    tmpSprite->setTexture(*enemiesSpriteTexture[currentEnemy]); 
+    tmpSprite->setPosition(tmpEnemy.get()->GetX(), tmpEnemy.get()->GetY());
+    enemiesSprite.push_back(std::move(tmpSprite));
+    enemies.push_back(std::move(tmpEnemy));
+    std::cout << "ENEMY SPAWNED" << std::endl;
+    ++currentEnemy;
+  }
+}
 
 void Game::updateEnemies()
 {
@@ -129,6 +185,36 @@ void Game::updateEnemies()
       it1->get()->setPosition(it->get()->GetX(),it->get()->GetY());
       //std::cout << it1->get()->getPosition().y << std::endl;
     }
+}
+
+void Game::updateEnemyProjectile()
+{
+  int i{0};
+  //init enemy projectiles
+  for(auto& e: enemies)
+  {
+    if(e->shoot(tick))
+    {
+      enemyProjectile.push_back(std::move(e->shoot(tick)));
+
+      std::unique_ptr<sf::Sprite> tmpSprite(new sf::Sprite);
+      tmpSprite->setTexture(*enemyProjectileSpriteTexture[i++]);
+      tmpSprite->scale(2,2);
+      enemyProjectileSprite.push_back(std::move(tmpSprite));
+    }
+  }
+
+  //update enemy projectiles
+    auto it = enemyProjectile.begin();
+    auto it1 = enemyProjectileSprite.begin();
+    
+    for(; it != enemyProjectile.end() && it1 != enemyProjectileSprite.end(); ++it, ++it1 )
+    {
+      it->get()->move();
+      it1->get()->setPosition(it->get()->GetX(),it->get()->GetY());
+      //std::cout << it1->get()->getPosition().y << std::endl;
+    }
+   
 }
 
 void Game::render(sf::RenderWindow& w)
@@ -150,6 +236,12 @@ void Game::render(sf::RenderWindow& w)
   {
     w.draw(*e);
   }
+
+  //draw enemy projectiels
+  for(auto& e : enemyProjectileSprite)
+  {
+    w.draw(*e);
+  }
 }
 
 void Game::victory()
@@ -157,67 +249,23 @@ void Game::victory()
   std::cout << "YOU WIN" << std::endl;
 }
 
-void Game::spawnEnemy()
-{
-  Json::StreamWriterBuilder builder;
- // std::cout << tick << std::endl;
-  if( data[currentEnemy]["tickSpawn"].asBool() && std::stoi(Json::writeString(builder, data[currentEnemy]["tickSpawn"])) == tick)
-  {
-    std::cout <<
-          "X: " << std::stoi(Json::writeString(builder, data[currentEnemy]["x"])) <<
-          "Y  " << std::stoi(Json::writeString(builder, data[currentEnemy]["y"])) << 
-          "spd  " <<  std::stof(Json::writeString(builder, data[currentEnemy]["speed"])) <<
-          "life   " << std::stoi(Json::writeString(builder, data[currentEnemy]["life"])) << 
-          "damage   " << std::stoi(Json::writeString(builder, data[currentEnemy]["damage"])) << std::endl;
-    std::unique_ptr<Enemy> tmpEnemy(new Enemy(
-          std::stoi(Json::writeString(builder, data[currentEnemy]["x"])),
-          std::stoi(Json::writeString(builder, data[currentEnemy]["y"])),
-          std::stof(Json::writeString(builder, data[currentEnemy]["speed"])),
-          std::stoi(Json::writeString(builder, data[currentEnemy]["life"])),
-          std::stoi(Json::writeString(builder, data[currentEnemy]["damage"])),
-          data[currentEnemy]["move"].asString()
-          ));
-
-    std::unique_ptr<sf::Sprite> tmpSprite(new sf::Sprite);
-    tmpSprite->setTexture(*enemiesSpriteTexture[currentEnemy]); 
-    tmpSprite->setPosition(tmpEnemy.get()->GetX(), tmpEnemy.get()->GetY());
-    enemiesSprite.push_back(std::move(tmpSprite));
-    enemies.push_back(std::move(tmpEnemy));
-    std::cout << "ENEMY SPAWNED" << std::endl;
-    ++currentEnemy;
-  }
-}
 
 void Game::initLevel()
 {
-  /*Json::StreamWriterBuilder builder;
-  std::map<std::string, std::any> tmpMap;
-  for( auto e: data)
-  {
-    tmpMap["id"] = std::stoi(Json::writeString(builder,e["id"]));
-    tmpMap["textureFile"] = Json::writeString(builder,e["textureFile"]);
-    tmpMap["tickSpawn"] = Json::writeString(builder,e["tickSpawn"]);
-    tmpMap["x"] = std::stoi(Json::writeString(builder,e["x"]));
-    tmpMap["y"] = std::stoi(Json::writeString(builder,e["y"]));
-    tmpMap["move"] = Json::writeString(builder,e["move"]);
-    tmpMap["projectile"] = Json::writeString(builder,e["projectile"]);
-    
-    //PUSH TO LEVEL VECTOR
-    level.push_back(tmpMap);
-  }
-  std::cout << "MAP SIZE:  " << level[0].size() << std::endl;
-  if(level.size() == 3)
-    std::cout << "LEVEL LOADED" << std::endl;*/
-
-
-
   //load textures
   for(auto e: data)
   {
-    std::cout << "LOAD TEXTURES" << std::endl;
+    //load enemy texture
+    std::cout << "LOAD ENEMY TEXTURES" << std::endl;
     std::unique_ptr<sf::Texture> tmpTexture(new sf::Texture);
     tmpTexture->loadFromFile(e["textureFile"].asString());
     enemiesSpriteTexture.push_back(std::move(tmpTexture));
+
+    //load enemy projectile textures
+    std::cout << "LOAD ENEMY PROJECTILES" << std::endl;
+    std::unique_ptr<sf::Texture> tmpTexture1(new sf::Texture);
+    tmpTexture1->loadFromFile(e["projectileFile"].asString());
+    enemyProjectileSpriteTexture.push_back(std::move(tmpTexture1));
 
   }
 }

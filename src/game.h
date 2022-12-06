@@ -28,6 +28,8 @@ class Game{
     
     std::vector<std::unique_ptr<Projectile>> enemyProjectile;
     std::vector<std::unique_ptr<sf::Sprite>> enemyProjectileSprite;
+    std::vector<std::unique_ptr<sf::Texture>> enemyProjectileSpriteTexture;
+
     std::vector<std::unique_ptr<Projectile>> playerProjectile;
     std::vector<std::unique_ptr<sf::Sprite>> playerProjectileSprite;
 
@@ -50,10 +52,10 @@ class Game{
     void update(sf::Event& e, sf::RenderWindow&  w);
     void updatePlayerProjectile();
     void updateEnemyProjectile();
+    void spawnEnemy();
     void updateEnemies();
     void render(sf::RenderWindow& w);
     void victory();
-    void spawnEnemy();
     void initLevel();
     
 };

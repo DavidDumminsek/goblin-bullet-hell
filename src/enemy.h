@@ -9,9 +9,11 @@ class Enemy : public Entity
 {
   private:
     int dmg;
+    int enemyNumber;
     sf::Sprite enemySprite;
     sf::Texture enemyTexture;
     std::string movement;
+    std::string movementProjectile;
     void triShot();
     void zigzagShoot();
     void standardShoot();
@@ -19,10 +21,10 @@ class Enemy : public Entity
     void moveRight();
     void moveLeft();
   public:
-    Enemy(int xc, int yc, float spd, int l, int dmg, std::string mv);
+    Enemy(int xc, int yc, float spd, int l, int dmg, std::string mv, std::string mvPro, int current);
     ~Enemy() override;
     void move(int tick);
-    void shoot();
+    std::unique_ptr<Projectile> shoot(int tick);
     sf::Sprite& getSprite();
 };
 #endif

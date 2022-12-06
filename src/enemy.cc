@@ -1,7 +1,8 @@
 #include "enemy.h"
+#include "projectile.h"
 #include <iostream>
 
-Enemy::Enemy(int xc, int yc, float spd, int l, int dmg, std::string mv)
+Enemy::Enemy(int xc, int yc, float spd, int l, int dmg, std::string mv, std::string mvPro, int current)
 : Entity::Entity(xc,yc,spd,l)
 {
   this->dmg = dmg;
@@ -52,9 +53,26 @@ void Enemy::move(int tick)
   }
 
 }
-void Enemy::shoot()
+ std::unique_ptr<Projectile>Enemy::shoot(int tick)
 {
-  std::cout << "SHOOT" << std::endl;
+  if(tick%20 == 0)
+  {
+    if(movementProjectile == "pentashot")
+    {
+      std::unique_ptr<Projectile> p(nullptr);
+      return p;
+    }
+    else
+    {
+      std::unique_ptr<Projectile> 
+      p(new Projectile{x+10,y+2,-5.f,1,dmg,movementProjectile});
+      return p;
+    }
+  }
+  else
+  {
+    return nullptr;
+  }
 }
 
 sf::Sprite& Enemy::getSprite()
