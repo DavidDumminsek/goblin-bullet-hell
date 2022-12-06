@@ -75,6 +75,27 @@ void Game::collisionCheck()
   
   }
 
+  if(enemies.size() > 0)
+  {
+
+    auto it = enemies.begin();
+    auto it1 = enemiesSprite.begin();
+    
+    for(; it != enemies.end() && it1 != enemiesSprite.end();)
+    {
+      if( it->get()->GetY() > 640 || it->get()->GetX()> 320)
+      {
+        it = enemies.erase(it);
+        it1 = enemiesSprite.erase(it1);
+      }
+      else
+      {
+        ++it;
+        ++it1;
+      }
+    }
+  }
+
   if(enemyProjectile.size() > 0)
   {
     auto it = enemyProjectile.begin();
@@ -112,7 +133,7 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
   spawnEnemy();
   updateEnemies();
   updateEnemyProjectile();
-  std::cout << enemyProjectile.size() << std::endl;
+  std::cout << enemies.size() << std::endl;
   collisionCheck();
   ++tick;
 }
