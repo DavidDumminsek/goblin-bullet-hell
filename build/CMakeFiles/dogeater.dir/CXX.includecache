@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/home/david/tdp005_dogeater/src/enemy.cc
+enemy.h
+/home/david/tdp005_dogeater/src/enemy.h
+projectile.h
+/home/david/tdp005_dogeater/src/projectile.h
+iostream
+-
+
 /home/david/tdp005_dogeater/src/enemy.h
 entity.h
 /home/david/tdp005_dogeater/src/entity.h
@@ -18,12 +26,50 @@ SFML/Graphics/Texture.hpp
 string
 -
 
+/home/david/tdp005_dogeater/src/entity.cc
+entity.h
+/home/david/tdp005_dogeater/src/entity.h
+iostream
+-
+utility
+-
+
 /home/david/tdp005_dogeater/src/entity.h
 utility
 -
 string
 -
 map
+-
+
+/home/david/tdp005_dogeater/src/game.cc
+game.h
+/home/david/tdp005_dogeater/src/game.h
+enemy.h
+/home/david/tdp005_dogeater/src/enemy.h
+projectile.h
+/home/david/tdp005_dogeater/src/projectile.h
+SFML/Graphics/Texture.hpp
+-
+algorithm
+-
+jsoncpp/json/json.h
+-
+iostream
+-
+fstream
+-
+SFML/Graphics.hpp
+-
+filesystem
+-
+jsoncpp/json/writer.h
+-
+memory
+-
+ostream
+-
+string
 -
 
 /home/david/tdp005_dogeater/src/game.h
@@ -72,6 +118,16 @@ map
 string
 -
 
+/home/david/tdp005_dogeater/src/player.cc
+player.h
+/home/david/tdp005_dogeater/src/player.h
+projectile.h
+/home/david/tdp005_dogeater/src/projectile.h
+SFML/Window/Keyboard.hpp
+-
+iostream
+-
+
 /home/david/tdp005_dogeater/src/player.h
 map
 -
@@ -82,6 +138,14 @@ entity.h
 projectile.h
 /home/david/tdp005_dogeater/src/projectile.h
 SFML/Graphics.hpp
+-
+
+/home/david/tdp005_dogeater/src/projectile.cc
+projectile.h
+/home/david/tdp005_dogeater/src/projectile.h
+string
+-
+iostream
 -
 
 /home/david/tdp005_dogeater/src/projectile.h
