@@ -83,7 +83,7 @@ void Game::collisionCheck()
     
     for(; it != enemies.end() && it1 != enemiesSprite.end();)
     {
-      if( it->get()->GetY() > 640 || it->get()->GetX()> 320)
+      if( it->get()->GetY() > 640 || it->get()->GetX()> 340)
       {
         it = enemies.erase(it);
         it1 = enemiesSprite.erase(it1);
@@ -103,7 +103,7 @@ void Game::collisionCheck()
     
     for(; it != enemyProjectile.end() && it1 != enemyProjectileSprite.end(); )
     {
-      if( it->get()->GetY() > 640)
+      if(  it->get()->GetY() > 640 || it->get()->GetX()> 350)
       {
         it = enemyProjectile.erase(it);
         it1 = enemyProjectileSprite.erase(it1);
@@ -261,7 +261,7 @@ void Game::render(sf::RenderWindow& w)
   //draw enemy projectiels
   for(auto& e : enemyProjectileSprite)
   {
-    w.draw(*e);
+   // w.draw(*e);
   }
 }
 
