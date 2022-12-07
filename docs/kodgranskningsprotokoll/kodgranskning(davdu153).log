@@ -1,11 +1,11 @@
-This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2022.12.7)  7 DEC 2022 17:33
+This is LuaHBTeX, Version 1.15.1 (MiKTeX 22.8.28) (format=lualatex 2022.12.7)  7 DEC 2022 17:41
  restricted system commands enabled.
  file:line:error style messages enabled.
-**c:/Users/David/Desktop/tdp005_dogeater/docs/kodgranskningsprotokoll/TDP003-ma
-ll.tex
+**c:/Users/David/Desktop/tdp005_dogeater/docs/kodgranskningsprotokoll/kodgransk
+ning(davdu153).tex
 
-(c:/Users/David/Desktop/tdp005_dogeater/docs/kodgranskningsprotokoll/TDP003-mal
-l.tex
+(c:/Users/David/Desktop/tdp005_dogeater/docs/kodgranskningsprotokoll/kodgranskn
+ing(davdu153).tex
 LaTeX2e <2022-06-01> patch level 5
 Lua module: luaotfload 2022-06-15 3.22 Lua based OpenType font support
 Lua module: lualibs 2021-05-20 2.74 ConTeXt Lua standard libraries.
@@ -780,8 +780,8 @@ Package babel Info: Importing font and identification data for swedish
 (babel)             from babel-sv.ini. Reported on input line 11.
 )
 \borderwidth=\skip65
-) (./TDP003-mall.aux)
-\openout1 = TDP003-mall.aux
+) (./kodgranskning(davdu153).aux)
+\openout1 = kodgranskning(davdu153).aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
@@ -901,10 +901,10 @@ fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 11.
- (./TDP003-mall.out) (./TDP003-mall.out)
+ (./kodgranskning(davdu153).out) (./kodgranskning(davdu153).out)
 \@outlinefile=\write4
 
-\openout4 = TDP003-mall.out
+\openout4 = kodgranskning(davdu153).out
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
 (lastpage)             ! on input line 11.
@@ -939,9 +939,9 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 {C:/Users/David/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}<./lith.png><./
 ida.png>]
 warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
-[1] 
+[1] [2] 
 AED: lastpage setting LastPage
-[2] (./TDP003-mall.aux)
+[3] (./kodgranskning(davdu153).aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.86pt have occurred.
@@ -949,20 +949,21 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `TDP003-mall.out' has not changed.
+Package rerunfilecheck Info: File `kodgranskning(davdu153).out' has not changed
+.
 (rerunfilecheck)             Checksum: 0601BF64295158195428939514167106;1934.
 )
 
 Here is how much of LuaTeX's memory you used:
- 24404 strings out of 477356
+ 24405 strings out of 477356
  125086,953878 words of node,token memory allocated
  495 words of node memory still in use:
    4 hlist, 1 vlist, 1 rule, 4 glue, 3 kern, 1 glyph, 11 attribute, 56 glue_spec
 , 7 attribute_list, 3 write nodes
-   avail lists: 1:1,2:654,3:252,4:57,5:360,6:59,7:5971,8:25,9:268,10:6,11:622
+   avail lists: 1:1,2:652,3:252,4:57,5:349,6:59,7:5890,8:25,9:265,10:6,11:609
  44598 multiletter control sequences out of 65536+600000
  38 fonts using 2904799 bytes
- 115i,11n,111p,603b,655s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 115i,11n,111p,615b,655s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <//?/c:/users/david/appdata/local/programs/miktex/fonts/opentype/public/lm/lmrom
 an10-bold.otf><//?/c:/users/david/appdata/local/programs/miktex/fonts/opentype/p
 ublic/lm/lmmono10-regular.otf><//?/c:/users/david/appdata/local/programs/miktex/
@@ -971,9 +972,9 @@ fonts/opentype/public/lm/lmroman10-regular.otf><//?/c:/users/david/appdata/local
 vid/appdata/local/programs/miktex/fonts/opentype/public/lm/lmroman12-bold.otf><<
 C:\Users\David\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm2986.
 pk>>
-Output written on TDP003-mall.pdf (3 pages, 77321 bytes).
+Output written on kodgranskning(davdu153).pdf (4 pages, 78609 bytes).
 
-PDF statistics: 155 PDF objects out of 1000 (max. 8388607)
- 19 named destinations out of 1000 (max. 131072)
+PDF statistics: 161 PDF objects out of 1000 (max. 8388607)
+ 20 named destinations out of 1000 (max. 131072)
  144 words of extra memory for PDF output out of 10000 (max. 100000000)
 
