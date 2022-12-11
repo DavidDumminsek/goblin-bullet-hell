@@ -254,7 +254,7 @@ void Game::updateEnemyProjectile()
       //TEXTURE COORDS IN SPIRTE SHEET HAVE NO SPRITE SHEET ATM  SO SCARY
       quad[0].texCoords = sf::Vector2f(0,0);
       quad[1].texCoords = sf::Vector2f(enemyProjectileSpriteTexture[y]->getSize().x + 10 , 0);
-      quad[2].texCoords = sf::Vector2f(enemyProjectileSpriteTexture[y]->getSize().x + 10, enemyProjectileSpriteTexture[y]->getSize().y + 100);
+      quad[2].texCoords = sf::Vector2f(enemyProjectileSpriteTexture[y]->getSize().x + 10, enemyProjectileSpriteTexture[y]->getSize().y + 10);
       quad[3].texCoords = sf::Vector2f(0 , enemyProjectileSpriteTexture[y]->getSize().y + 10);
     }
 
