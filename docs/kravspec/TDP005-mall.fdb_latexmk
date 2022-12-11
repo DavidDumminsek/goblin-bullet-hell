@@ -1,5 +1,5 @@
 # Fdb version 3
-["lualatex"] 1670773713 "c:/Users/David/Desktop/tdp005_dogeater/docs/kravspec/TDP005-mall.tex" "TDP005-mall.pdf" "TDP005-mall" 1670773717
+["lualatex"] 1670774288 "c:/Users/David/Desktop/tdp005_dogeater/docs/kravspec/TDP005-mall.tex" "TDP005-mall.pdf" "TDP005-mall" 1670774291
   "C:/Users/David/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1670773644 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/David/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm2986.pk" 1670425012 83904 7c256f8d9ada801fb3af1b527402d607 ""
   "C:/Users/David/AppData/Local/MiKTeX/luatex-cache/generic/fonts/otl/lmmono10-regular.luc" 1670425009 81851 c797b17ac0bc1ba8ae1d7c326baf150a ""
@@ -210,12 +210,12 @@
   "C:/Users/David/AppData/Local/Programs/MiKTeX/tex/luatex/luaotfload/luaotfload.lua" 1655322332 13565 e717235f571ce97b510f08fa1a4ef973 ""
   "C:/Users/David/AppData/Roaming/MiKTeX/tex/generic/config/language.dat" 1663081509 2269 c2be9efecb8e53facf8213ae101f16af ""
   "Dogeater.png" 1670424738 348956 ae8d859e0072abb24470f5bddfc92d51 ""
-  "TDP005-mall.aux" 1670773716 2994 65f06990bbc6f8d7de31b9ea7fcde711 "lualatex"
-  "TDP005-mall.out" 1670773716 1834 9ca7ea13c21fb741d19aa2371022d573 "lualatex"
-  "TDP005-mall.tex" 1670773713 9431 16e69cedb0f4a2fa31ccfe13a2100bae ""
-  "TDP005-mall.toc" 1670773716 1280 b3d34b5cf044a5acca6a2dd8594382f0 "lualatex"
+  "TDP005-mall.aux" 1670774290 2994 65f06990bbc6f8d7de31b9ea7fcde711 "lualatex"
+  "TDP005-mall.out" 1670774290 1834 9ca7ea13c21fb741d19aa2371022d573 "lualatex"
+  "TDP005-mall.tex" 1670774287 9423 92142f436f6805b61cba831ac3aadbc7 ""
+  "TDP005-mall.toc" 1670774290 1280 b3d34b5cf044a5acca6a2dd8594382f0 "lualatex"
   "TDP005mall.cls" 1670424738 1853 2b50cfc078b7c08c547e23e062edc7f3 ""
-  "c:/Users/David/Desktop/tdp005_dogeater/docs/kravspec/TDP005-mall.tex" 1670773713 9431 16e69cedb0f4a2fa31ccfe13a2100bae ""
+  "c:/Users/David/Desktop/tdp005_dogeater/docs/kravspec/TDP005-mall.tex" 1670774287 9423 92142f436f6805b61cba831ac3aadbc7 ""
   "ida.png" 1670424738 7786 10ecdfa23cd9886eaeafd8a450fd9ba2 ""
   "lith.png" 1670424738 15882 15beed0f3acba5829b17e16ee3d5e6a0 ""
   (generated)
