@@ -2,6 +2,7 @@
 #define GAME_H
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/VertexArray.hpp>
 #include <SFML/Window/Window.hpp>
 #include <memory>
 #include <vector>
@@ -28,6 +29,9 @@ class Game{
     
     std::vector<std::unique_ptr<Projectile>> enemyProjectile;
     std::vector<std::unique_ptr<sf::Sprite>> enemyProjectileSprite;
+
+    sf::VertexArray enemyProjectileVertices;
+    size_t const totalBullets{48000};
     std::vector<std::unique_ptr<sf::Texture>> enemyProjectileSpriteTexture;
 
     std::vector<std::unique_ptr<Projectile>> playerProjectile;

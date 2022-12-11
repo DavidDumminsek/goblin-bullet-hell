@@ -2,8 +2,12 @@
 #include "game.h"
 #include "enemy.h"
 #include "projectile.h"
+#include <SFML/Graphics/PrimitiveType.hpp>
 #include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/VertexArray.hpp>
+#include <SFML/System/Vector2.hpp>
 #include <algorithm>
+#include <iterator>
 #include <jsoncpp/json/json.h>
 #include <iostream>
 #include <fstream>
@@ -13,6 +17,14 @@
 #include <memory>
 #include <ostream>
 #include <string>
+
+//GAME CLASS FOR INITIATION OF OBJECTS AND GAME LOOP
+
+//LEVEL CLASS FOR JSON LEVEL FILE
+
+//OBJECT MANAGER FOR UPDATING OBJECTS
+
+
 Game::Game(sf::RenderWindow& w)
 { 
   std::ifstream file("../src/levels/level1.json");
@@ -44,6 +56,11 @@ Game::Game(sf::RenderWindow& w)
   //INIT PROJECTILE TEXTURES
   playerProjectileTexture.loadFromFile("../src/sprites/playerProjectile.png");
   std::cout << "CURRENT PATH IS " << std::filesystem::current_path() << std::endl;
+
+  //VERTEX ARRAY
+  enemyProjectileVertices.setPrimitiveType(sf::Quads);
+  enemyProjectileVertices.resize(totalBullets);
+
 }
 
 
@@ -210,23 +227,79 @@ void Game::updateEnemies()
 
 void Game::updateEnemyProjectile()
 {
-  int i{0};
-  //init enemy projectiles
-  for(auto& e: enemies)
+  //vertex array attempt
+  //add bullet to vertex array
+  
+  for(auto& e : enemies)
   {
     if(e->shoot(tick))
     {
       enemyProjectile.push_back(std::move(e->shoot(tick)));
+      int y{0};
+      size_t i = enemyProjectile.size()-1;
+      sf::Vertex* quad = &enemyProjectileVertices[i*4]; 
+      
 
+      //set quad position
+      quad[0].position = sf::Vector2f(e->GetX(), 
+                             e->GetY());
+      quad[1].position = sf::Vector2f(e->GetX() + enemyProjectileSpriteTexture[y]->getSize().x, 
+                             e->GetY());
+      quad[2].position = sf::Vector2f(e->GetX() + enemyProjectileSpriteTexture[y]->getSize().x,
+                             e->GetY() + enemyProjectileSpriteTexture[y]->getSize().y);
+      quad[3].position = sf::Vector2f(e->GetX(), 
+                             e->GetY() + enemyProjectileSpriteTexture[y]->getSize().y);
+
+
+      //TEXTURE COORDS IN SPIRTE SHEET HAVE NO SPRITE SHEET ATM  SO SCARY
+      quad[0].texCoords = sf::Vector2f(0,0);
+      quad[1].texCoords = sf::Vector2f(enemyProjectileSpriteTexture[y]->getSize().x + 10 , 0);
+      quad[2].texCoords = sf::Vector2f(enemyProjectileSpriteTexture[y]->getSize().x + 10, enemyProjectileSpriteTexture[y]->getSize().y + 100);
+      quad[3].texCoords = sf::Vector2f(0 , enemyProjectileSpriteTexture[y]->getSize().y + 10);
+    }
+
+  }
+
+  int y{0};
+  for(auto& e : enemyProjectile)
+  {
+      //point to a quad in vertex array
+      auto it = std::find(enemyProjectile.begin(), enemyProjectile.end(), e);     
+      size_t i = std::distance(enemyProjectile.begin(), it);
+      sf::Vertex* quad = &enemyProjectileVertices[i*4]; 
+      e->move(); 
+
+      //set quad position
+      quad[0].position = sf::Vector2f(e->GetX(), 
+                             e->GetY());
+      quad[1].position = sf::Vector2f(e->GetX() + enemyProjectileSpriteTexture[y]->getSize().x, 
+                             e->GetY());
+      quad[2].position = sf::Vector2f(e->GetX() + enemyProjectileSpriteTexture[y]->getSize().x,
+                             e->GetY() + enemyProjectileSpriteTexture[y]->getSize().y);
+      quad[3].position = sf::Vector2f(e->GetX(), 
+                             e->GetY() + enemyProjectileSpriteTexture[y]->getSize().y);
+
+  }
+
+
+  //update bullets
+  
+
+  //init enemy projectiles
+  /*for(auto& e: enemies)
+  {
+    if(e->shoot(tick))
+    {
+      enemyProjectile.push_back(std::move(e->shoot(tick)));
       std::unique_ptr<sf::Sprite> tmpSprite(new sf::Sprite);
       tmpSprite->setTexture(*enemyProjectileSpriteTexture[i++]);
       tmpSprite->scale(2,2);
       enemyProjectileSprite.push_back(std::move(tmpSprite));
     }
-  }
+  }*/
 
   //update enemy projectiles
-    auto it = enemyProjectile.begin();
+    /*auto it = enemyProjectile.begin();
     auto it1 = enemyProjectileSprite.begin();
     
     for(; it != enemyProjectile.end() && it1 != enemyProjectileSprite.end(); ++it, ++it1 )
@@ -234,7 +307,7 @@ void Game::updateEnemyProjectile()
       it->get()->move();
       it1->get()->setPosition(it->get()->GetX(),it->get()->GetY());
       //std::cout << it1->get()->getPosition().y << std::endl;
-    }
+    }*/
    
 }
 
@@ -263,6 +336,7 @@ void Game::render(sf::RenderWindow& w)
   {
    // w.draw(*e);
   }
+  w.draw(enemyProjectileVertices, &texture);
 }
 
 void Game::victory()
