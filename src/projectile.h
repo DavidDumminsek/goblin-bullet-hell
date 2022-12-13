@@ -10,8 +10,8 @@ class Projectile : public Entity
     std::string movement;
   public:
     Projectile();
-    Projectile(int xc, int yc, float spd, int l, int dmg);
-    Projectile(int xc, int yc, float spd, int l, int dmg, std::string mv);
+    Projectile(float xc, float yc, float spd, int l, int dmg);
+    Projectile(float xc, float yc, float spd, int l, int dmg, std::string mv);
     ~Projectile() = default;
     //Copy conttructor
     //to be added
@@ -23,7 +23,7 @@ class Projectile : public Entity
     //move assigment
     Projectile& operator=(Projectile&& rhs) = default;
     //move
-    void move();
+    void move(int tick);
 
 
 

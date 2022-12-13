@@ -10,7 +10,7 @@ Entity::Entity()
    life = 2;
 }
 
-Entity::Entity(int xc, int yc, float spd, int l)
+Entity::Entity(float xc, float yc, float spd, int l)
 {
   x = xc;
   y = yc;
@@ -19,15 +19,11 @@ Entity::Entity(int xc, int yc, float spd, int l)
 }
 
 
-void Entity::move()
+void Entity::move(int tick)
 {
   std::cout << "MOVE" << std::endl;
 }
 
-void Entity::die()
-{
-  delete this;
-}
 
 int Entity::GetX() const
 {

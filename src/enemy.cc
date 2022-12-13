@@ -2,7 +2,7 @@
 #include "projectile.h"
 #include <iostream>
 
-Enemy::Enemy(int xc, int yc, float spd, int l, int dmg, std::string mv, std::string mvPro, int current)
+Enemy::Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std::string mvPro, int current)
 : Entity::Entity(xc,yc,spd,l)
 {
   this->dmg = dmg;

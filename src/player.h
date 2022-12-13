@@ -12,7 +12,7 @@ class Player : public Entity
     int damage{0};
   public:
     Player();
-    Player(int xc, int yc, float spd, int l, int dmg);
+    Player(float xc, float yc, float spd, int l, int dmg);
     Player(const Player& rhs) = default;
     //move constructor
     Player(Player&& rhs) = default;
@@ -22,6 +22,6 @@ class Player : public Entity
     Player& operator=(Player&& rhs) = default;
     ~Player() = default;
     std::unique_ptr<Projectile> shoot();
-    void move(sf::Event e);
+    void move(int tick);
 };
 #endif

@@ -21,9 +21,9 @@ class Enemy : public Entity
     void moveRight();
     void moveLeft();
   public:
-    Enemy(int xc, int yc, float spd, int l, int dmg, std::string mv, std::string mvPro, int current);
+    Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std::string mvPro, int current);
     ~Enemy() override;
-    void move(int tick);
+    void move(int tick) override;
     std::unique_ptr<Projectile> shoot(int tick);
     sf::Sprite& getSprite();
 };

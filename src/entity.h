@@ -6,13 +6,13 @@
 class Entity
 {
   protected:
-    int x{0};
-    int y{0};
+    float x{0};
+    float y{0};
     float speed{0.0};
     int life{0};
   public:
     Entity();
-    Entity( int xc, int yc, float spd, int l);
+    Entity( float xc, float yc, float spd, int l);
     //copy constructor
     Entity(const Entity& rhs) = default;
     //move constructor
@@ -22,8 +22,7 @@ class Entity
     Entity& operator=(const Entity& rhs) = default;
     //move assigment
     Entity& operator=(Entity&& rhs) = default;
-    void virtual move();
-    void die();
+    void virtual move(int tick) = 0;
     int GetX() const;
     int GetY() const;
 };

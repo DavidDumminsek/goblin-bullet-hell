@@ -143,7 +143,7 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
     if (e.type == sf::Event::Closed)
        w.close();
   }
-  player.move(e);
+  player.move(tick);
 
   //PLAYER SHOOT
   updatePlayerProjectile(); 
@@ -172,7 +172,7 @@ void Game::updatePlayerProjectile()
   auto it1 = playerProjectileSprite.begin();
   for(; it != playerProjectile.end() && it1 != playerProjectileSprite.end(); ++it, ++it1 )
   {
-    it->get()->move();
+    it->get()->move(tick);
     it1->get()->setPosition(it->get()->GetX(), it->get()->GetY());
   }
 
@@ -267,7 +267,7 @@ void Game::updateEnemyProjectile()
       auto it = std::find(enemyProjectile.begin(), enemyProjectile.end(), e);     
       size_t i = std::distance(enemyProjectile.begin(), it);
       sf::Vertex* quad = &enemyProjectileVertices[i*4]; 
-      e->move(); 
+      e->move(tick); 
 
       //set quad position
       quad[0].position = sf::Vector2f(e->GetX(), 

@@ -45,11 +45,11 @@ class Game{
     sf::Texture playerProjectileTexture;
 
     Player player;
-    int playerWidth;
-    int playerHeight;
+    float playerWidth;
+    float playerHeight;
 
-    int windowWidth;
-    int windowHeight;
+    float windowWidth;
+    float windowHeight;
   public:
     Game(sf::RenderWindow& w);
     void collisionCheck();

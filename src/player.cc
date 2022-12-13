@@ -2,7 +2,7 @@
 #include "projectile.h"
 #include <SFML/Window/Keyboard.hpp>
 #include <iostream>
-/*Player::Player(int xc, int yc, float spd, int l, int dmg)
+/*Player::Player(float xc, float yc, float spd, int l, int dmg)
 : Entity::Entity(xc, yc, spd, l)
 {
   std::cout << "PLAYER CONSTRUCTOR WITH PARAMETERS" << std::endl;
@@ -13,7 +13,7 @@ Player::Player()
   movement = {};
 }
 
-Player::Player(int xc, int yc, float spd, int l, int dmg)
+Player::Player(float xc, float yc, float spd, int l, int dmg)
 : Entity::Entity(xc, yc, spd, l)
 {
   std::cout << "PLAYER CONSTRUCTOR WITH PARAMETERS" << std::endl;
@@ -39,9 +39,8 @@ Player::Player(int xc, int yc, float spd, int l, int dmg)
    return p;  
   }
 }
-void Player::move(sf::Event e)
+void Player::move(int tick)
 {
-  auto keyPressed = e.key.code; 
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && y > 20)
   {
     y -= speed;
