@@ -107,14 +107,14 @@ void Game::collisionCheck()
     
     for(; it != enemies.end() && it1 != enemiesSprite.end();)
     {
-      /*if(AABB(playerHitbox, it1->get()->getGlobalBounds()))
+      if(AABB(playerHitbox, it1->get()->getGlobalBounds()))
       {
         if(player.takeDmg(1))
         {
           std::cout << "YOU DIED" << std::endl;
           gameRunning = false;
         }
-      }*/
+      }
       if( it->get()->GetY() > 640 || it->get()->GetX()> 360)
       {
         it = enemies.erase(it);
