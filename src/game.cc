@@ -50,7 +50,7 @@ Game::Game(sf::RenderWindow& w)
   playerHeight = playerSprite.getTexture()->getSize().y;
   windowWidth = w.getSize().x;
   windowHeight = w.getSize().y;
-  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 2, 15);
+  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 100, 15);
   this -> player = player;
   playerSprite.setPosition(player.GetX(), player.GetY());
   
@@ -63,6 +63,8 @@ Game::Game(sf::RenderWindow& w)
   enemyProjectileVertices.setPrimitiveType(sf::Quads);
   enemyProjectileVertices.resize(totalBullets);
 
+  gameRunning = true;
+
 }
 
 
@@ -72,6 +74,8 @@ void Game::collisionCheck()
   //TO DO
   //CHECK IF OBJECT COORDS OVERLAP
   //USE GAME VECTOR FOR ENEMY PROJECTILE TO CHECK AGAISNT PLAYER
+  
+  //player projectile out of bounds
   if(playerProjectile.size() > 0)
   {
     //std::cout << playerProjectile[0]->GetY() << std::endl;
@@ -94,6 +98,7 @@ void Game::collisionCheck()
   
   }
 
+  //player and enemy 
   if(enemies.size() > 0)
   {
 
@@ -107,6 +112,41 @@ void Game::collisionCheck()
         it = enemies.erase(it);
         it1 = enemiesSprite.erase(it1);
       }
+      else if(playerProjectile.size() > 0)
+      {
+        auto p1 = playerProjectile.begin();
+        auto p2 = playerProjectileSprite.begin();
+        
+        bool enemyErased = false;
+        for(; p1 != playerProjectile.end() && p2 != playerProjectileSprite.end();)
+        {
+          if(AABB(p2->get()->getGlobalBounds(), it1->get()->getGlobalBounds()))
+          {
+            std::cout << "PLAYER HIT ENEMY" << std::endl;
+
+            p1 = playerProjectile.erase(p1);
+            p2 = playerProjectileSprite.erase(p2);
+            
+            if(it->get()->takeDmg(player.getDmg()))
+            {
+              it = enemies.erase(it);
+              it1 = enemiesSprite.erase(it1);
+              enemyErased = true;
+            }
+          }
+          else
+          {
+            ++p1;
+            ++p2;
+          }
+        }
+        if(!enemyErased)
+        {
+          std::cout << "ENEMY KILLED" << std::endl;
+          ++it;
+          ++it1;
+        }
+      }
       else
       {
         ++it;
@@ -115,6 +155,7 @@ void Game::collisionCheck()
     }
   }
 
+  //enemy projectile and player and out of bounds
   if(enemyProjectile.size() > 0)
   {
       for(int i = 0; i < enemyProjectile.size(); i++)
@@ -148,7 +189,8 @@ void Game::collisionCheck()
           {
             if(player.takeDmg(1))
             {
-              std::cout << "YOUR DIED" << std::endl;
+              std::cout << "YOU DIED" << std::endl;
+              gameRunning = false;
             }
            enemyProjectile[i].reset(nullptr);
 
@@ -163,33 +205,6 @@ void Game::collisionCheck()
         }
       }
   }
-
-    /*auto it = enemyProjectile.begin();
-
-    //separate loop for player collisions
-    for(; it != enemyProjectile.end();)
-    {
-      if(it->get()->GetY() > 640 || 
-         it->get()->GetX() > 350 ||
-         it->get()->GetX() < 0)
-      {
-        it = enemyProjectile.erase(it); 
-      }
-      sf::FloatRect a(it->get()->GetX(), it->get()->GetY(), 8, 8);
-      if(AABB(playerSprite.getGlobalBounds(), a))
-      {
-        std::cout << "PLAYER SPRTIE GOT HIT" << std::endl;
-        it = enemyProjectile.erase(it);
-        if(player.takeDmg(1))
-        {
-          std::cout << "YOUR DIED" << std::endl;
-        }
-      }
-      else
-        ++it;
-      
-    }*/
-  
 }
 
 void Game::update(sf::Event& e, sf::RenderWindow& w)
@@ -366,6 +381,8 @@ void Game::render(sf::RenderWindow& w)
 
   //draw enemy projectiels
   w.draw(enemyProjectileVertices, &projectileTexture);
+  if(!gameRunning)
+    w.close();
 }
 
 void Game::victory()

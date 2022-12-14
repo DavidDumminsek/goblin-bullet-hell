@@ -65,7 +65,7 @@ void Enemy::move(int tick)
     else
     {
       std::unique_ptr<Projectile> 
-      p(new Projectile{x+10,y+2,-5.f,1,dmg,movementProjectile});
+      p(new Projectile{x+10,y+2,-4.f,1,dmg,movementProjectile});
       return p;
     }
   }
