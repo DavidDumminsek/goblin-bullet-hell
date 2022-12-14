@@ -55,9 +55,27 @@ class Game{
     float windowHeight;
   public:
     Game(sf::RenderWindow& w);
+    ///Handles all collision between player and enemy objects. Including culling out of view enemies.
+    ///
+    ///This function loops through every vector of objects and deletes and modifies objects where relevent
     void collisionCheck();
-    void update(sf::Event& e, sf::RenderWindow&  w);
+    ///Updates all the object.
+    ///
+    ///This function updates all the object by calling the relevant update functions found in the \ref Game class
+    void update();
+    ///Creates and updates \ref Projectile object belonging to the \ref Player class
+    ///
+    ///This function creates a \ref Projectile object by calling the \ref Player::shoot function and 
+    ///pushing it into a vector of \ref Projectile pointers. 
+    ///After createing a projectile the function loops through all existing projectiles and updates them with 
+    ///by calling the \ref Projectile::move function
     void updatePlayerProjectile();
+    ///Updates and creates enemy \ref Projectile objects
+    ///
+    ///This function loops through all \ref Enemy objects and calls their shoot function.
+    ///The shoot function creates a \ref Projectile object with gets pushed to the \ref Game::enemyProjectile vector.
+    ///A vertex also get added to \ref enemyProjectileVertices vertex array. 
+    ///After the first loop a second loop is used to update all the enemy \ref Projectile objects and their equivilant vertices.
     void updateEnemyProjectile();
     void spawnEnemy();
     void updateEnemies();

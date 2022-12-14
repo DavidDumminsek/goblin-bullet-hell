@@ -13,7 +13,7 @@ int main (int argc, char *argv[])
   while (window.isOpen())
   {
       sf::Event event;
-      game.update(event, window);
+      game.update();
 
       window.clear(sf::Color(135,206,235));
       //render

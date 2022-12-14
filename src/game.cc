@@ -211,14 +211,9 @@ void Game::collisionCheck()
   }
 }
 
-void Game::update(sf::Event& e, sf::RenderWindow& w)
+void Game::update()
 {
   //RUN EVERYTHING TO HAPPEN EVERY TICK
-  while(w.pollEvent(e))
-  {
-    if (e.type == sf::Event::Closed)
-       w.close();
-  }
   player.move(tick);
   sf::FloatRect p(player.GetX()-7, player.GetY()-12, 14, 10); 
   this->playerHitbox = p;
