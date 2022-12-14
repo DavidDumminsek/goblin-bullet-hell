@@ -24,7 +24,11 @@ void Entity::move(int tick)
   std::cout << "MOVE" << std::endl;
 }
 
-
+bool Entity::takeDmg(int dmg)
+{
+  life -= dmg;
+  return life <= 0;
+}
 int Entity::GetX() const
 {
   return x;
@@ -32,4 +36,9 @@ int Entity::GetX() const
 int Entity::GetY() const
 {
   return y;
+}
+
+int Entity::getDmg()
+{
+  return dmg;
 }

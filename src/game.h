@@ -1,5 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
+#include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/VertexArray.hpp>
@@ -29,6 +30,7 @@ class Game{
     
     std::vector<std::unique_ptr<Projectile>> enemyProjectile;
     std::vector<std::unique_ptr<sf::Sprite>> enemyProjectileSprite;
+    sf::Texture projectileTexture; 
 
     sf::VertexArray enemyProjectileVertices;
     size_t const totalBullets{48000};
@@ -61,6 +63,7 @@ class Game{
     void render(sf::RenderWindow& w);
     void victory();
     void initLevel();
+    bool AABB(sf::FloatRect a, sf::FloatRect b);
     
 };
 #endif // !GAME_H

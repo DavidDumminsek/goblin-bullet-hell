@@ -3,6 +3,7 @@
 #include "enemy.h"
 #include "projectile.h"
 #include <SFML/Graphics/PrimitiveType.hpp>
+#include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/VertexArray.hpp>
 #include <SFML/System/Vector2.hpp>
@@ -54,6 +55,7 @@ Game::Game(sf::RenderWindow& w)
   playerSprite.setPosition(player.GetX(), player.GetY());
   
   //INIT PROJECTILE TEXTURES
+  projectileTexture.loadFromFile("../src/sprites/playerProjectile-sheet.png");
   playerProjectileTexture.loadFromFile("../src/sprites/playerProjectile.png");
   std::cout << "CURRENT PATH IS " << std::filesystem::current_path() << std::endl;
 
@@ -115,24 +117,79 @@ void Game::collisionCheck()
 
   if(enemyProjectile.size() > 0)
   {
-    auto it = enemyProjectile.begin();
-    auto it1 = enemyProjectileSprite.begin();
-    
-    for(; it != enemyProjectile.end() && it1 != enemyProjectileSprite.end(); )
-    {
-      if(  it->get()->GetY() > 640 || it->get()->GetX()> 350)
+      for(int i = 0; i < enemyProjectile.size(); i++)
       {
+        if(enemyProjectile[i] != nullptr)
+        {
+          if(enemyProjectile[i]->GetY() > 640 || 
+             enemyProjectile[i]->GetX() > 350 ||
+            enemyProjectile[i]->GetX() < 0)
+          {
+           enemyProjectile[i].reset(nullptr);
+
+          sf::Vertex* currentVertex = &enemyProjectileVertices[i*4];
+          //MOVE AWAY TIL IT WILL BE REUSED
+          currentVertex[0] = sf::Vector2f(0,0);
+          currentVertex[1] = sf::Vector2f(0,0);
+          currentVertex[2] = sf::Vector2f(0,0);
+          currentVertex[3] = sf::Vector2f(0,0);
+          std::cout << "COLLISION DONE" << std::endl;
+          }
+        }
+      }
+
+    //separete loop for player collision
+      for(int i = 0; i < enemyProjectile.size(); i++)
+      {
+        if(enemyProjectile[i] != nullptr)
+        {
+          sf::FloatRect a(enemyProjectile[i]->GetX(), enemyProjectile[i]->GetY(), 8, 8);
+          if(AABB(playerSprite.getGlobalBounds(), a))
+          {
+            if(player.takeDmg(1))
+            {
+              std::cout << "YOUR DIED" << std::endl;
+            }
+           enemyProjectile[i].reset(nullptr);
+
+          sf::Vertex* currentVertex = &enemyProjectileVertices[i*4];
+          //MOVE AWAY TIL IT WILL BE REUSED
+          currentVertex[0] = sf::Vector2f(0,0);
+          currentVertex[1] = sf::Vector2f(0,0);
+          currentVertex[2] = sf::Vector2f(0,0);
+          currentVertex[3] = sf::Vector2f(0,0);
+          std::cout << "COLLISION DONE" << std::endl;
+          }
+        }
+      }
+  }
+
+    /*auto it = enemyProjectile.begin();
+
+    //separate loop for player collisions
+    for(; it != enemyProjectile.end();)
+    {
+      if(it->get()->GetY() > 640 || 
+         it->get()->GetX() > 350 ||
+         it->get()->GetX() < 0)
+      {
+        it = enemyProjectile.erase(it); 
+      }
+      sf::FloatRect a(it->get()->GetX(), it->get()->GetY(), 8, 8);
+      if(AABB(playerSprite.getGlobalBounds(), a))
+      {
+        std::cout << "PLAYER SPRTIE GOT HIT" << std::endl;
         it = enemyProjectile.erase(it);
-        it1 = enemyProjectileSprite.erase(it1);
+        if(player.takeDmg(1))
+        {
+          std::cout << "YOUR DIED" << std::endl;
+        }
       }
       else
-      {
         ++it;
-        ++it1;
-      }
-    }
-
-  }
+      
+    }*/
+  
 }
 
 void Game::update(sf::Event& e, sf::RenderWindow& w)
@@ -150,7 +207,6 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
   spawnEnemy();
   updateEnemies();
   updateEnemyProjectile();
-  std::cout << enemies.size() << std::endl;
   collisionCheck();
   ++tick;
 }
@@ -243,19 +299,19 @@ void Game::updateEnemyProjectile()
       //set quad position
       quad[0].position = sf::Vector2f(e->GetX(), 
                              e->GetY());
-      quad[1].position = sf::Vector2f(e->GetX() + enemyProjectileSpriteTexture[y]->getSize().x, 
+      quad[1].position = sf::Vector2f(e->GetX() + 8, 
                              e->GetY());
-      quad[2].position = sf::Vector2f(e->GetX() + enemyProjectileSpriteTexture[y]->getSize().x,
-                             e->GetY() + enemyProjectileSpriteTexture[y]->getSize().y);
+      quad[2].position = sf::Vector2f(e->GetX() + 8,
+                             e->GetY() + 8);
       quad[3].position = sf::Vector2f(e->GetX(), 
-                             e->GetY() + enemyProjectileSpriteTexture[y]->getSize().y);
+                             e->GetY() + 8);
 
 
       //TEXTURE COORDS IN SPIRTE SHEET HAVE NO SPRITE SHEET ATM  SO SCARY
       quad[0].texCoords = sf::Vector2f(0,0);
-      quad[1].texCoords = sf::Vector2f(enemyProjectileSpriteTexture[y]->getSize().x + 10 , 0);
-      quad[2].texCoords = sf::Vector2f(enemyProjectileSpriteTexture[y]->getSize().x + 10, enemyProjectileSpriteTexture[y]->getSize().y + 10);
-      quad[3].texCoords = sf::Vector2f(0 , enemyProjectileSpriteTexture[y]->getSize().y + 10);
+      quad[1].texCoords = sf::Vector2f(8, 0);
+      quad[2].texCoords = sf::Vector2f(8, 8);
+      quad[3].texCoords = sf::Vector2f(0 , 8);
     }
 
   }
@@ -263,6 +319,10 @@ void Game::updateEnemyProjectile()
   int y{0};
   for(auto& e : enemyProjectile)
   {
+      //skip if projectile is null
+      if(e != nullptr)
+      {
+      
       //point to a quad in vertex array
       auto it = std::find(enemyProjectile.begin(), enemyProjectile.end(), e);     
       size_t i = std::distance(enemyProjectile.begin(), it);
@@ -278,37 +338,10 @@ void Game::updateEnemyProjectile()
                              e->GetY() + enemyProjectileSpriteTexture[y]->getSize().y);
       quad[3].position = sf::Vector2f(e->GetX(), 
                              e->GetY() + enemyProjectileSpriteTexture[y]->getSize().y);
+      }
 
   }
 
-
-  //update bullets
-  
-
-  //init enemy projectiles
-  /*for(auto& e: enemies)
-  {
-    if(e->shoot(tick))
-    {
-      enemyProjectile.push_back(std::move(e->shoot(tick)));
-      std::unique_ptr<sf::Sprite> tmpSprite(new sf::Sprite);
-      tmpSprite->setTexture(*enemyProjectileSpriteTexture[i++]);
-      tmpSprite->scale(2,2);
-      enemyProjectileSprite.push_back(std::move(tmpSprite));
-    }
-  }*/
-
-  //update enemy projectiles
-    /*auto it = enemyProjectile.begin();
-    auto it1 = enemyProjectileSprite.begin();
-    
-    for(; it != enemyProjectile.end() && it1 != enemyProjectileSprite.end(); ++it, ++it1 )
-    {
-      it->get()->move();
-      it1->get()->setPosition(it->get()->GetX(),it->get()->GetY());
-      //std::cout << it1->get()->getPosition().y << std::endl;
-    }*/
-   
 }
 
 void Game::render(sf::RenderWindow& w)
@@ -332,11 +365,7 @@ void Game::render(sf::RenderWindow& w)
   }
 
   //draw enemy projectiels
-  for(auto& e : enemyProjectileSprite)
-  {
-   // w.draw(*e);
-  }
-  w.draw(enemyProjectileVertices, &texture);
+  w.draw(enemyProjectileVertices, &projectileTexture);
 }
 
 void Game::victory()
@@ -364,4 +393,15 @@ void Game::initLevel()
 
   }
 }
+
+
+bool Game::AABB(sf::FloatRect a, sf::FloatRect b)
+{
+  return 
+         (b.left < a.left + a.width) &&
+         (b.left + b.width > a.left) &&
+         (b.top < a.top + a.height) &&
+         (b.top + b.height > a.top);   
+}
+
 

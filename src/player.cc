@@ -18,7 +18,7 @@ Player::Player(float xc, float yc, float spd, int l, int dmg)
 {
   std::cout << "PLAYER CONSTRUCTOR WITH PARAMETERS" << std::endl;
   //CONSTRUCTOR UNIQUE TO PLAYER CLASS
-  damage = dmg;
+  this->dmg = dmg;
   //CREATE MOVEMENT VARIABLE FOR FUTURE PROJECTILE OBJECTS
   std::cout << "X: " << x << std::endl;
   std::cout << "Y: " << y << std::endl;
@@ -60,3 +60,4 @@ void Player::move(int tick)
   
   //std::cout << "PLAYER MOVE CALLED: X: "<< x << " Y: " << y << std::endl;
 }
+

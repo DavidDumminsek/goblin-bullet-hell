@@ -9,7 +9,6 @@ class Player : public Entity
 {
   private:
     std::map<std::string, int> movement;
-    int damage{0};
   public:
     Player();
     Player(float xc, float yc, float spd, int l, int dmg);
@@ -22,6 +21,6 @@ class Player : public Entity
     Player& operator=(Player&& rhs) = default;
     ~Player() = default;
     std::unique_ptr<Projectile> shoot();
-    void move(int tick);
+    void move(int tick) override;
 };
 #endif

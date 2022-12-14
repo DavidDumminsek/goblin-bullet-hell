@@ -6,6 +6,7 @@
 class Entity
 {
   protected:
+    int dmg{0};
     float x{0};
     float y{0};
     float speed{0.0};
@@ -23,6 +24,8 @@ class Entity
     //move assigment
     Entity& operator=(Entity&& rhs) = default;
     void virtual move(int tick) = 0;
+    bool takeDmg(int dmg);
+    int getDmg();
     int GetX() const;
     int GetY() const;
 };

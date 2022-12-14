@@ -6,7 +6,6 @@
 class Projectile : public Entity
 {
   private:
-    int dmg{0};
     std::string movement;
   public:
     Projectile();

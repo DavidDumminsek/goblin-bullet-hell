@@ -79,3 +79,4 @@ sf::Sprite& Enemy::getSprite()
 {
   return enemySprite;
 }
+

@@ -8,7 +8,6 @@
 class Enemy : public Entity
 {
   private:
-    int dmg;
     int enemyNumber;
     sf::Sprite enemySprite;
     sf::Texture enemyTexture;
@@ -26,5 +25,6 @@ class Enemy : public Entity
     void move(int tick) override;
     std::unique_ptr<Projectile> shoot(int tick);
     sf::Sprite& getSprite();
+
 };
 #endif
