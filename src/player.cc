@@ -19,6 +19,7 @@ Player::Player(float xc, float yc, float spd, int l, int dmg)
   std::cout << "PLAYER CONSTRUCTOR WITH PARAMETERS" << std::endl;
   //CONSTRUCTOR UNIQUE TO PLAYER CLASS
   this->dmg = dmg;
+  this->cooldownMax = 10;
   //CREATE MOVEMENT VARIABLE FOR FUTURE PROJECTILE OBJECTS
   std::cout << "X: " << x << std::endl;
   std::cout << "Y: " << y << std::endl;
@@ -26,16 +27,21 @@ Player::Player(float xc, float yc, float spd, int l, int dmg)
   std::cout << "LIFE: " << life << std::endl;
 
 }
- std::unique_ptr<Projectile> Player::shoot()
+ std::unique_ptr<Projectile> Player::shoot(int tick)
 {
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && cooldown < cooldownMax)
   {
     std::unique_ptr<Projectile> p(new Projectile{x-20,y-20,11.f,1,10} );
+    cooldown += cooldownMax;
     return p;
   }
   else
   {
    std::unique_ptr<Projectile> p(nullptr);
+   cooldown -= 1;
+   if(cooldown < 0) 
+      cooldown = 0;
    return p;  
   }
 }
@@ -57,7 +63,5 @@ void Player::move(int tick)
   {
     x += speed;
   }
-  
-  //std::cout << "PLAYER MOVE CALLED: X: "<< x << " Y: " << y << std::endl;
 }
 

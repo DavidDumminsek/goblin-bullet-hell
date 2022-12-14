@@ -13,6 +13,8 @@ class Enemy : public Entity
     sf::Texture enemyTexture;
     std::string movement;
     std::string movementProjectile;
+    float pSpeed;
+    int fireRate;
     void triShot();
     void zigzagShoot();
     void standardShoot();
@@ -20,7 +22,7 @@ class Enemy : public Entity
     void moveRight();
     void moveLeft();
   public:
-    Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std::string mvPro, int current);
+    Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std::string mvPro, float pSpeed, int fireRate, int current);
     ~Enemy() override;
     void move(int tick) override;
     std::unique_ptr<Projectile> shoot(int tick);

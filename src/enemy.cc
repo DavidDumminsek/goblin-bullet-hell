@@ -2,10 +2,12 @@
 #include "projectile.h"
 #include <iostream>
 
-Enemy::Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std::string mvPro, int current)
+Enemy::Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std::string mvPro, float pSpeed, int fireRate, int current)
 : Entity::Entity(xc,yc,spd,l)
 {
   this->dmg = dmg;
+  this->pSpeed = -pSpeed;
+  this->fireRate = fireRate;
   movement = mv;
   /*enemyTexture = texture;
   enemySprite.setTexture(enemyTexture); 
@@ -55,7 +57,7 @@ void Enemy::move(int tick)
 }
  std::unique_ptr<Projectile>Enemy::shoot(int tick)
 {
-  if(tick%20 == 0)
+  if(tick%fireRate == 0)
   {
     if(movementProjectile == "pentashot")
     {
@@ -65,7 +67,7 @@ void Enemy::move(int tick)
     else
     {
       std::unique_ptr<Projectile> 
-      p(new Projectile{x+10,y+2,-4.f,1,dmg,movementProjectile});
+      p(new Projectile{x+10,y+2,pSpeed,1,dmg,movementProjectile});
       return p;
     }
   }

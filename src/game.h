@@ -44,6 +44,7 @@ class Game{
 
     sf::Texture texture;
     sf::Sprite playerSprite; 
+    sf::FloatRect playerHitbox;
     sf::Texture playerProjectileTexture;
 
     Player player;

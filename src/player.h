@@ -9,6 +9,8 @@ class Player : public Entity
 {
   private:
     std::map<std::string, int> movement;
+    int cooldown{0};
+    int cooldownMax{0};
   public:
     Player();
     Player(float xc, float yc, float spd, int l, int dmg);
@@ -20,7 +22,7 @@ class Player : public Entity
     //move assigment
     Player& operator=(Player&& rhs) = default;
     ~Player() = default;
-    std::unique_ptr<Projectile> shoot();
+    std::unique_ptr<Projectile> shoot(int tick);
     void move(int tick) override;
 };
 #endif

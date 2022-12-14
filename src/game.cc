@@ -50,7 +50,7 @@ Game::Game(sf::RenderWindow& w)
   playerHeight = playerSprite.getTexture()->getSize().y;
   windowWidth = w.getSize().x;
   windowHeight = w.getSize().y;
-  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 100, 15);
+  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 2, 15);
   this -> player = player;
   playerSprite.setPosition(player.GetX(), player.GetY());
   
@@ -107,7 +107,15 @@ void Game::collisionCheck()
     
     for(; it != enemies.end() && it1 != enemiesSprite.end();)
     {
-      if( it->get()->GetY() > 640 || it->get()->GetX()> 340)
+      /*if(AABB(playerHitbox, it1->get()->getGlobalBounds()))
+      {
+        if(player.takeDmg(1))
+        {
+          std::cout << "YOU DIED" << std::endl;
+          gameRunning = false;
+        }
+      }*/
+      if( it->get()->GetY() > 640 || it->get()->GetX()> 360)
       {
         it = enemies.erase(it);
         it1 = enemiesSprite.erase(it1);
@@ -122,13 +130,12 @@ void Game::collisionCheck()
         {
           if(AABB(p2->get()->getGlobalBounds(), it1->get()->getGlobalBounds()))
           {
-            std::cout << "PLAYER HIT ENEMY" << std::endl;
-
             p1 = playerProjectile.erase(p1);
             p2 = playerProjectileSprite.erase(p2);
             
             if(it->get()->takeDmg(player.getDmg()))
             {
+              std::cout << it->get()->GetX() << std::endl;
               it = enemies.erase(it);
               it1 = enemiesSprite.erase(it1);
               enemyErased = true;
@@ -140,9 +147,8 @@ void Game::collisionCheck()
             ++p2;
           }
         }
-        if(!enemyErased)
+        if(!enemyErased && it != enemies.end() || it1 != enemiesSprite.end())
         {
-          std::cout << "ENEMY KILLED" << std::endl;
           ++it;
           ++it1;
         }
@@ -174,7 +180,6 @@ void Game::collisionCheck()
           currentVertex[1] = sf::Vector2f(0,0);
           currentVertex[2] = sf::Vector2f(0,0);
           currentVertex[3] = sf::Vector2f(0,0);
-          std::cout << "COLLISION DONE" << std::endl;
           }
         }
       }
@@ -185,7 +190,7 @@ void Game::collisionCheck()
         if(enemyProjectile[i] != nullptr)
         {
           sf::FloatRect a(enemyProjectile[i]->GetX(), enemyProjectile[i]->GetY(), 8, 8);
-          if(AABB(playerSprite.getGlobalBounds(), a))
+          if(AABB(playerHitbox, a))
           {
             if(player.takeDmg(1))
             {
@@ -200,7 +205,6 @@ void Game::collisionCheck()
           currentVertex[1] = sf::Vector2f(0,0);
           currentVertex[2] = sf::Vector2f(0,0);
           currentVertex[3] = sf::Vector2f(0,0);
-          std::cout << "COLLISION DONE" << std::endl;
           }
         }
       }
@@ -216,6 +220,8 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
        w.close();
   }
   player.move(tick);
+  sf::FloatRect p(player.GetX()-7, player.GetY()-12, 14, 10); 
+  this->playerHitbox = p;
 
   //PLAYER SHOOT
   updatePlayerProjectile(); 
@@ -223,13 +229,14 @@ void Game::update(sf::Event& e, sf::RenderWindow& w)
   updateEnemies();
   updateEnemyProjectile();
   collisionCheck();
+  victory();
   ++tick;
 }
 
 void Game::updatePlayerProjectile()
 {
   //INITIERA EN PLAYER PROJEKTIL OM SHOOT FUNKTIONEN RETURNERAR NÅGOT
-  std::unique_ptr<Projectile>  temp = player.shoot();
+  std::unique_ptr<Projectile>  temp = player.shoot(tick);
   if(temp)
   {
     playerProjectile.push_back(std::move(temp));
@@ -260,7 +267,7 @@ void Game::spawnEnemy()
           "Y  " << std::stoi(Json::writeString(builder, data[currentEnemy]["y"])) << 
           "spd  " <<  std::stof(Json::writeString(builder, data[currentEnemy]["speed"])) <<
           "life   " << std::stoi(Json::writeString(builder, data[currentEnemy]["life"])) << 
-          "damage   " << std::stoi(Json::writeString(builder, data[currentEnemy]["damage"])) << std::endl;
+          "damage   " << std::stoi(Json::writeString(builder, data[currentEnemy]["fireRate"])) << std::endl;
 
     std::unique_ptr<Enemy> tmpEnemy(new Enemy(
           std::stoi(Json::writeString(builder, data[currentEnemy]["x"])),
@@ -270,6 +277,8 @@ void Game::spawnEnemy()
           std::stoi(Json::writeString(builder, data[currentEnemy]["damage"])),
           data[currentEnemy]["move"].asString(),
           data[currentEnemy]["projectile"].asString(),
+          std::stoi(Json::writeString(builder, data[currentEnemy]["projectileSpeed"])),
+          std::stoi(Json::writeString(builder, data[currentEnemy]["fireRate"])),
           currentEnemy
           ));
 
@@ -387,7 +396,13 @@ void Game::render(sf::RenderWindow& w)
 
 void Game::victory()
 {
-  std::cout << "YOU WIN" << std::endl;
+  if(data[data.size()-1]["victory"].asInt() <= tick &&
+     player.GetY() < 100 &&
+     enemies.size() == 0)
+  {
+    std::cout << "YOU WIN" << std::endl;
+    gameRunning = false;
+  }
 }
 
 
