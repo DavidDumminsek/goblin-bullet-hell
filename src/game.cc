@@ -50,7 +50,7 @@ Game::Game(sf::RenderWindow& w)
   playerHeight = playerSprite.getTexture()->getSize().y;
   windowWidth = w.getSize().x;
   windowHeight = w.getSize().y;
-  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 2, 15);
+  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 100, 15);
   this -> player = player;
   playerSprite.setPosition(player.GetX(), player.GetY());
   
@@ -216,8 +216,11 @@ void Game::update()
 {
   //RUN EVERYTHING TO HAPPEN EVERY TICK
   player.move(tick);
-  sf::FloatRect p(player.GetX()-7, player.GetY()-12, 14, 10); 
-  this->playerHitbox = p;
+  sf::FloatRect tmp(playerSprite.getGlobalBounds().left +7, 
+                    playerSprite.getGlobalBounds().top + 12,
+                    playerSprite.getGlobalBounds().width - 10, 
+                    playerSprite.getGlobalBounds().height + 2);
+  this->playerHitbox = tmp;
 
   //PLAYER SHOOT
   updatePlayerProjectile(); 

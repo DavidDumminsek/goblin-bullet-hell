@@ -7,6 +7,7 @@ class Projectile : public Entity
 {
   private:
     std::string movement;
+    int moveTimer{0};
   public:
     Projectile();
     Projectile(float xc, float yc, float spd, int l, int dmg);

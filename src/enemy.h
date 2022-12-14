@@ -15,6 +15,9 @@ class Enemy : public Entity
     std::string movementProjectile;
     float pSpeed;
     int fireRate;
+
+    int moveTimer{0};
+    int shootTimer{0};
     void triShot();
     void zigzagShoot();
     void standardShoot();

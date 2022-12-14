@@ -1,6 +1,7 @@
 #include "projectile.h"
 #include <string>
 #include <iostream>
+#include <math.h>
 Projectile::Projectile()
 {
   movement = {};
@@ -33,6 +34,12 @@ void Projectile::move(int tick)
   {
     y+=speed;
     x-=speed;
+  }
+  else if(movement == "wobble")
+  {
+    y += speed;
+    x += 4*sin(y/12);
+
   }
   else
   {

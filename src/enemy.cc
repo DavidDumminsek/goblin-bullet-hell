@@ -6,9 +6,10 @@ Enemy::Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std:
 : Entity::Entity(xc,yc,spd,l)
 {
   this->dmg = dmg;
-  this->pSpeed = -pSpeed;
+  this->pSpeed = pSpeed;
   this->fireRate = fireRate;
   movement = mv;
+  movementProjectile = mvPro;
   /*enemyTexture = texture;
   enemySprite.setTexture(enemyTexture); 
   if(enemySprite.getTexture())
@@ -36,18 +37,26 @@ void Enemy::move(int tick)
     y += speed;
     x += speed;
   }
+  else if(movement == "left")
+  {
+    y += speed;
+    x -= speed;
+  }
   else if(movement == "zigzag")
   {
-    if(x >= 360)
+    if(moveTimer < 50)
     {
       y += speed;
       x -= speed;
     }
-    else
+    else if(moveTimer > 50)
     {
-      y+= speed;
-      x+= speed;
+      y += speed;
+      x += speed;
     }
+    moveTimer++;
+    if(moveTimer == 100)
+      moveTimer = 0;
   }
   else
   {
@@ -59,17 +68,9 @@ void Enemy::move(int tick)
 {
   if(tick%fireRate == 0)
   {
-    if(movementProjectile == "pentashot")
-    {
-      std::unique_ptr<Projectile> p(nullptr);
-      return p;
-    }
-    else
-    {
       std::unique_ptr<Projectile> 
       p(new Projectile{x+10,y+2,pSpeed,1,dmg,movementProjectile});
       return p;
-    }
   }
   else
   {
