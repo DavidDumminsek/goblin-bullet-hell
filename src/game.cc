@@ -139,6 +139,7 @@ void Game::collisionCheck()
               it = enemies.erase(it);
               it1 = enemiesSprite.erase(it1);
               enemyErased = true;
+              break;
             }
           }
           else
@@ -147,7 +148,7 @@ void Game::collisionCheck()
             ++p2;
           }
         }
-        if(!enemyErased && it != enemies.end() || it1 != enemiesSprite.end())
+        if(!enemyErased)
         {
           ++it;
           ++it1;
