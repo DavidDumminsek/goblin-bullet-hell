@@ -1,0 +1,112 @@
+\documentclass{TDP003mall}
+
+
+
+\newcommand{\version}{Version 0.1}
+\author{David Dumminsek, \url{davdu153@student.liu.se}\\}
+\title{Reflektionsdokument}
+\date{2022-12-15}
+\rhead{David Dumminsek}
+
+
+
+\begin{document}
+\projectpage
+\section{Revisionshistorik}
+\begin{table}[!h]
+\begin{tabularx}{\linewidth}{|l|X|l|}
+\hline
+Ver. & Revisionsbeskrivning & Datum \\\hline
+0.1 & Första utkast & 22-12-15\\\hline
+\end{tabularx}
+\end{table}
+
+
+\section{Inledning}
+Projektet var ett spel gjort i programmerings språket c++ med hjälp av grafik biblioteket
+SFML. Det var meningen att göra spelet i projektgrupper av två personer. Tyvärr så behövdes detta
+projekt göras ensamt då den ena projektmedlemmen ''försvann'' utan några spår. 
+
+Så alla bidrag till projektet var det jag själv som gjorde då vi inte hade producerat någon kod 
+tillsammans. Jag var också helt ny till c++ så det har verkligen kunnat ha gått bättre.
+
+Slutprodukten blev ett väldigt enkelt ''bullethell'' spel utan några animationer eller komplexa 
+mönster av projektiler. 
+Det blev fortfarande ett fullt funktionellt spel som jag kan vara stolt över.
+
+\section{Tekniker}
+Under projektets gång fick jag stöta på en hel del olika tekniker.
+\subsection{Cmake}
+Det var stort fokus på att projektet skulle vara objekt orienterat, alltså uppbyggt av
+många olika klasser. I c++ leder det till att det blir en del så kallade header filer. Som 
+är filer med deklarationer av klasser, funktioner och variabler. God praxis är då att göra en
+klass per header fil och när man ska kompilera så måste alla filer länkas. 
+Så om man har en del klasser och bibliotek så kommer kommandot för kompileringen bli rätt så stor.
+
+Det cmake gör är helt enkelt en makefile som kompilerar allting. 
+Så efter man har gjort en ändring är det bara att köra kommandot \textbf{make} så körs make filen och allt kompileras.
+
+Jag hade det väldigt svårt att få cmake att fungera först då jag inte förstod hur man 
+skulle koppla de biblioteken jag skulle använda. Först trodde jag det skulle räcka om jag bara
+berättade vad länkning flaggorna var men det funkade inte så bra. Så jag googlade och försökte
+en del olika metoder jag såg på stackoverflow, helt enkelt trial and error. 
+Det slutade med att jag hittade någoting som fungerade. 
+
+Jag stötte också några problem när jag försökte komma åt mina sprite bilder och json filen.
+Det hände bara när jag kompilerade med cmake. Jag började med att försöka säga åt cmake vart
+de ska söka efter filer, det gick inte så bra. Det slutade med att jag i själva koden skriver ut hur 
+filsökvägen ser ut just i koden. Jag märkte då att när jag kompilerar i cmake så börjar 
+programmet i build katalogen istället för source. Så jag ändrade koden i programmet så jag 
+kommer till rätt katalog. Istället för att försöka hitta en lösning med cmake.
+
+Jag skulle nog ha tagit hjälp av labbassisterna speciellt när det kom till första gången jag försökte 
+få igång cmake. Då det fanns ett labbpass specifikt för cmake skulle jag nog kunnat spara mycket tid och lidande.
+
+\subsection{c++ och objekt orientering}
+I mitt spel så har jag en klass där största delen av all kod utförs, det vill man helst 
+undvika när det kommer till objekt orienterad design så man vill att varje klass ska ha
+enbart ett specifikt ansvar. En del in till programmet försökte jag fixa lite högre cohesion
+med att skapa en \textbf{ObjectManager} klass. Det var inga problem tills jag stötte på ett
+\textbf{SEGMENTATION} fel som jag inte alls förstod mig på. Då den inträffade på något som jag inte 
+äns jag hade allokerat något minne till, det var bara en \textbf{Json::Data} variabel. 
+Som funkade som den skulle tills jag lade den variablen i en if sats. 
+Felet uppträffades bara när jag försökte fixa mer klasser. Det slutade med att jag gav upp 
+och återvände till min low cohesion design. 
+
+Jag hade verkligen stora svårigheter när det kom till c++. 
+Jag skulle igen kunnat tagit mer hjälp från labbassisterna.
+Jag tror jag också skulle ha använt IDE som clion med debug verktyg det skulle nog 
+ha underlättat en del.
+Då jag bara använde mig av en textredigerare för hela projektet.
+Just nu hoppas jag på att inte behöve hålla på med c++ så mycket. 
+Det blir java och libGDX för mig.
+\section{Samarbete}
+Som sagt innan så gjordes nästan hela projektet själv. Det var bara 
+gruppkontraktet och första utkastet av kravspecifikationen och desingspecifikationen som 
+vi samarbetade med. 
+
+Det lilla vi samarbetade med på tillsammans var inte helt fri från "konflikter".
+Då min projektpartner var väldigt upptagen med något personligt så ledde det till att 
+mycket gjordes i sista minuten. Han hade också väldigt svårt att svara på mina meddelanden,
+då det kunde ta upp till en vecka tills han svarade. Har varit mer än 2 veckor nu sen hans sista 
+meddelande. 
+
+Jag vet inte hur mycket jag som en individ skulle kunna påverka. 
+Jag kanske skulle specifiera några åtgärder i grupp kontraket att om man inte 
+är produktiv (inte svarar, bidrar) så kontaktas kursledningen eller något liknande.
+
+Så tyvärr fick jag inte testa på hur jira, jag skulle verkligen vilja prova på hur det är 
+att arbete med ''issues'' och hitta en bra metod på hur man kan tilldela kod.
+Så hoppas verkligen det blir mer lyckat på mitt nästa grupparbete.
+\section{Sammanfattning}
+Jag skulle ändå säga att jag har lärt mig en hel del under projektet.
+Då som sagt c++ och cmake är helt nytt för mig. 
+Jag tyckte också det var väldigt kul att göra ett spel jag kände mig verkligen kreativ på 
+en del lösningar och fick en hel del olika ideër. Så känner att jag verkligen kommer fortsätta göra spel,
+kanske inte med c++ dock.
+Tror inte det blir en lång karriär i c++ för mig då jag fastande i vad jag trodde skulle vara enkla lösningar 
+en hel del gånger. Så det blir att satsa på ett språk med garbage collection för mig i framtiden.
+
+
+
+\end{document}
