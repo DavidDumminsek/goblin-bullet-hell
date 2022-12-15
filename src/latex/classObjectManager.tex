@@ -1,0 +1,147 @@
+\hypertarget{classObjectManager}{}\doxysection{Object\+Manager Class Reference}
+\label{classObjectManager}\index{ObjectManager@{ObjectManager}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classObjectManager_a9392112ff3100096cee4c353d9f12fd4}\label{classObjectManager_a9392112ff3100096cee4c353d9f12fd4}} 
+{\bfseries Object\+Manager} (sf\+::\+Render\+Window \&w, std\+::string path\+To\+Level)
+\item 
+void \mbox{\hyperlink{classObjectManager_a428a2befbb28c94bc9a1b4c4a806c40d}{init\+Player}} (sf\+::\+Render\+Window \&w)
+\item 
+void \mbox{\hyperlink{classObjectManager_acbe50d32193f57b9dcfcb79beaccf155}{update}} ()
+\item 
+void \mbox{\hyperlink{classObjectManager_a4da1947aa657144a03973be9d7bff748}{update\+Player}} ()
+\item 
+void \mbox{\hyperlink{classObjectManager_a0a6a8a2961b16a5ee60d7cd7c55540c6}{spawn\+Enemy}} (\mbox{\hyperlink{classLevel}{Level}} level)
+\item 
+void \mbox{\hyperlink{classObjectManager_a0f73fd6621582b527cfa48931e36115b}{load\+Enemy\+Textures}} (\mbox{\hyperlink{classLevel}{Level}} level)
+\item 
+void \mbox{\hyperlink{classObjectManager_ab2b005a7b37a8692edca7d9ac9b2eb81}{update\+Enemies}} ()
+\item 
+void \mbox{\hyperlink{classObjectManager_a5fc148f1ab01e590b96cd010654464f1}{update\+Enemy\+Projectiles}} ()
+\item 
+void \mbox{\hyperlink{classObjectManager_af4799bc4a52b15e33008b70d1b9f09f9}{delete\+Non\+Visible}} ()
+\item 
+void \mbox{\hyperlink{classObjectManager_ad283f33acd32db29a4811cf9d053b0a7}{render}} (sf\+::\+Render\+Window \&w) const
+\item 
+\mbox{\Hypertarget{classObjectManager_a6e716979378bf50ddd626a477653d2ab}\label{classObjectManager_a6e716979378bf50ddd626a477653d2ab}} 
+int \mbox{\hyperlink{classObjectManager_a6e716979378bf50ddd626a477653d2ab}{get\+Tick}} () const
+\begin{DoxyCompactList}\small\item\em Get function for tick integer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classObjectManager_af4799bc4a52b15e33008b70d1b9f09f9}\label{classObjectManager_af4799bc4a52b15e33008b70d1b9f09f9}} 
+\index{ObjectManager@{ObjectManager}!deleteNonVisible@{deleteNonVisible}}
+\index{deleteNonVisible@{deleteNonVisible}!ObjectManager@{ObjectManager}}
+\doxysubsubsection{\texorpdfstring{deleteNonVisible()}{deleteNonVisible()}}
+{\footnotesize\ttfamily void Object\+Manager\+::delete\+Non\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function which deletes sprites that are not visible
+
+Erases enemies and enemy bullets from their respective vectors. In turn freeing the memory allocated to them \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObjectManager_a428a2befbb28c94bc9a1b4c4a806c40d}\label{classObjectManager_a428a2befbb28c94bc9a1b4c4a806c40d}} 
+\index{ObjectManager@{ObjectManager}!initPlayer@{initPlayer}}
+\index{initPlayer@{initPlayer}!ObjectManager@{ObjectManager}}
+\doxysubsubsection{\texorpdfstring{initPlayer()}{initPlayer()}}
+{\footnotesize\ttfamily void Object\+Manager\+::init\+Player (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{w }\end{DoxyParamCaption})}
+
+Function for initiating player object
+
+This function creates a player object and assigns it to the local Object\+Manager\+::player. With the x coordinates equivilant to the middle of the window. And the y coordinates 600 -\/ the height of the player texture. 
+\begin{DoxyParams}{Parameters}
+{\em w} & Uses window to center the player sprite correclty \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObjectManager_a0f73fd6621582b527cfa48931e36115b}\label{classObjectManager_a0f73fd6621582b527cfa48931e36115b}} 
+\index{ObjectManager@{ObjectManager}!loadEnemyTextures@{loadEnemyTextures}}
+\index{loadEnemyTextures@{loadEnemyTextures}!ObjectManager@{ObjectManager}}
+\doxysubsubsection{\texorpdfstring{loadEnemyTextures()}{loadEnemyTextures()}}
+{\footnotesize\ttfamily void Object\+Manager\+::load\+Enemy\+Textures (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLevel}{Level}}}]{level }\end{DoxyParamCaption})}
+
+Function to load textures
+
+Stores textures into a vector of textures. 
+\begin{DoxyParams}{Parameters}
+{\em level} & A level object which contains data from the level. Tells how many enemies and what order they will be created in. ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classObjectManager_ad283f33acd32db29a4811cf9d053b0a7}\label{classObjectManager_ad283f33acd32db29a4811cf9d053b0a7}} 
+\index{ObjectManager@{ObjectManager}!render@{render}}
+\index{render@{render}!ObjectManager@{ObjectManager}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Object\+Manager\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{w }\end{DoxyParamCaption}) const}
+
+Renders all sprites and vertices
+
+Goes through all the sprites in the vectors and draws the Vertex\+Array for enemy projectiles 
+\begin{DoxyParams}{Parameters}
+{\em w} & Window to where to draw the sprites \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classObjectManager_a0a6a8a2961b16a5ee60d7cd7c55540c6}\label{classObjectManager_a0a6a8a2961b16a5ee60d7cd7c55540c6}} 
+\index{ObjectManager@{ObjectManager}!spawnEnemy@{spawnEnemy}}
+\index{spawnEnemy@{spawnEnemy}!ObjectManager@{ObjectManager}}
+\doxysubsubsection{\texorpdfstring{spawnEnemy()}{spawnEnemy()}}
+{\footnotesize\ttfamily void Object\+Manager\+::spawn\+Enemy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLevel}{Level}}}]{level }\end{DoxyParamCaption})}
+
+Function for creating enemies
+
+This function creates a pointer \mbox{\hyperlink{classEnemy}{Enemy}} object based on the \mbox{\hyperlink{classLevel}{Level}} object member variables. The pointer is then pushed into a vector of \mbox{\hyperlink{classEnemy}{Enemy}} pointers... TO BE C\+H\+A\+N\+G\+ED 
+\begin{DoxyParams}{Parameters}
+{\em level} & A level object which contains data from the level. Describing the enemy to be created. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObjectManager_acbe50d32193f57b9dcfcb79beaccf155}\label{classObjectManager_acbe50d32193f57b9dcfcb79beaccf155}} 
+\index{ObjectManager@{ObjectManager}!update@{update}}
+\index{update@{update}!ObjectManager@{ObjectManager}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Object\+Manager\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Updates all objects
+
+This function updates all the object in this class. By calling all the relevant functions ~\newline
+ \mbox{\Hypertarget{classObjectManager_ab2b005a7b37a8692edca7d9ac9b2eb81}\label{classObjectManager_ab2b005a7b37a8692edca7d9ac9b2eb81}} 
+\index{ObjectManager@{ObjectManager}!updateEnemies@{updateEnemies}}
+\index{updateEnemies@{updateEnemies}!ObjectManager@{ObjectManager}}
+\doxysubsubsection{\texorpdfstring{updateEnemies()}{updateEnemies()}}
+{\footnotesize\ttfamily void Object\+Manager\+::update\+Enemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function for updating enemies
+
+This function updates the enemies by changing their coordinates and moving their sprites. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObjectManager_a5fc148f1ab01e590b96cd010654464f1}\label{classObjectManager_a5fc148f1ab01e590b96cd010654464f1}} 
+\index{ObjectManager@{ObjectManager}!updateEnemyProjectiles@{updateEnemyProjectiles}}
+\index{updateEnemyProjectiles@{updateEnemyProjectiles}!ObjectManager@{ObjectManager}}
+\doxysubsubsection{\texorpdfstring{updateEnemyProjectiles()}{updateEnemyProjectiles()}}
+{\footnotesize\ttfamily void Object\+Manager\+::update\+Enemy\+Projectiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Function for updating and creating projectiles for enemies
+
+This function loops through every enemy in the Object\+Manager\+::enemies and calls their \mbox{\hyperlink{classEnemy_a67edb4b865cb32d594ea306f5cf679aa}{Enemy\+::shoot}} function to create a \mbox{\hyperlink{classProjectile}{Projectile}} object which gets pushed into a sf\+::\+Vertex\+Array. \begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classObjectManager_a4da1947aa657144a03973be9d7bff748}\label{classObjectManager_a4da1947aa657144a03973be9d7bff748}} 
+\index{ObjectManager@{ObjectManager}!updatePlayer@{updatePlayer}}
+\index{updatePlayer@{updatePlayer}!ObjectManager@{ObjectManager}}
+\doxysubsubsection{\texorpdfstring{updatePlayer()}{updatePlayer()}}
+{\footnotesize\ttfamily void Object\+Manager\+::update\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Update player object and sprite
+
+Calls the move function of player object and sets the sprite position to new player coordinates 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+objectmanager.\+h\item 
+objectmanager.\+cc\end{DoxyCompactItemize}

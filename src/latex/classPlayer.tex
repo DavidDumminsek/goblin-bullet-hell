@@ -1,0 +1,55 @@
+\hypertarget{classPlayer}{}\doxysection{Player Class Reference}
+\label{classPlayer}\index{Player@{Player}}
+
+
+Inheritance diagram for Player\+:
+% FIG 0
+
+
+Collaboration diagram for Player\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlayer_ac73d896c7ce6c8bf267ed7ae10d2f8d5}\label{classPlayer_ac73d896c7ce6c8bf267ed7ae10d2f8d5}} 
+{\bfseries Player} (float xc, float yc, float spd, int l, int dmg)
+\item 
+\mbox{\Hypertarget{classPlayer_a1ca64de2c3ff2155fef61db9a2e2b287}\label{classPlayer_a1ca64de2c3ff2155fef61db9a2e2b287}} 
+{\bfseries Player} (const \mbox{\hyperlink{classPlayer}{Player}} \&rhs)=default
+\item 
+\mbox{\Hypertarget{classPlayer_aea1864e3952d9dc6df3b3aa917657488}\label{classPlayer_aea1864e3952d9dc6df3b3aa917657488}} 
+{\bfseries Player} (\mbox{\hyperlink{classPlayer}{Player}} \&\&rhs)=default
+\item 
+\mbox{\Hypertarget{classPlayer_a9b5bcb53008df63ae1999e57a91317a0}\label{classPlayer_a9b5bcb53008df63ae1999e57a91317a0}} 
+\mbox{\hyperlink{classPlayer}{Player}} \& {\bfseries operator=} (const \mbox{\hyperlink{classPlayer}{Player}} \&rhs)=default
+\item 
+\mbox{\Hypertarget{classPlayer_a2ed0c04b600fcfed276ad1fbf97b2509}\label{classPlayer_a2ed0c04b600fcfed276ad1fbf97b2509}} 
+\mbox{\hyperlink{classPlayer}{Player}} \& {\bfseries operator=} (\mbox{\hyperlink{classPlayer}{Player}} \&\&rhs)=default
+\item 
+\mbox{\Hypertarget{classPlayer_ad4c9eaaf9d229c329537cee3dfbc429d}\label{classPlayer_ad4c9eaaf9d229c329537cee3dfbc429d}} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \mbox{\hyperlink{classPlayer_ad4c9eaaf9d229c329537cee3dfbc429d}{shoot}} (int tick)
+\begin{DoxyCompactList}\small\item\em Creates and returns a projectile if spacebar is pressed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer_a08b9f6432c53a6f0e274ac800d748f0f}{move}} (int tick) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlayer_a08b9f6432c53a6f0e274ac800d748f0f}\label{classPlayer_a08b9f6432c53a6f0e274ac800d748f0f}} 
+\index{Player@{Player}!move@{move}}
+\index{move@{move}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Player\+::move (\begin{DoxyParamCaption}\item[{int}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Changes x and y coordinates based on user input
+
+This function changes the x and y coordinates based on what key is pressed. 
+
+Implements \mbox{\hyperlink{classEntity_ae8f41087d348f84540f65d158a91cf0b}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+player.\+h\item 
+player.\+cc\end{DoxyCompactItemize}

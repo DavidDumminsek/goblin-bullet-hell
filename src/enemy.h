@@ -9,8 +9,6 @@ class Enemy : public Entity
 {
   private:
     int enemyNumber;
-    sf::Sprite enemySprite;
-    sf::Texture enemyTexture;
     std::string movement;
     std::string movementProjectile;
     float pSpeed;
@@ -18,18 +16,21 @@ class Enemy : public Entity
 
     int moveTimer{0};
     int shootTimer{0};
-    void triShot();
-    void zigzagShoot();
-    void standardShoot();
-
-    void moveRight();
-    void moveLeft();
   public:
     Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std::string mvPro, float pSpeed, int fireRate, int current);
-    ~Enemy() override;
+    ///Changes x and y coordinates 
+    ///
+    ///This function changes the x and y variable members based on
+    ///the \ref movment variable member and \ref tick parameter
+    ///@param tick Current tick from \ref Game class, can be used to change movement behaviour
     void move(int tick) override;
+    ///Creates and returns a \ref Projectile pointer
+    ///
+    ///This function creates a projectile pointer.
+    ///@param tick Current tick from \ref Game class, used to detirmine how often to create a \ref Projectile
+    ///@returns A \ref Projectile if tick is divisible by \ref fireRate
+    ///@return nullptr If tick is not divisible by \ref fireRate
     std::unique_ptr<Projectile> shoot(int tick);
-    sf::Sprite& getSprite();
 
 };
 #endif

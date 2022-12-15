@@ -10,7 +10,6 @@
 }*/
 Player::Player()
 {
-  movement = {};
 }
 
 Player::Player(float xc, float yc, float spd, int l, int dmg)

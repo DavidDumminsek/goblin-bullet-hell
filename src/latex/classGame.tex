@@ -1,0 +1,133 @@
+\hypertarget{classGame}{}\doxysection{Game Class Reference}
+\label{classGame}\index{Game@{Game}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGame_a530a004cc05a6e4b662ca5aa12bc8422}\label{classGame_a530a004cc05a6e4b662ca5aa12bc8422}} 
+{\bfseries Game} (sf\+::\+Render\+Window \&w)
+\item 
+void \mbox{\hyperlink{classGame_a3e1bc9e3ac8e59928951bab2a5d3214d}{collision\+Check}} ()
+\item 
+void \mbox{\hyperlink{classGame_a79df6376b332d63c9eca0dcee30305c3}{update}} ()
+\item 
+void \mbox{\hyperlink{classGame_a4b854681556a305eb4b2c64b8f4a816f}{update\+Player\+Projectile}} ()
+\item 
+void \mbox{\hyperlink{classGame_afea28b51d824381d8f8d9d83102fb05a}{update\+Enemy\+Projectile}} ()
+\item 
+void \mbox{\hyperlink{classGame_ad7a4181414089729ddea00c053f822c4}{spawn\+Enemy}} ()
+\item 
+void \mbox{\hyperlink{classGame_a0634553da4f33ed2c5a6f2cae6607ea5}{update\+Enemies}} ()
+\item 
+void \mbox{\hyperlink{classGame_a25830c173f9d87da552a8787e403620f}{render}} (sf\+::\+Render\+Window \&w)
+\item 
+void \mbox{\hyperlink{classGame_a6a02e00bf61930576156c6c59b817a25}{victory}} ()
+\item 
+void \mbox{\hyperlink{classGame_add164458538b8f2488dcccb6fd64c28a}{init\+Level}} ()
+\item 
+bool \mbox{\hyperlink{classGame_ab3e3ee06072fc79794e0d0c29ba80c03}{A\+A\+BB}} (sf\+::\+Float\+Rect a, sf\+::\+Float\+Rect b) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGame_ab3e3ee06072fc79794e0d0c29ba80c03}\label{classGame_ab3e3ee06072fc79794e0d0c29ba80c03}} 
+\index{Game@{Game}!AABB@{AABB}}
+\index{AABB@{AABB}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{AABB()}{AABB()}}
+{\footnotesize\ttfamily bool Game\+::\+A\+A\+BB (\begin{DoxyParamCaption}\item[{sf\+::\+Float\+Rect}]{a,  }\item[{sf\+::\+Float\+Rect}]{b }\end{DoxyParamCaption}) const}
+
+Checks collision between to Float\+Rects
+
+This function checks if two rectangles collide. 
+\begin{DoxyParams}{Parameters}
+{\em a} & The first rectangle \\
+\hline
+{\em b} & The second rectangle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the rectangles collide 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGame_a3e1bc9e3ac8e59928951bab2a5d3214d}\label{classGame_a3e1bc9e3ac8e59928951bab2a5d3214d}} 
+\index{Game@{Game}!collisionCheck@{collisionCheck}}
+\index{collisionCheck@{collisionCheck}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{collisionCheck()}{collisionCheck()}}
+{\footnotesize\ttfamily void Game\+::collision\+Check (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Handles all collision between player and enemy objects. Including culling out of view enemies.
+
+This function loops through every vector of objects and deletes and modifies objects where relevent \mbox{\Hypertarget{classGame_add164458538b8f2488dcccb6fd64c28a}\label{classGame_add164458538b8f2488dcccb6fd64c28a}} 
+\index{Game@{Game}!initLevel@{initLevel}}
+\index{initLevel@{initLevel}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{initLevel()}{initLevel()}}
+{\footnotesize\ttfamily void Game\+::init\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Loads enemy textures
+
+Loops through all the data in the json file but only pushing the texture png path. The png file is loaded to a texture and the pushed to a vector of enemy textures \mbox{\Hypertarget{classGame_a25830c173f9d87da552a8787e403620f}\label{classGame_a25830c173f9d87da552a8787e403620f}} 
+\index{Game@{Game}!render@{render}}
+\index{render@{render}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Game\+::render (\begin{DoxyParamCaption}\item[{sf\+::\+Render\+Window \&}]{w }\end{DoxyParamCaption})}
+
+Draws every sprite och vertices
+
+The function draws the player sprite, enemy sprite and player\+Projectile\+Sprite indivudually with one draw call per sprite. But enemy\+Projectile\+Vertices is drawn using a single draw call because it is a Vertex\+Array. 
+\begin{DoxyParams}{Parameters}
+{\em w} & The window to which the sprites will be drawn on. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGame_ad7a4181414089729ddea00c053f822c4}\label{classGame_ad7a4181414089729ddea00c053f822c4}} 
+\index{Game@{Game}!spawnEnemy@{spawnEnemy}}
+\index{spawnEnemy@{spawnEnemy}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{spawnEnemy()}{spawnEnemy()}}
+{\footnotesize\ttfamily void Game\+::spawn\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates enemy objects
+
+This function creates enemy objects based on the level json file. If the tick matches the tick\+Spawn an enemy object pointer is created and pushed to enemies vector. The equivilant sprite is also pushed to the enemies\+Sprite vector. ~\newline
+ \mbox{\Hypertarget{classGame_a79df6376b332d63c9eca0dcee30305c3}\label{classGame_a79df6376b332d63c9eca0dcee30305c3}} 
+\index{Game@{Game}!update@{update}}
+\index{update@{update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Game\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Updates all the object.
+
+This function updates all the object by calling the relevant update functions found in the \mbox{\hyperlink{classGame}{Game}} class \mbox{\Hypertarget{classGame_a0634553da4f33ed2c5a6f2cae6607ea5}\label{classGame_a0634553da4f33ed2c5a6f2cae6607ea5}} 
+\index{Game@{Game}!updateEnemies@{updateEnemies}}
+\index{updateEnemies@{updateEnemies}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{updateEnemies()}{updateEnemies()}}
+{\footnotesize\ttfamily void Game\+::update\+Enemies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Updates every enemy
+
+Loops through every \mbox{\hyperlink{classEnemy}{Enemy}} object in the enemies vector. Every loop the \mbox{\hyperlink{classEnemy_af014a64bfea4d3653ffe5fe5bfadd4ab}{Enemy\+::move}} function is called and the sprite position is moved based on the new coordinates of the \mbox{\hyperlink{classEnemy}{Enemy}} object \mbox{\Hypertarget{classGame_afea28b51d824381d8f8d9d83102fb05a}\label{classGame_afea28b51d824381d8f8d9d83102fb05a}} 
+\index{Game@{Game}!updateEnemyProjectile@{updateEnemyProjectile}}
+\index{updateEnemyProjectile@{updateEnemyProjectile}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{updateEnemyProjectile()}{updateEnemyProjectile()}}
+{\footnotesize\ttfamily void Game\+::update\+Enemy\+Projectile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Updates and creates enemy \mbox{\hyperlink{classProjectile}{Projectile}} objects
+
+This function loops through all \mbox{\hyperlink{classEnemy}{Enemy}} objects and calls their shoot function. The shoot function creates a \mbox{\hyperlink{classProjectile}{Projectile}} object with gets pushed to the Game\+::enemy\+Projectile vector. A vertex also get added to enemy\+Projectile\+Vertices vertex array. After the first loop a second loop is used to update all the enemy \mbox{\hyperlink{classProjectile}{Projectile}} objects and their equivilant vertices. \mbox{\Hypertarget{classGame_a4b854681556a305eb4b2c64b8f4a816f}\label{classGame_a4b854681556a305eb4b2c64b8f4a816f}} 
+\index{Game@{Game}!updatePlayerProjectile@{updatePlayerProjectile}}
+\index{updatePlayerProjectile@{updatePlayerProjectile}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{updatePlayerProjectile()}{updatePlayerProjectile()}}
+{\footnotesize\ttfamily void Game\+::update\+Player\+Projectile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates and updates \mbox{\hyperlink{classProjectile}{Projectile}} object belonging to the \mbox{\hyperlink{classPlayer}{Player}} class
+
+This function creates a \mbox{\hyperlink{classProjectile}{Projectile}} object by calling the \mbox{\hyperlink{classPlayer_ad4c9eaaf9d229c329537cee3dfbc429d}{Player\+::shoot}} function and pushing it into a vector of \mbox{\hyperlink{classProjectile}{Projectile}} pointers. After createing a projectile the function loops through all existing projectiles and updates them with by calling the \mbox{\hyperlink{classProjectile_af191283d5a65af32f400dc7654f6b6e3}{Projectile\+::move}} function \mbox{\Hypertarget{classGame_a6a02e00bf61930576156c6c59b817a25}\label{classGame_a6a02e00bf61930576156c6c59b817a25}} 
+\index{Game@{Game}!victory@{victory}}
+\index{victory@{victory}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{victory()}{victory()}}
+{\footnotesize\ttfamily void Game\+::victory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Checks win condition, closes game if satisfied
+
+This function checks the last element in the level json file the element specifies what tick the game will be over. If the tick has passed and there are no enemies on the screen and the player is close to the top of the screen the game closes. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game.\+h\item 
+game.\+cc\end{DoxyCompactItemize}

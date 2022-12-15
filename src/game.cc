@@ -28,29 +28,16 @@
 
 Game::Game(sf::RenderWindow& w)
 { 
-  std::ifstream file("../src/levels/level1.json");
-  if(file) 
-    std::cout << "FILE EXISTS" << std::endl;
-  else
-    std::cout << "FILE DOESN'T EXSIST" << std::endl;
-  Json::Reader reader;
-  reader.parse(file, data);
-  currentEnemy = 0;
   initLevel();
-  //test
-  std::cout << "JSON DATA " << std::endl;
-  std::cout << data << std::endl;
-  std::cout << data[0]["textureFile"].asString() << std::endl;
-
   //init player sprite
-  texture.loadFromFile("../src/sprites/player.png");
-  //playerSprite = new sf::Sprite(texture);
-  playerSprite.setTexture(texture);
+  playerTexture.loadFromFile("../src/sprites/player.png");
+  //playerSprite = new sf::Sprite(playerTexture);
+  playerSprite.setTexture(playerTexture);
   playerWidth = playerSprite.getTexture()->getSize().x;
   playerHeight = playerSprite.getTexture()->getSize().y;
   windowWidth = w.getSize().x;
   windowHeight = w.getSize().y;
-  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 100, 15);
+  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 2, 15);
   this -> player = player;
   playerSprite.setPosition(player.GetX(), player.GetY());
   
@@ -355,12 +342,12 @@ void Game::updateEnemyProjectile()
       //set quad position
       quad[0].position = sf::Vector2f(e->GetX(), 
                              e->GetY());
-      quad[1].position = sf::Vector2f(e->GetX() + enemyProjectileSpriteTexture[y]->getSize().x, 
+      quad[1].position = sf::Vector2f(e->GetX() + 8, 
                              e->GetY());
-      quad[2].position = sf::Vector2f(e->GetX() + enemyProjectileSpriteTexture[y]->getSize().x,
-                             e->GetY() + enemyProjectileSpriteTexture[y]->getSize().y);
+      quad[2].position = sf::Vector2f(e->GetX() + 8,
+                             e->GetY() + 8);
       quad[3].position = sf::Vector2f(e->GetX(), 
-                             e->GetY() + enemyProjectileSpriteTexture[y]->getSize().y);
+                             e->GetY() + 8);
       }
 
   }
@@ -375,8 +362,6 @@ void Game::render(sf::RenderWindow& w)
   w.draw(playerSprite);
 
   //DRAW PROJECTILES
-  // INIT TEXTURE THEN SET TEXTURE FOR ALL SPRITES IN VECTOR; THEN SET SPRITE POSITION
-  //std::for_each(playerProjectileSprite.cbegin(), playerProjectileSprite.cend(),[&](std::unique_ptr<sf::Sprite> sp){ w.draw(*sp);  } );
   for(auto& e : playerProjectileSprite)
   {
     w.draw(*e);
@@ -407,6 +392,18 @@ void Game::victory()
 
 void Game::initLevel()
 {
+  std::ifstream file("../src/levels/level1.json");
+  if(file) 
+    std::cout << "FILE EXISTS" << std::endl;
+  else
+    std::cout << "FILE DOESN'T EXSIST" << std::endl;
+  Json::Reader reader;
+  reader.parse(file, data);
+  currentEnemy = 0;
+  //test
+  std::cout << "JSON DATA " << std::endl;
+  std::cout << data << std::endl;
+  std::cout << data[0]["textureFile"].asString() << std::endl;
   //load textures
   for(auto e: data)
   {
@@ -415,18 +412,11 @@ void Game::initLevel()
     std::unique_ptr<sf::Texture> tmpTexture(new sf::Texture);
     tmpTexture->loadFromFile(e["textureFile"].asString());
     enemiesSpriteTexture.push_back(std::move(tmpTexture));
-
-    //load enemy projectile textures
-    std::cout << "LOAD ENEMY PROJECTILES" << std::endl;
-    std::unique_ptr<sf::Texture> tmpTexture1(new sf::Texture);
-    tmpTexture1->loadFromFile(e["projectileFile"].asString());
-    enemyProjectileSpriteTexture.push_back(std::move(tmpTexture1));
-
   }
 }
 
 
-bool Game::AABB(sf::FloatRect a, sf::FloatRect b)
+bool Game::AABB(sf::FloatRect a, sf::FloatRect b) const
 {
   return 
          (b.left < a.left + a.width) &&

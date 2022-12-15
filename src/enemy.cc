@@ -22,10 +22,6 @@ Enemy::Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std:
 
 }
 
-Enemy::~Enemy()
-{
-  std::cout << "INIT DESTRUCT" << std::endl;
-}
 void Enemy::move(int tick)
 {
   if(movement == "straight")
@@ -69,7 +65,7 @@ void Enemy::move(int tick)
   if(tick%fireRate == 0)
   {
       std::unique_ptr<Projectile> 
-      p(new Projectile{x+10,y+2,pSpeed,1,dmg,movementProjectile});
+      p(new Projectile{x+10,y+10,pSpeed,1,dmg,movementProjectile});
       return p;
   }
   else
@@ -78,8 +74,4 @@ void Enemy::move(int tick)
   }
 }
 
-sf::Sprite& Enemy::getSprite()
-{
-  return enemySprite;
-}
 

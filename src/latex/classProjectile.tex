@@ -1,0 +1,60 @@
+\hypertarget{classProjectile}{}\doxysection{Projectile Class Reference}
+\label{classProjectile}\index{Projectile@{Projectile}}
+
+
+Inheritance diagram for Projectile\+:
+% FIG 0
+
+
+Collaboration diagram for Projectile\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classProjectile_aa4c999b6dd4eed51b21bae5534e98a68}\label{classProjectile_aa4c999b6dd4eed51b21bae5534e98a68}} 
+{\bfseries Projectile} (float xc, float yc, float spd, int l, int dmg)
+\item 
+\mbox{\Hypertarget{classProjectile_afdf890c8e384062b98d8b91dbcd0d4d3}\label{classProjectile_afdf890c8e384062b98d8b91dbcd0d4d3}} 
+{\bfseries Projectile} (float xc, float yc, float spd, int l, int dmg, std\+::string mv)
+\item 
+\mbox{\Hypertarget{classProjectile_ae9ae65087ea78e06b4013e4acab2817a}\label{classProjectile_ae9ae65087ea78e06b4013e4acab2817a}} 
+{\bfseries Projectile} (const \mbox{\hyperlink{classProjectile}{Projectile}} \&rhs)=default
+\item 
+\mbox{\Hypertarget{classProjectile_af3d123560d8af876f045624aa6559263}\label{classProjectile_af3d123560d8af876f045624aa6559263}} 
+{\bfseries Projectile} (\mbox{\hyperlink{classProjectile}{Projectile}} \&\&rhs)=default
+\item 
+\mbox{\Hypertarget{classProjectile_a4bdf5cb51209ee24dcd4ab4ec0fb2315}\label{classProjectile_a4bdf5cb51209ee24dcd4ab4ec0fb2315}} 
+\mbox{\hyperlink{classProjectile}{Projectile}} \& {\bfseries operator=} (const \mbox{\hyperlink{classProjectile}{Projectile}} \&rhs)=default
+\item 
+\mbox{\Hypertarget{classProjectile_aa21494e03700e5d1474a9ea2fb83031d}\label{classProjectile_aa21494e03700e5d1474a9ea2fb83031d}} 
+\mbox{\hyperlink{classProjectile}{Projectile}} \& {\bfseries operator=} (\mbox{\hyperlink{classProjectile}{Projectile}} \&\&rhs)=default
+\item 
+void \mbox{\hyperlink{classProjectile_af191283d5a65af32f400dc7654f6b6e3}{move}} (int tick) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProjectile_af191283d5a65af32f400dc7654f6b6e3}\label{classProjectile_af191283d5a65af32f400dc7654f6b6e3}} 
+\index{Projectile@{Projectile}!move@{move}}
+\index{move@{move}!Projectile@{Projectile}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Projectile\+::move (\begin{DoxyParamCaption}\item[{int}]{tick }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Changes x and y coordinates
+
+This function changes the x and y variable members based on the movment variable member and tick parameter 
+\begin{DoxyParams}{Parameters}
+{\em tick} & Current tick from \mbox{\hyperlink{classGame}{Game}} class, can be used to change movement behaviour \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classEntity_ae8f41087d348f84540f65d158a91cf0b}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+projectile.\+h\item 
+projectile.\+cc\end{DoxyCompactItemize}
