@@ -26,9 +26,8 @@ Collaboration diagram for Player\+:
 \mbox{\Hypertarget{classPlayer_a2ed0c04b600fcfed276ad1fbf97b2509}\label{classPlayer_a2ed0c04b600fcfed276ad1fbf97b2509}} 
 \mbox{\hyperlink{classPlayer}{Player}} \& {\bfseries operator=} (\mbox{\hyperlink{classPlayer}{Player}} \&\&rhs)=default
 \item 
-\mbox{\Hypertarget{classPlayer_ad4c9eaaf9d229c329537cee3dfbc429d}\label{classPlayer_ad4c9eaaf9d229c329537cee3dfbc429d}} 
 std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ \mbox{\hyperlink{classPlayer_ad4c9eaaf9d229c329537cee3dfbc429d}{shoot}} (int tick)
-\begin{DoxyCompactList}\small\item\em Creates and returns a projectile if spacebar is pressed. \end{DoxyCompactList}\item 
+\item 
 void \mbox{\hyperlink{classPlayer_a08b9f6432c53a6f0e274ac800d748f0f}{move}} (int tick) override
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
@@ -47,6 +46,17 @@ This function changes the x and y coordinates based on what key is pressed.
 
 Implements \mbox{\hyperlink{classEntity_ae8f41087d348f84540f65d158a91cf0b}{Entity}}.
 
+\mbox{\Hypertarget{classPlayer_ad4c9eaaf9d229c329537cee3dfbc429d}\label{classPlayer_ad4c9eaaf9d229c329537cee3dfbc429d}} 
+\index{Player@{Player}!shoot@{shoot}}
+\index{shoot@{shoot}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{shoot()}{shoot()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classProjectile}{Projectile}} $>$ Player\+::shoot (\begin{DoxyParamCaption}\item[{int}]{tick }\end{DoxyParamCaption})}
+
+Creates and returns a projectile if spacebar is pressed
+
+This function checks if spacebar is pressed. A cooldown timer is also checked against. If the function has returned a \mbox{\hyperlink{classProjectile}{Projectile}} before the cooldown is maxed. And everytime the function dosen\textquotesingle{}t return a \mbox{\hyperlink{classProjectile}{Projectile}} the cooldown is reduced by one. \begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classProjectile}{Projectile}} pointer if spacebar is pressed and cooldown is equal to 0 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
