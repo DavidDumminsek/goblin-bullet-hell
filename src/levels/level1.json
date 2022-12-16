@@ -5,12 +5,12 @@
       "x":20,
       "y":0,
       "speed":1,
-      "life":100,
+      "life":150,
       "damage":20,
       "move":"straight",
       "projectile":"wobble",
       "projectileSpeed": 3.5,
-      "fireRate": 5
+      "fireRate": 40
 
 
     },
@@ -20,12 +20,12 @@
       "x":300,
       "y":0,
       "speed":1,
-      "life":100,
+      "life":150,
       "damage":20,
       "move":"straight",
       "projectile":"wobble",
       "projectileSpeed": 3.5,
-      "fireRate": 5
+      "fireRate": 40
 
     },
     {
@@ -34,7 +34,7 @@
       "x":0,
       "y":0,
       "speed":2,
-      "life":250,
+      "life":200,
       "damage":20,
       "move":"right",
       "projectile":"straight",
@@ -126,7 +126,7 @@
       "life":100,
       "damage":20,
       "move":"zigzag",
-      "projectile":"straight",
+      "projectile":"wobble",
       "projectileSpeed": 7.0,
       "fireRate": 40
 
@@ -140,7 +140,7 @@
       "life":100,
       "damage":20,
       "move":"zigzag",
-      "projectile":"straight",
+      "projectile":"wobble",
       "projectileSpeed": 7.0,
       "fireRate": 40
 
@@ -154,8 +154,36 @@
       "life":100,
       "damage":20,
       "move":"zigzag",
-      "projectile":"straight",
+      "projectile":"wobble",
       "projectileSpeed": 7.0,
+      "fireRate": 40
+
+    },
+    {
+      "textureFile":"../src/sprites/greenMoai.png",
+      "tickSpawn": 800,
+      "x":90,
+      "y":0,
+      "speed":1,
+      "life":100,
+      "damage":20,
+      "move":"zigzag",
+      "projectile":"wobble",
+      "projectileSpeed": 5.0,
+      "fireRate": 40
+
+    },
+    {
+      "textureFile":"../src/sprites/greenMoai.png",
+      "tickSpawn": 850,
+      "x":270,
+      "y":0,
+      "speed":1,
+      "life":100,
+      "damage":20,
+      "move":"zigzag",
+      "projectile":"wobble",
+      "projectileSpeed": 5.0,
       "fireRate": 40
 
     },

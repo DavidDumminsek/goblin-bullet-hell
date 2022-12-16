@@ -6,7 +6,7 @@
 #include <string>
 int main (int argc, char *argv[])
 {
-  sf::RenderWindow window(sf::VideoMode(360, 640 ), "SFML works!");
+  sf::RenderWindow window(sf::VideoMode(360, 640 ), "Dogeater");
   window.setFramerateLimit(60);
   Game game(window);  
 

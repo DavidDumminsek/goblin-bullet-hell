@@ -37,7 +37,7 @@ Game::Game(sf::RenderWindow& w)
   playerHeight = playerSprite.getTexture()->getSize().y;
   windowWidth = w.getSize().x;
   windowHeight = w.getSize().y;
-  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 2, 15);
+  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 2, 25);
   this -> player = player;
   playerSprite.setPosition(player.GetX(), player.GetY());
   
