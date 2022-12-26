@@ -1,3 +1,0 @@
-/home/david/tdp005_dogeater/build/CMakeFiles/rebuild_cache.dir
-/home/david/tdp005_dogeater/build/CMakeFiles/edit_cache.dir
-/home/david/tdp005_dogeater/build/CMakeFiles/dogeater.dir
