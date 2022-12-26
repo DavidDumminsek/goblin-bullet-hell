@@ -73,5 +73,10 @@ void Enemy::move(int tick)
     return nullptr;
   }
 }
+void Enemy::update(int tick)
+{
+  move(tick);
+  changeQuadPos();
+}
 
 

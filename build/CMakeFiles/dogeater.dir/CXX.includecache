@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/david/tdp005_dogeater/src/entity.cc
+entity.h
+/home/david/tdp005_dogeater/src/entity.h
+SFML/Graphics/PrimitiveType.hpp
+-
+SFML/Graphics/VertexArray.hpp
+-
+iostream
+-
+utility
+-
+
+/home/david/tdp005_dogeater/src/entity.h
+SFML/Graphics/Vertex.hpp
+-
+SFML/Graphics/VertexArray.hpp
+-
+utility
+-
+string
+-
+map
+-
+SFML/Graphics.hpp
+-
+

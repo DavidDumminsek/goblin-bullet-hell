@@ -31,6 +31,7 @@ class Enemy : public Entity
     ///@returns A \ref Projectile if tick is divisible by \ref fireRate
     ///@return nullptr If tick is not divisible by \ref fireRate
     std::unique_ptr<Projectile> shoot(int tick);
+    void update(int tick) override;
 
 };
 #endif

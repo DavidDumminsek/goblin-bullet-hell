@@ -32,5 +32,6 @@ class Player : public Entity
     ///
     ///This function changes the x and y coordinates based on what key is pressed.
     void move(int tick) override;
+    void update(int tick) override;
 };
 #endif

@@ -46,3 +46,7 @@ void Projectile::move(int tick)
     y+=speed;
   }
 }
+void Projectile::update(int tick)
+{
+  std::cout << "UPDATE" << std::endl;
+}

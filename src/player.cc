@@ -63,4 +63,8 @@ void Player::move(int tick)
     x += speed;
   }
 }
+void Player::update(int tick)
+{
+  std::cout << "UPDATE" << std::endl;
+}
 

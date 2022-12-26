@@ -29,6 +29,7 @@ class Projectile : public Entity
     ///the \ref movment variable member and \ref tick parameter
     ///@param tick Current tick from \ref Game class, can be used to change movement behaviour
     void move(int tick) override;
+    void update(int tick) override;
 
 
 

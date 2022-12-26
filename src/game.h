@@ -21,16 +21,9 @@ class Game{
     int currentEnemy;
     int tick{0};
 
-    std::vector<std::unique_ptr<Enemy>> enemies;
-    std::vector<std::unique_ptr<sf::Sprite>> enemiesSprite;
-    std::vector<std::unique_ptr<sf::Texture>> enemiesSpriteTexture;
     
-    std::vector<std::unique_ptr<Projectile>> enemyProjectile;
-    std::vector<std::unique_ptr<sf::Sprite>> enemyProjectileSprite;
-    sf::Texture projectileTexture; 
-
-    sf::VertexArray enemyProjectileVertices;
-    size_t const totalBullets{48000};
+    std::vector<std::unique_ptr<Entity>> sprites;
+    sf::Texture spriteSheet;
 
     std::vector<std::unique_ptr<Projectile>> playerProjectile;
     std::vector<std::unique_ptr<sf::Sprite>> playerProjectileSprite;
