@@ -12,7 +12,7 @@ class Player : public Entity
     int cooldownMax{0};
   public:
     Player();
-    Player(float xc, float yc, float spd, int l, int dmg);
+    Player(std::string tex,float xc, float yc, float spd, int l, int dmg);
     Player(const Player& rhs) = default;
     //move constructor
     Player(Player&& rhs) = default;
@@ -27,7 +27,7 @@ class Player : public Entity
     ///If the function has returned a \ref Projectile before the cooldown is maxed.
     ///And everytime the function dosen't return a \ref Projectile the cooldown is reduced by one.
     ///@return A \ref Projectile pointer if spacebar is pressed and cooldown is equal to 0
-    std::unique_ptr<Projectile> shoot(int tick);
+    std::unique_ptr<Projectile> shoot(int tick) override;
     ///Changes x and y coordinates based on user input
     ///
     ///This function changes the x and y coordinates based on what key is pressed.

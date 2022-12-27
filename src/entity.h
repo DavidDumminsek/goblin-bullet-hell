@@ -7,6 +7,8 @@
 #include<string>
 #include<map>
 #include <SFML/Graphics.hpp>
+//forward declaration
+class Projectile;
 class Entity
 {
   protected:
@@ -17,9 +19,12 @@ class Entity
     int life{0};
     sf::VertexArray quad; 
     sf::FloatRect hitbox;
+    std::string entityType;
+    bool collision;
+    std::string texture;
   public:
     Entity();
-    Entity( float xc, float yc, float spd, int l);
+    Entity( std::string tex, float xc, float yc, float spd, int l);
     //copy constructor
     Entity(const Entity& rhs) = default;
     //move constructor
@@ -52,9 +57,18 @@ class Entity
     ///@returns \ref y
     int GetY() const;
 
-    void changeQuadPos();
+    std::string getType() const;
+
+    sf::FloatRect getHitbox() const;
+
+    void virtual changeQuadPos();
 
     sf::VertexArray getQuad();
+
+    std::unique_ptr<Projectile> virtual shoot(int tick) = 0;
+
+    void virtual initTexCoords();
+
 };
 
 #endif

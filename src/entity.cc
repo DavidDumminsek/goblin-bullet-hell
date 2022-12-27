@@ -1,5 +1,6 @@
 #include "entity.h"
 #include <SFML/Graphics/PrimitiveType.hpp>
+#include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/VertexArray.hpp>
 #include <iostream>
 #include <utility>
@@ -22,7 +23,7 @@ Entity::Entity()
 
 }
 
-Entity::Entity(float xc, float yc, float spd, int l)
+Entity::Entity(std::string tex, float xc, float yc, float spd, int l)
 {
   x = xc;
   y = yc;
@@ -33,12 +34,9 @@ Entity::Entity(float xc, float yc, float spd, int l)
   quad.resize(4);
   //POSITION
   changeQuadPos(); 
-  std::cout << "VERTEX COUNT  " << quad.getVertexCount() << std::endl;
   //TEXCOORDS
-  quad[0].texCoords = sf::Vector2f(0,0);
-  quad[1].texCoords = sf::Vector2f(32,0);
-  quad[2].texCoords = sf::Vector2f(32,32);
-  quad[3].texCoords = sf::Vector2f(0,32);
+  texture = tex;
+  initTexCoords();
 
 }
 
@@ -67,15 +65,44 @@ int Entity::getDmg()
   return dmg;
 }
 
+std::string Entity::getType() const
+{
+  return entityType;
+}
+
+sf::FloatRect Entity::getHitbox() const
+{
+  return hitbox;
+}
+
 void Entity::changeQuadPos()
 {
   quad[0].position = sf::Vector2f(x, y);
   quad[1].position = sf::Vector2f(x + 32 , y);
   quad[2].position = sf::Vector2f(x + 32 , y + 32);
   quad[3].position = sf::Vector2f(x , y + 32);
+  hitbox = quad.getBounds();
 }
 
 sf::VertexArray Entity::getQuad()
 {
   return quad;
+}
+
+void Entity::initTexCoords()
+{
+  if(texture == "green")
+  {
+    quad[0].texCoords = sf::Vector2f(33,0);
+    quad[1].texCoords = sf::Vector2f(64,0);
+    quad[2].texCoords = sf::Vector2f(64,32);
+    quad[3].texCoords = sf::Vector2f(33,32);
+  }
+  else if(texture == "purple")
+  {
+    quad[0].texCoords = sf::Vector2f(0,0);
+    quad[1].texCoords = sf::Vector2f(32,0);
+    quad[2].texCoords = sf::Vector2f(32,32);
+    quad[3].texCoords = sf::Vector2f(0,32);
+  }
 }

@@ -2,8 +2,10 @@
 #include "projectile.h"
 #include <iostream>
 
-Enemy::Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std::string mvPro, float pSpeed, int fireRate, int current)
-: Entity::Entity(xc,yc,spd,l)
+Enemy::Enemy(std::string tex, float xc, float yc, float spd, 
+             int l, int dmg, std::string mv, std::string mvPro, 
+             float pSpeed, int fireRate, int current, std::string proTex)
+: Entity::Entity(tex,xc,yc,spd,l)
 {
   this->dmg = dmg;
   this->pSpeed = pSpeed;
@@ -19,6 +21,11 @@ Enemy::Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std:
   std::cout << "Y: " << y << std::endl;
   std::cout << "SPEED: " << speed << std::endl;
   std::cout << "LIFE: " << life << std::endl;
+  entityType = "enemy";
+  collision = true;
+
+  projectileTex = proTex;
+
 
 }
 
@@ -60,12 +67,12 @@ void Enemy::move(int tick)
   }
 
 }
- std::unique_ptr<Projectile>Enemy::shoot(int tick)
+ std::unique_ptr<Projectile> Enemy::shoot(int tick)
 {
   if(tick%fireRate == 0)
   {
       std::unique_ptr<Projectile> 
-      p(new Projectile{x+10,y+10,pSpeed,1,dmg,movementProjectile});
+      p(new Projectile{texture, x+10,y+10,pSpeed,1,dmg,movementProjectile});
       return p;
   }
   else
@@ -77,6 +84,10 @@ void Enemy::update(int tick)
 {
   move(tick);
   changeQuadPos();
+  hitbox.height = 32;
+  hitbox.width = 32;
+  hitbox.top = y;
+  hitbox.left = x; 
 }
 
 

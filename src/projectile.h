@@ -1,6 +1,7 @@
 #ifndef PROJECTILE_H
 #define PROJECTILE_H
 #include <map>
+#include <memory>
 #include <string>
 #include "entity.h" 
 class Projectile : public Entity
@@ -10,8 +11,8 @@ class Projectile : public Entity
     int moveTimer{0};
   public:
     Projectile();
-    Projectile(float xc, float yc, float spd, int l, int dmg);
-    Projectile(float xc, float yc, float spd, int l, int dmg, std::string mv);
+    Projectile(std::string tex, float xc, float yc, float spd, int l, int dmg);
+    Projectile(std::string tex, float xc, float yc, float spd, int l, int dmg, std::string mv);
     ~Projectile() = default;
     //Copy conttructor
     //to be added
@@ -30,6 +31,9 @@ class Projectile : public Entity
     ///@param tick Current tick from \ref Game class, can be used to change movement behaviour
     void move(int tick) override;
     void update(int tick) override;
+    std::unique_ptr<Projectile> shoot(int tick) override;
+    void initTexCoords() override;
+    void changeQuadPos() override;
 
 
 

@@ -1,6 +1,6 @@
 [
     {
-      "textureFile":"../src/sprites/greenMoai.png",
+      "texture":"green",
       "tickSpawn": 110,
       "x":20,
       "y":0,
@@ -15,7 +15,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/greenMoai.png",
+      "texture":"green",
       "tickSpawn": 111,
       "x":300,
       "y":0,
@@ -29,7 +29,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/purpleskull.png",
+      "texture":"purple",
       "tickSpawn": 330,
       "x":0,
       "y":0,
@@ -43,7 +43,7 @@
     },
     {
       "id":4,
-      "textureFile":"../src/sprites/purpleskull.png",
+      "texture":"purple",
       "tickSpawn": 340,
       "x":0,
       "y":0,
@@ -58,7 +58,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/purpleskull.png",
+      "texture":"purple",
       "tickSpawn": 350,
       "x":0,
       "y":0,
@@ -73,7 +73,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/purpleskull.png",
+      "texture":"purple",
       "tickSpawn": 360,
       "x":0,
       "y":0,
@@ -88,7 +88,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/purpleskull.png",
+      "texture":"purple",
       "tickSpawn": 370,
       "x":0,
       "y":0,
@@ -103,7 +103,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/purpleskull.png",
+      "texture":"purple",
       "tickSpawn": 380,
       "x":0,
       "y":0,
@@ -118,7 +118,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/greenMoai.png",
+      "texture":"green",
       "tickSpawn": 650,
       "x":180,
       "y":0,
@@ -132,7 +132,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/greenMoai.png",
+      "texture":"green",
       "tickSpawn": 700,
       "x":190,
       "y":0,
@@ -146,7 +146,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/greenMoai.png",
+      "texture":"green",
       "tickSpawn": 750,
       "x":200,
       "y":0,
@@ -160,7 +160,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/greenMoai.png",
+      "texture":"green",
       "tickSpawn": 800,
       "x":90,
       "y":0,
@@ -174,7 +174,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/greenMoai.png",
+      "texture":"green",
       "tickSpawn": 850,
       "x":270,
       "y":0,
@@ -188,7 +188,7 @@
 
     },
     {
-      "textureFile":"../src/sprites/purpleskull.png",
+      "texture":"purple",
       "tickSpawn": 1000,
       "x":360,
       "y":0,
@@ -201,7 +201,7 @@
       "fireRate": 40
     },
     {
-      "textureFile":"../src/sprites/purpleskull.png",
+      "texture":"purple",
       "tickSpawn": 1010,
       "x":360,
       "y":0,
@@ -214,7 +214,7 @@
       "fireRate": 40
     },
     {
-      "textureFile":"../src/sprites/purpleskull.png",
+      "texture":"purple",
       "tickSpawn": 1020,
       "x":360,
       "y":0,
@@ -227,7 +227,7 @@
       "fireRate": 40
     },
     {
-      "textureFile":"../src/sprites/purpleskull.png",
+      "texture":"purple",
       "tickSpawn": 1030,
       "x":360,
       "y":0,
@@ -240,7 +240,7 @@
       "fireRate": 40
     },
     {
-      "textureFile":"../src/sprites/purpleskull.png",
+      "texture":"purple",
       "tickSpawn": 1040,
       "x":360,
       "y":0,

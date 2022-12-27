@@ -30,7 +30,7 @@ Game::Game(sf::RenderWindow& w)
   playerHeight = playerSprite.getTexture()->getSize().y;
   windowWidth = w.getSize().x;
   windowHeight = w.getSize().y;
-  Player player((windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 2, 25);
+  Player player("red",(windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 2, 25);
   this -> player = player;
   playerSprite.setPosition(player.GetX(), player.GetY());
   
@@ -46,9 +46,17 @@ Game::Game(sf::RenderWindow& w)
 
 void Game::collisionCheck()
 {
-  for(auto& e:sprites)
+  for(int i = 0; i < sprites.size(); i++)
   {
-    
+    if(sprites[i] != nullptr)
+    {
+      auto& e = sprites[i];
+      if(e->GetX() < 0 ||e->GetX() > 360 || e->GetY() > 650)
+      {
+        sprites[i].reset(nullptr);
+      }
+
+    }
   }
 }
 
@@ -64,19 +72,20 @@ void Game::render(sf::RenderWindow& w)
   {
     w.draw(*e);
   }
-  sf::VertexArray tempVertexArr(sf::Quads, sprites.size()*4);
-  for(auto& e: sprites)
-  {
-    w.draw(e->getQuad(),&spriteSheet);
-  }
+   w.draw(appendVertices(),&spriteSheet);
 
 }
 void Game::update()
 {
   spawnEnemy();
+  spawnProjectiles();
+  collisionCheck();
+  
+  int i{0};
   for(auto& e: sprites)
   {
-    e->update(tick);
+    if(e != nullptr)
+      e->update(tick);
   }
   ++tick;
 }
@@ -85,6 +94,7 @@ void Game::spawnEnemy()
   if(data[currentEnemy]["tickSpawn"].asBool() && data[currentEnemy]["tickSpawn"].asInt() == tick)
   {
     std::unique_ptr<Enemy> tmpEnemy(new Enemy(
+        data[currentEnemy]["texture"].asString(),
         data[currentEnemy]["x"].asInt(),
         data[currentEnemy]["y"].asInt(),
         data[currentEnemy]["speed"].asFloat(),
@@ -94,10 +104,28 @@ void Game::spawnEnemy()
         data[currentEnemy]["projectile"].asString(),
         data[currentEnemy]["projectileSpeed"].asInt(),
         data[currentEnemy]["fireRate"].asInt(),
-        currentEnemy
+        currentEnemy, "red"
       ));
     sprites.push_back(std::move(tmpEnemy));
     ++currentEnemy;
+  }
+}
+
+void Game::spawnProjectiles()
+{
+  if(sprites.size() > 0)
+  {
+    std::vector<std::unique_ptr<Entity>> tmpSprites;
+    for(auto& e : sprites)
+    {
+      if(e != nullptr && e->getType() == "enemy")
+      {
+        tmpSprites.push_back(std::move(e->shoot(tick)));
+      }
+    }
+    sprites.insert(sprites.end(),
+                   std::make_move_iterator(tmpSprites.begin()),
+                   std::make_move_iterator(tmpSprites.end()));
   }
 }
 
@@ -138,6 +166,27 @@ bool Game::AABB(sf::FloatRect a, sf::FloatRect b) const
          (b.left + b.width > a.left) &&
          (b.top < a.top + a.height) &&
          (b.top + b.height > a.top);   
+}
+
+sf::VertexArray Game::appendVertices()
+{
+  sf::VertexArray tmpArr;
+  tmpArr.resize(sprites.size()*4);
+  tmpArr.setPrimitiveType(sf::Quads);
+  int i{0};
+  for(auto& e: sprites)
+  {
+    if(e != nullptr)
+    {
+      sf::VertexArray tmpQuad = e->getQuad();
+      tmpArr[i] = tmpQuad[0];
+      tmpArr[i+1] = tmpQuad[1];
+      tmpArr[i+2] = tmpQuad[2];
+      tmpArr[i+3] = tmpQuad[3];
+      i += 4;
+    }
+  }
+  return tmpArr; 
 }
 
 

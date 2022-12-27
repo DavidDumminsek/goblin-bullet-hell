@@ -65,7 +65,7 @@ class Game{
     ///The shoot function creates a \ref Projectile object with gets pushed to the \ref enemyProjectile vector.
     ///A vertex also get added to \ref enemyProjectileVertices vertex array. 
     ///After the first loop a second loop is used to update all the enemy \ref Projectile objects and their equivilant vertices.
-    void updateEnemyProjectile();
+    void spawnProjectiles();
     ///Creates enemy objects 
     ///
     ///This function creates enemy objects based on the level json file.
@@ -106,6 +106,12 @@ class Game{
     ///@param b The second rectangle
     ///@returns true if the rectangles collide
     bool AABB(sf::FloatRect a, sf::FloatRect b) const;
+    ///Appends all vertexArray quads into a single vertexArray
+    ///
+    ///Loops through every quad in each object and get the specific vertices.
+    ///The vertices gets added to a larger vertex array.
+    ///@returns A vertex array of all sprites 
+    sf::VertexArray appendVertices();
     
 };
 #endif // !GAME_H

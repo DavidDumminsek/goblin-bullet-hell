@@ -16,8 +16,13 @@ class Enemy : public Entity
 
     int moveTimer{0};
     int shootTimer{0};
+
+    std::string projectileTex;
   public:
-    Enemy(float xc, float yc, float spd, int l, int dmg, std::string mv, std::string mvPro, float pSpeed, int fireRate, int current);
+    Enemy(std::string tex, float xc, float yc, 
+          float spd, int l, int dmg, std::string mv, 
+          std::string mvPro, float pSpeed, 
+          int fireRate, int current, std::string proTex);
     ///Changes x and y coordinates 
     ///
     ///This function changes the x and y variable members based on
@@ -30,7 +35,7 @@ class Enemy : public Entity
     ///@param tick Current tick from \ref Game class, used to detirmine how often to create a \ref Projectile
     ///@returns A \ref Projectile if tick is divisible by \ref fireRate
     ///@return nullptr If tick is not divisible by \ref fireRate
-    std::unique_ptr<Projectile> shoot(int tick);
+    std::unique_ptr<Projectile> shoot(int tick) override;
     void update(int tick) override;
 
 };

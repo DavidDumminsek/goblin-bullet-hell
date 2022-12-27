@@ -12,8 +12,8 @@ Player::Player()
 {
 }
 
-Player::Player(float xc, float yc, float spd, int l, int dmg)
-: Entity::Entity(xc, yc, spd, l)
+Player::Player(std::string tex, float xc, float yc, float spd, int l, int dmg)
+: Entity::Entity(tex, xc, yc, spd, l)
 {
   std::cout << "PLAYER CONSTRUCTOR WITH PARAMETERS" << std::endl;
   //CONSTRUCTOR UNIQUE TO PLAYER CLASS
@@ -24,6 +24,8 @@ Player::Player(float xc, float yc, float spd, int l, int dmg)
   std::cout << "Y: " << y << std::endl;
   std::cout << "SPEED: " << speed << std::endl;
   std::cout << "LIFE: " << life << std::endl;
+  entityType = "player";
+  collision = true;
 
 }
  std::unique_ptr<Projectile> Player::shoot(int tick)
@@ -31,7 +33,7 @@ Player::Player(float xc, float yc, float spd, int l, int dmg)
 
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && cooldown < cooldownMax)
   {
-    std::unique_ptr<Projectile> p(new Projectile{x-20,y-20,11.f,1,10} );
+    std::unique_ptr<Projectile> p(new Projectile{"red", x-20,y-20,11.f,1,10} );
     cooldown += cooldownMax;
     return p;
   }
