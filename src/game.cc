@@ -39,7 +39,7 @@ void Game::collisionCheck()
       {
         sprites[i].reset(nullptr);
       }
-      //enemy projectile hit player
+      //enemy projectile or enemy hit player
       else if(sprites[i]->getType() != "playerProjectile" &&
               AABB(sprites[0]->getHitbox(), sprites[i]->getHitbox()))
       {
@@ -55,17 +55,22 @@ void Game::collisionCheck()
         }
       }
       //player projectile hit enemy
-      /*if(sprites[i]->getType() == "playerProjectile")
+      if(sprites[i] != nullptr &&
+         sprites[i]->getType() == "playerProjectile")
       {
-        for(int j = i+1; j < sprites.size(); j++)
+        for(int j = 0; j < sprites.size(); j++)
         {
-          if(sprites[j]->getType() == "enemy" && 
+          if(sprites[j] != nullptr &&
+             sprites[j]->getType() == "enemy" && 
              AABB(sprites[i]->getHitbox(), sprites[j]->getHitbox()))
           {
-
+             if(sprites[j]->takeDmg(sprites[0]->getDmg()))
+                sprites[j].reset(nullptr);
+             sprites[i].reset(nullptr);
+             break;
           }
         }
-      }*/
+      }
 
     }
   }
