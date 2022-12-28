@@ -25,9 +25,6 @@ class Game{
     sf::Texture spriteSheet;
 
     bool gameRunning{false};
-
-    float windowWidth;
-    float windowHeight;
   public:
     Game(sf::RenderWindow& w);
     ///Handles all collision between player and enemy objects. Including culling out of view enemies.
@@ -67,10 +64,9 @@ class Game{
     void updateEnemies();
     ///Draws every sprite och vertices
     ///
-    ///The function draws the player sprite, enemy sprite and playerProjectileSprite 
-    ///indivudually with one draw call per sprite.
-    ///But \ref enemyProjectileVertices is drawn using a single draw call because it is a VertexArray.
-    ///@param w The window to which the sprites will be drawn on.
+    ///The function draws the main vertexarray 
+    ///Also closes the window is GameRunning is false.
+    ///@param w The window to which the vertices will be drawn on
     void render(sf::RenderWindow& w);
     ///Checks win condition, closes game if satisfied
     ///

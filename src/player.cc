@@ -48,19 +48,19 @@ Player::Player(std::string tex, float xc, float yc, float spd, int l, int dmg)
 }
 void Player::move(int tick)
 {
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && y > 20)
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && y > 0)
   {
     y -= speed;
   }
-  if( sf::Keyboard::isKeyPressed(sf::Keyboard::Down)  && y < 640)
+  if( sf::Keyboard::isKeyPressed(sf::Keyboard::Down)  && y < 610)
   {
     y += speed;
   }
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)  && x > 20)
+  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)  && x > 0)
   {
     x -= speed;
   }
-  if( sf::Keyboard::isKeyPressed(sf::Keyboard::Right)  && x < 360)
+  if( sf::Keyboard::isKeyPressed(sf::Keyboard::Right)  && x < 330)
   {
     x += speed;
   }
