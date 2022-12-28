@@ -88,12 +88,12 @@ void Game::update()
   spawnProjectiles();
   collisionCheck();
   
-  int i{0};
   for(auto& e: sprites)
   {
     if(e != nullptr)
       e->update(tick);
   }
+  victory();
   ++tick;
 }
 void Game::spawnEnemy()

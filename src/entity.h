@@ -57,16 +57,33 @@ class Entity
     ///@returns \ref y
     int GetY() const;
 
+    ///Returns \ref entityType
+    ///
+    ///@returns \ref entityType
     std::string getType() const;
 
+    ///Returns \ref hitbox
+    ///
+    ///@returns \ref hitbox
     sf::FloatRect getHitbox() const;
 
+    ///Changes postition of vertices in vertex array.
+    ///
+    ///Changes the vertices in the vertexArray 
+    ///Which is a quad with four diffrent vertices.
     void virtual changeQuadPos();
 
+    ///Returns \ref quad
+    ///
+    ///@returns \ref quad
     sf::VertexArray getQuad();
 
+    ///Pure virtual function for creating projectiles.
+    ///
+    ///@returns Unique pointer of a projectile 
     std::unique_ptr<Projectile> virtual shoot(int tick) = 0;
 
+    ///Assigns texCoords to the quad.
     void virtual initTexCoords();
 
 };
