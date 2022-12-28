@@ -105,4 +105,11 @@ void Entity::initTexCoords()
     quad[2].texCoords = sf::Vector2f(32,32);
     quad[3].texCoords = sf::Vector2f(0,32);
   }
+  else if(texture == "red")
+  {
+    quad[0].texCoords = sf::Vector2f(96,0);
+    quad[1].texCoords = sf::Vector2f(128,0);
+    quad[2].texCoords = sf::Vector2f(128,32);
+    quad[3].texCoords = sf::Vector2f(96,32);
+  }
 }

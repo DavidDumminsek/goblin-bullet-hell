@@ -10,8 +10,10 @@ Projectile::Projectile(std::string tex, float xc, float yc, float spd, int l, in
 : Entity::Entity(tex, xc, yc, spd, l)
 {
   this->dmg = dmg;
-  entityType = "projectile";
+  entityType = "playerProjectile";
   collision = true;
+  initTexCoords();
+
 }
 Projectile::Projectile(std::string tex, float xc, float yc, float spd, int l, int dmg, std::string mv) 
 : Entity::Entity(tex,xc, yc, spd, l)

@@ -22,31 +22,15 @@
 Game::Game(sf::RenderWindow& w)
 { 
   initLevel();
-  //init player sprite
-  playerTexture.loadFromFile("../src/sprites/player.png");
-  //playerSprite = new sf::Sprite(playerTexture);
-  playerSprite.setTexture(playerTexture);
-  playerWidth = playerSprite.getTexture()->getSize().x;
-  playerHeight = playerSprite.getTexture()->getSize().y;
-  windowWidth = w.getSize().x;
-  windowHeight = w.getSize().y;
-  Player player("red",(windowWidth - playerWidth)/2, (600 - playerHeight), 4.f, 2, 25);
-  this -> player = player;
-  playerSprite.setPosition(player.GetX(), player.GetY());
-  
-  //INIT PROJECTILE TEXTURES
-  playerProjectileTexture.loadFromFile("../src/sprites/playerProjectile.png");
-  std::cout << "CURRENT PATH IS " << std::filesystem::current_path() << std::endl;
 
   gameRunning = true;
-
+  std::unique_ptr<Player> tmpPlayer(new Player("red", 148, 600, 4.0, 2, 20 ));
+  sprites.push_back(std::move(tmpPlayer));
 }
-
-
 
 void Game::collisionCheck()
 {
-  for(int i = 0; i < sprites.size(); i++)
+  for(int i = 1; i < sprites.size(); i++)
   {
     if(sprites[i] != nullptr)
     {
@@ -55,6 +39,33 @@ void Game::collisionCheck()
       {
         sprites[i].reset(nullptr);
       }
+      //enemy projectile hit player
+      else if(sprites[i]->getType() != "playerProjectile" &&
+              AABB(sprites[0]->getHitbox(), sprites[i]->getHitbox()))
+      {
+        if(sprites[0]->takeDmg(1))
+        {
+          std::cout << "GAME OVER" << std::endl;
+          gameRunning = false;
+        }
+        //delete projectile if it hit player
+        if(sprites[i]->getType() == "projectile")
+        {
+          sprites[i].reset(nullptr);
+        }
+      }
+      //player projectile hit enemy
+      /*if(sprites[i]->getType() == "playerProjectile")
+      {
+        for(int j = i+1; j < sprites.size(); j++)
+        {
+          if(sprites[j]->getType() == "enemy" && 
+             AABB(sprites[i]->getHitbox(), sprites[j]->getHitbox()))
+          {
+
+          }
+        }
+      }*/
 
     }
   }
@@ -62,18 +73,9 @@ void Game::collisionCheck()
 
 void Game::render(sf::RenderWindow& w)
 {
-  int playerX = (player.GetX() - playerWidth);
-  int playerY = (player.GetY() - playerHeight);
-  playerSprite.setPosition(playerX, playerY);
-  w.draw(playerSprite);
-
-  //DRAW PROJECTILES
-  for(auto& e : playerProjectileSprite)
-  {
-    w.draw(*e);
-  }
    w.draw(appendVertices(),&spriteSheet);
-
+  if(!gameRunning)
+    w.close();
 }
 void Game::update()
 {
@@ -118,7 +120,7 @@ void Game::spawnProjectiles()
     std::vector<std::unique_ptr<Entity>> tmpSprites;
     for(auto& e : sprites)
     {
-      if(e != nullptr && e->getType() == "enemy")
+      if(e != nullptr && (e->getType() == "player" || e->getType() == "enemy"))
       {
         tmpSprites.push_back(std::move(e->shoot(tick)));
       }
@@ -132,7 +134,7 @@ void Game::spawnProjectiles()
 void Game::victory()
 {
   if(data[data.size()-1]["victory"].asInt() <= tick &&
-     player.GetY() < 100)
+     sprites[0]->GetY() < 100)
   {
     std::cout << "YOU WIN" << std::endl;
     gameRunning = false;

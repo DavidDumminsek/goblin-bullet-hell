@@ -21,24 +21,10 @@ class Game{
     int currentEnemy;
     int tick{0};
 
-    
     std::vector<std::unique_ptr<Entity>> sprites;
     sf::Texture spriteSheet;
 
-    std::vector<std::unique_ptr<Projectile>> playerProjectile;
-    std::vector<std::unique_ptr<sf::Sprite>> playerProjectileSprite;
-    sf::Texture playerProjectileTexture;
-
-
     bool gameRunning{false};
-
-    sf::Texture playerTexture;
-    sf::Sprite playerSprite; 
-    sf::FloatRect playerHitbox;
-
-    Player player;
-    float playerWidth;
-    float playerHeight;
 
     float windowWidth;
     float windowHeight;

@@ -33,7 +33,7 @@ Player::Player(std::string tex, float xc, float yc, float spd, int l, int dmg)
 
   if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && cooldown < cooldownMax)
   {
-    std::unique_ptr<Projectile> p(new Projectile{"red", x-20,y-20,11.f,1,10} );
+    std::unique_ptr<Projectile> p(new Projectile{"red", x+12,y,11.f,1,10} );
     cooldown += cooldownMax;
     return p;
   }
@@ -67,6 +67,11 @@ void Player::move(int tick)
 }
 void Player::update(int tick)
 {
-  std::cout << "UPDATE" << std::endl;
+  move(tick);
+  changeQuadPos();
+  hitbox.height = 32;
+  hitbox.width = 32;
+  hitbox.top = y;
+  hitbox.left = x; 
 }
 
