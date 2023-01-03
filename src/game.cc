@@ -35,6 +35,7 @@ void Game::collisionCheck()
     if(sprites[i] != nullptr)
     {
       auto& e = sprites[i];
+      //if object is out of bounds un allocate the memory
       if(e->GetX() < 0 ||e->GetX() > 360 || e->GetY() > 650)
       {
         sprites[i].reset(nullptr);
@@ -58,6 +59,7 @@ void Game::collisionCheck()
       if(sprites[i] != nullptr &&
          sprites[i]->getType() == "playerProjectile")
       {
+        //compare every player projectile against every enemy
         for(int j = 0; j < sprites.size(); j++)
         {
           if(sprites[j] != nullptr &&

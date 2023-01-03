@@ -30,9 +30,13 @@ class Projectile : public Entity
     ///the \ref movment variable member and \ref tick parameter
     ///@param tick Current tick from \ref Game class, can be used to change movement behaviour
     void move(int tick) override;
+    ///Calls move and changeQuads functions
     void update(int tick) override;
+    ///Creates and returns a projectile object
     std::unique_ptr<Projectile> shoot(int tick) override;
+    ///Assigns texcoords for the quads to all the projectile textures in the sprite sheet
     void initTexCoords() override;
+    ///Projectle quads is 8x8 while other entities are 32x32
     void changeQuadPos() override;
 
 
