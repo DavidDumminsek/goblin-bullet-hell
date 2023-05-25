@@ -151,6 +151,7 @@ void Game::victory()
 
 void Game::initLevel()
 {
+  std::cout << "C++ Version" << __cplusplus << std::endl;
   std::ifstream file("../src/levels/level1.json");
   if(file) 
     std::cout << "FILE EXISTS" << std::endl;

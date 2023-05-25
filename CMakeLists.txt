@@ -5,8 +5,6 @@ project (dogeater)
 set(CMAKE_CXX_STANDARD 17)
 
 set(CMAKE_MODULE_PATH "usr/include")
-find_package(SFML REQUIRED COMPONENTS graphics window system)
-find_package(jsoncpp REQUIRED)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 set(DIRECTORY "./src/")
 #target_include_directories(dogeater PRIVATE ${DIRECTORY})
@@ -18,10 +16,22 @@ set(SOURCE
    ${DIRECTORY}player.cc
    ${DIRECTORY}projectile.cc
 )
-file(COPY ${DIRECTORY}/sprites/player.png DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+if(UNIX)
+    find_package(SFML REQUIRED COMPONENTS graphics window system)
+    find_package(jsoncpp REQUIRED)
 
-add_executable(dogeater ${SOURCE})
+    add_executable(dogeater ${SOURCE})
 
-#target_link_directories(dogeater PUBLIC ./src/levels/ ./src/sprites/)
-target_link_libraries(dogeater PRIVATE sfml-graphics sfml-window sfml-window jsoncpp )
+    #target_link_directories(dogeater PUBLIC ./src/levels/ ./src/sprites/)
+    target_link_libraries(dogeater PRIVATE sfml-graphics sfml-window sfml-system jsoncpp )
+else() #Windows
+    set(CMAKE_SYSTEM_NAME Windows)
+
+    find_package(SFML REQUIRED COMPONENTS graphics window system PATHS "~/SFML-2.51")
+    find_package(jsoncpp REQUIRED)
+
+    add_executable(dogeater WIN32 ${SOURCE})
+    target_link_libraries(dogeater PRIVATE sfml-graphics sfml-window sfml-system jsoncpp)
+    target_link_options(dogeater PRIVATE -mwindows)
+endif()
 
